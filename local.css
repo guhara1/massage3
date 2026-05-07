@@ -91,15 +91,17 @@
 .profile-card {
   align-items: center;
   display: grid;
-  gap: 20px;
-  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  grid-template-columns: 220px minmax(0, 1fr);
 }
 
 .profile-card img {
   aspect-ratio: 4 / 5;
-  border: 1px solid #393939;
+  border: 1px solid rgba(255, 138, 29, 0.32);
   border-radius: 8px;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.36);
   object-fit: cover;
+  object-position: center top;
   width: 100%;
 }
 
