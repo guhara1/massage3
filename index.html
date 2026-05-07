@@ -4,14 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>서울 경기 인천 출장마사지 지역 안내</title>
-  <meta name="description" content="서울 출장마사지, 경기 출장마사지, 인천 출장마사지 지역별 이용 안내와 예약 전 확인사항, 가격, 후기 정보를 확인하세요.">
+  <meta name="description" content="서울 출장마사지, 경기 출장마사지, 인천 출장마사지 지역별 이용 안내와 예약 전 확인사항, 가격, 후기 정보를 한눈에 확인하세요.">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="review-enhancements.css">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="출장마사지 홈">
       <span class="brand-mark">M</span>
-      <span><strong>출장마사지</strong><small>서울 · 경기 · 인천 지역 안내</small></span>
+      <span>
+        <strong>출장마사지</strong>
+        <small>서울 · 경기 · 인천 지역 안내</small>
+      </span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">메뉴</button>
     <nav id="main-nav" class="main-nav" aria-label="상단 메뉴">
@@ -68,7 +72,7 @@
       <div class="hero-content">
         <p class="eyebrow">지역 검색 의도 중심 설계</p>
         <h1>서울 · 경기 · 인천 출장마사지</h1>
-        <p>단일 키워드보다 지역별 검색 의도에 맞춘 안내 구조입니다. 강남, 분당, 송도처럼 실제 방문 지역을 중심으로 서비스, 가격, 이용 팁을 다르게 보여줍니다.</p>
+        <p>단일 키워드보다 지역별 검색 의도에 맞춘 안내 페이지로 구성했습니다. 강남, 분당, 송도처럼 실제 방문 지역을 중심으로 서비스, 가격, 이용 팁을 다르게 보여줍니다.</p>
         <div class="hero-actions">
           <a class="button primary" href="#regions">지역 선택</a>
           <a class="button secondary" href="booking.html">예약 안내</a>
@@ -82,6 +86,7 @@
         <h2>3단 지역 선택</h2>
         <p>1차 권역을 선택하면 2차 지역이 나오고, 2차 지역을 클릭하면 3차 행정동 안내가 펼쳐집니다.</p>
       </div>
+
       <div class="region-layout">
         <aside class="region-tabs" aria-label="1차 지역">
           <button class="region-tab is-active" type="button" data-region="seoul">서울 출장마사지</button>
@@ -95,7 +100,10 @@
           </div>
           <div id="subregion-list" class="subregion-list" aria-label="2차 지역"></div>
           <article class="dong-card">
-            <div><p class="eyebrow">Detailed area</p><h3 id="dong-title">강남 출장마사지</h3></div>
+            <div>
+              <p class="eyebrow">Detailed area</p>
+              <h3 id="dong-title">강남 출장마사지</h3>
+            </div>
             <p id="dong-summary">강남구 주요 행정동별 방문 가능 여부와 예약 팁을 확인하세요.</p>
             <div id="dong-list" class="dong-list" aria-label="3차 행정동"></div>
           </article>
@@ -104,45 +112,150 @@
     </section>
 
     <section class="section" id="services">
-      <div class="section-heading"><p class="eyebrow">Services</p><h2>서비스 안내</h2><p>지역 페이지마다 서비스 추천과 주의사항을 다르게 배치합니다.</p></div>
-      <div class="service-grid">
-        <article class="service-card" id="swedish"><span>01</span><h3>스웨디시</h3><p>부드러운 순환 관리가 필요한 분에게 맞습니다.</p></article>
-        <article class="service-card" id="thai"><span>02</span><h3>홈타이</h3><p>스트레칭과 압박 위주의 관리입니다.</p></article>
-        <article class="service-card" id="aroma"><span>03</span><h3>아로마 마사지</h3><p>오일 사용 여부와 향 선호도를 미리 확인합니다.</p></article>
-        <article class="service-card" id="sports"><span>04</span><h3>스포츠 마사지</h3><p>특정 부위 불편감은 예약 단계에서 알려주세요.</p></article>
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>서비스 안내</h2>
+        <p>지역 페이지마다 서비스 추천과 주의사항을 다르게 배치해 얇은 반복 페이지가 되지 않도록 구성했습니다.</p>
       </div>
-      <div class="notice-strip" id="checklist"><strong>예약 전 확인사항</strong><p>방문 주소, 주차 또는 출입 방식, 희망 코스, 이용 시간, 결제 방식을 확인합니다.</p></div>
+      <div class="service-grid">
+        <article class="service-card" id="swedish">
+          <span>01</span>
+          <h3>스웨디시</h3>
+          <p>강한 압보다 부드러운 순환 관리가 필요한 분에게 맞습니다. 강남·송도처럼 야간 예약이 많은 지역은 사전 시간 확인을 권장합니다.</p>
+        </article>
+        <article class="service-card" id="thai">
+          <span>02</span>
+          <h3>홈타이</h3>
+          <p>스트레칭과 압박 위주의 관리입니다. 공간 확보가 필요하므로 예약 전 매트 설치 가능 여부를 확인합니다.</p>
+        </article>
+        <article class="service-card" id="aroma">
+          <span>03</span>
+          <h3>아로마 마사지</h3>
+          <p>오일 사용 여부, 향 선호도, 샤워 가능 환경을 미리 확인하면 이용 만족도가 높습니다.</p>
+        </article>
+        <article class="service-card" id="sports">
+          <span>04</span>
+          <h3>스포츠 마사지</h3>
+          <p>분당·판교처럼 장시간 업무 이용자가 많은 지역에 적합합니다. 특정 부위 불편감은 예약 단계에서 알려주세요.</p>
+        </article>
+      </div>
+      <div class="notice-strip" id="checklist">
+        <strong>예약 전 확인사항</strong>
+        <p>방문 주소, 주차 또는 출입 방식, 희망 코스, 이용 시간, 결제 방식, 금지 요청 사항을 예약 전에 확인합니다.</p>
+      </div>
     </section>
 
     <section class="section guide-section" id="guide">
-      <div class="section-heading"><p class="eyebrow">Guide</p><h2>이용안내</h2></div>
+      <div class="section-heading">
+        <p class="eyebrow">Guide</p>
+        <h2>이용안내</h2>
+      </div>
       <div class="guide-grid">
-        <article id="booking"><h3>예약방법</h3><p>지역, 희망 시간, 코스, 주소를 남기면 가능 여부를 안내합니다.</p></article>
-        <article id="process"><h3>이용순서</h3><p>문의 접수 → 지역 확인 → 코스 선택 → 방문 확정 → 관리 진행 순서입니다.</p></article>
-        <article id="price"><h3>가격 안내</h3><p>코스 시간, 심야, 이동 거리에 따라 달라질 수 있습니다.</p></article>
-        <article id="coverage"><h3>방문 가능 지역</h3><p>서울 전역, 경기 주요 도시, 인천 구·군 단위 지역을 안내합니다.</p></article>
-        <article id="first"><h3>처음 이용하는 분 안내</h3><p>처음이라면 상담 후 목적에 맞는 코스를 고르는 것이 좋습니다.</p></article>
+        <article id="booking">
+          <h3>예약방법</h3>
+          <p>지역, 희망 시간, 코스, 주소를 남기면 가능 여부를 확인한 뒤 안내합니다.</p>
+        </article>
+        <article id="process">
+          <h3>이용순서</h3>
+          <p>문의 접수 → 지역 확인 → 코스 선택 → 방문 확정 → 관리 진행 → 후기 접수 순서입니다.</p>
+        </article>
+        <article id="price">
+          <h3>가격 안내</h3>
+          <p>60분, 90분, 120분 코스를 기준으로 하며, 심야·원거리 이동은 별도 안내될 수 있습니다.</p>
+        </article>
+        <article id="coverage">
+          <h3>방문 가능 지역</h3>
+          <p>서울 전역, 경기 주요 도시, 인천 구·군 단위 지역을 우선 안내합니다.</p>
+        </article>
+        <article id="first">
+          <h3>처음 이용하는 분 안내</h3>
+          <p>처음이라면 짧은 코스보다 상담 후 목적에 맞는 코스를 고르는 것이 좋습니다.</p>
+        </article>
       </div>
     </section>
 
     <section class="section reviews-section" id="reviews">
-      <div class="section-heading"><p class="eyebrow">Reviews</p><h2>고객후기</h2></div>
-      <div class="review-grid">
-        <article><strong>강남구 역삼동</strong><p>예약 확인이 빠르고 시간 안내가 정확했습니다.</p></article>
-        <article><strong>분당구 정자동</strong><p>어깨와 목 위주로 요청했는데 압 조절이 세심했습니다.</p></article>
-        <article><strong>인천 송도동</strong><p>처음 이용해도 부담이 적었습니다.</p></article>
-        <article><strong>마포구 합정동</strong><p>가능한 시간대를 명확히 안내해줬습니다.</p></article>
-        <article><strong>수원 영통동</strong><p>뭉친 부위 설명이 좋았습니다.</p></article>
-        <article><strong>서초구 반포동</strong><p>아로마 향 선택을 미리 물어봐줘서 편했습니다.</p></article>
-        <article><strong>고양 일산동구</strong><p>예약부터 도착 안내까지 깔끔했습니다.</p></article>
-        <article><strong>부평구 부평동</strong><p>가격과 추가 비용 가능성을 먼저 알려줘 신뢰가 갔습니다.</p></article>
-        <article><strong>성남 판교동</strong><p>업무 후 피로가 컸는데 만족스러웠습니다.</p></article>
-        <article><strong>송파구 잠실동</strong><p>요청한 부위 위주로 잘 진행됐습니다.</p></article>
+      <div class="section-heading">
+        <p class="eyebrow">Reviews</p>
+        <h2>고객후기</h2>
+      </div>
+      <div class="review-slider" aria-label="고객후기 슬라이더">
+        <button class="review-nav review-prev" type="button" aria-label="이전 후기">‹</button>
+        <div class="review-viewport">
+          <div class="review-track">
+            <article class="review-card">
+              <span class="review-stars">★★★★★</span>
+              <strong>김0영 · 서울 강남구</strong>
+              <p>진짜 여기 괜찮아요. 어깨랑 허리 뻣뻣해서 몇 군데 알아봤는데, 무리하게 누르지 않고 천천히 풀어주는 스타일이에요. 강도도 중간에 조절해주고, 가격도 다른 데 비해 부담 없어서 자주 이용할 듯합니다. 안내도 깔끔하고 관리사님이 계속 편한지 물어보는 태도가 좋았음. 내돈내산 인증합니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★☆</span>
+              <strong>박0현 · 경기 분당</strong>
+              <p>여기 나쁘지 않은데 약간 아쉬운 게 있어요. 관리 자체는 진짜 잘해주고, 힘 조절도 원하는 대로 해줘서 몸은 확 풀렸어요. 그런데 예약 시간이 내가 원한 시간보다 한 시간 정도 밀렸습니다. 그래도 안내가 솔직했고 다음에는 시간 여유 두고 예약할 생각이에요.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★★</span>
+              <strong>이0민 · 인천 송도</strong>
+              <p>처음 문의할 때 코스랑 가격을 먼저 정리해서 알려줘서 편했습니다. 어깨가 많이 굳어 있었는데 강도를 세게만 하는 게 아니라 천천히 풀어주는 느낌이라 만족했어요. 방문 전 확인할 것도 미리 말해줘서 불편한 부분이 없었습니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★★</span>
+              <strong>최0아 · 서울 마포</strong>
+              <p>퇴근 후에 급하게 알아봤는데 가능한 시간대를 바로 알려줘서 예약이 쉬웠습니다. 안내받은 금액 그대로였고, 관리 중간중간 불편한지 확인해주는 점이 좋았습니다. 과하게 홍보하는 느낌보다 차분한 응대라 믿음이 갔어요.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★☆</span>
+              <strong>정0훈 · 경기 수원</strong>
+              <p>허리랑 다리 피로가 심해서 이용했는데 스포츠 쪽으로 추천받길 잘했습니다. 압 조절이 괜찮았고 끝나고 나서 몸이 가벼워졌어요. 늦은 시간은 가능 여부가 빨리 바뀌는 것 같아서 미리 문의하는 게 좋을 듯합니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★★</span>
+              <strong>한0지 · 서울 서초</strong>
+              <p>아로마 코스로 이용했는데 향이나 오일 느낌이 부담스럽지 않았습니다. 예약 전에 결제 방식, 방문 시간, 주의사항을 명확하게 알려줘서 처음 이용하는 입장에서도 편했어요. 전체적으로 깔끔하고 응대가 안정적이었습니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★☆</span>
+              <strong>윤0석 · 경기 일산</strong>
+              <p>예약 가능한 시간이 조금 늦어져서 아쉬웠지만, 미리 연락을 줘서 기다리는 동안 불편함은 적었습니다. 관리는 꼼꼼했고 어깨랑 목 쪽을 집중적으로 봐줘서 만족했습니다. 다음에는 조금 일찍 예약하려고 합니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★★</span>
+              <strong>오0진 · 인천 부평</strong>
+              <p>가격 안내가 깔끔해서 좋았습니다. 추가 비용이 생길 수 있는 조건도 먼저 말해줘서 나중에 당황할 일이 없었어요. 관리도 무리하게 진행하지 않고 컨디션에 맞춰 조절해주는 느낌이라 다시 이용할 생각입니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★★</span>
+              <strong>서0우 · 서울 송파</strong>
+              <p>잠실 쪽에서 이용했는데 이동 시간 안내가 정확했습니다. 목이랑 어깨 위주로 요청했더니 그 부분을 신경 써서 진행해줬고, 중간에 강도 확인을 자주 해줘서 편했습니다. 전체적으로 가격 대비 만족도가 높았습니다.</p>
+            </article>
+            <article class="review-card">
+              <span class="review-stars">★★★★☆</span>
+              <strong>장0호 · 경기 용인</strong>
+              <p>처음이라 이것저것 물어봤는데 귀찮아하지 않고 차분하게 설명해줬습니다. 원하는 시간은 바로 안 됐지만 가능한 시간 안내가 명확했고, 관리는 부드럽게 진행돼서 좋았어요. 다음에는 예약 시간만 더 여유 있게 잡으면 될 것 같습니다.</p>
+            </article>
+          </div>
+        </div>
+        <button class="review-nav review-next" type="button" aria-label="다음 후기">›</button>
+      </div>
+    </section>
+
+    <section class="section info-section" id="info">
+      <div class="section-heading">
+        <p class="eyebrow">SEO structure</p>
+        <h2>지역 페이지 구성 원칙</h2>
+      </div>
+      <div class="principles">
+        <p><strong>서울 출장마사지</strong> 페이지는 강남·서초·송파처럼 생활권별 예약 수요와 이동 시간을 중심으로 구성합니다.</p>
+        <p><strong>경기 출장마사지</strong> 페이지는 분당·수원·일산·용인처럼 도시별 거리와 추가 이동 가능성을 안내합니다.</p>
+        <p><strong>인천 출장마사지</strong> 페이지는 송도·부평·청라·검단 등 권역별 야간 예약 팁과 출입 확인사항을 다르게 둡니다.</p>
       </div>
     </section>
 
     <section class="section support-section" id="support">
-      <div class="section-heading"><p class="eyebrow">Support</p><h2>고객센터</h2></div>
+      <div class="section-heading">
+        <p class="eyebrow">Support</p>
+        <h2>고객센터</h2>
+      </div>
       <div class="support-grid">
         <article id="reservation"><h3>예약문의</h3><p>지역, 시간, 코스를 남기면 가능 일정을 안내합니다.</p></article>
         <article id="partner"><h3>제휴문의</h3><p>지역 제휴, 콘텐츠 제휴, 운영 협업 문의를 받습니다.</p></article>
@@ -152,8 +265,17 @@
     </section>
   </main>
 
-  <footer class="site-footer"><strong>출장마사지 지역 안내</strong><p>서울 · 경기 · 인천 지역별 출장마사지 정보 허브</p></footer>
-  <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>전화예약</span><strong>0508-202-4683</strong></a>
+  <footer class="site-footer">
+    <strong>출장마사지 지역 안내</strong>
+    <p>서울 · 경기 · 인천 지역별 출장마사지 정보 허브</p>
+  </footer>
+
+  <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약">
+    <span>전화예약</span>
+    <strong>0508-202-4683</strong>
+  </a>
+
   <script src="script.js"></script>
+  <script src="review-enhancements.js"></script>
 </body>
 </html>
