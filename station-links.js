@@ -16,7 +16,7 @@
     const style = document.createElement("style");
     style.id = "station-link-style";
     style.textContent = `
-      .station-link-panel{margin:28px 0;background:linear-gradient(145deg,rgba(35,35,35,.96),rgba(8,8,8,.99));border:1px solid rgba(255,138,29,.34);border-radius:10px;box-shadow:0 26px 70px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.06);padding:26px}
+      .station-link-panel{margin:28px 0 0;background:linear-gradient(145deg,rgba(35,35,35,.96),rgba(8,8,8,.99));border:1px solid rgba(255,138,29,.34);border-radius:10px;box-shadow:0 26px 70px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.06);padding:26px}
       .station-link-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}.station-link-panel h2{color:var(--orange);font-size:clamp(28px,3.2vw,42px);margin:0 0 8px}.station-link-panel p{color:rgba(255,255,255,.84);line-height:1.75;margin:0;max-width:860px}.station-count{border:1px solid rgba(255,138,29,.48);border-radius:999px;color:#ff9a35;font-weight:900;padding:10px 14px;white-space:nowrap;background:rgba(255,138,29,.08)}
       .station-region-tabs{display:flex;gap:10px;overflow-x:auto;padding:2px 0 16px;margin-bottom:18px;scrollbar-width:thin}.station-region-tab{appearance:none;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));color:#fff;cursor:pointer;font-weight:900;min-width:82px;padding:12px 18px}.station-region-tab.is-active{background:linear-gradient(180deg,#ff9a35,#ff7f0f);border-color:#ffb263;color:#050505;box-shadow:0 12px 28px rgba(255,127,15,.18)}
       .station-active-head{border:1px solid rgba(255,138,29,.25);border-radius:8px;background:linear-gradient(135deg,rgba(255,138,29,.13),rgba(255,255,255,.035));padding:18px 20px;margin-bottom:16px}.station-active-head h3{color:var(--orange);font-size:clamp(24px,2.6vw,34px);margin:0 0 6px}.station-active-head p{font-size:15px;color:rgba(255,255,255,.78)}
@@ -82,7 +82,7 @@
     panel.id = "main-station-hub";
     panel.innerHTML = `
       <div class="station-link-head">
-        <div><h2>전국 주요 지하철역 안내</h2><p>지역 페이지와 별도로, 역 주변에서 바로 검색하는 고객을 위해 주요 역만 권역별로 정리했습니다. 한 페이지에 전부 펼치지 않고 필요한 권역을 선택해 확인하는 방식입니다.</p></div>
+        <div><h2>전국 주요 지하철역 안내</h2><p>지역과 생활권을 먼저 확인한 뒤, 역 이름으로 바로 찾는 고객을 위해 주요 지하철역만 따로 정리했습니다. 필요한 권역을 선택하면 같은 자리에서 역 목록이 바뀝니다.</p></div>
         <span class="station-count">주요 역 ${total}개</span>
       </div>
       <div class="station-region-tabs" role="tablist" aria-label="주요 역 권역 선택">
@@ -92,7 +92,7 @@
       <div class="station-group-list">
         ${groups.map(([region, list]) => `<div class="station-group" data-region="${region}"><div class="station-chip-grid">${list.map(chip).join("")}</div></div>`).join("")}
       </div>`;
-    const anchor = regions.querySelector(".section-heading");
+    const anchor = regions.querySelector(".region-layout") || regions.querySelector(".region-panel") || regions.lastElementChild;
     if (anchor) anchor.insertAdjacentElement("afterend", panel);
     else regions.appendChild(panel);
     panel.querySelectorAll(".station-region-tab").forEach((button) => button.addEventListener("click", () => setActive(panel, button.dataset.region)));
