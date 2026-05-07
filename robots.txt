@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mazzanng.netlify.app/sitemap.xml
+Sitemap: https://mazzanng.netlify.app/sitemap-gyeonggi.xml
