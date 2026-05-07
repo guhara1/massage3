@@ -1,5 +1,5 @@
 const phoneNumber = "0508-202-4683";
-const profilePhotoUrl = "https://images.pexels.com/photos/19899329/pexels-photo-19899329.jpeg?auto=compress&cs=tinysrgb&w=480&h=720&fit=crop";
+const profilePhotoUrl = "assets/profile-therapist.jpg";
 
 const regionNames = {
   seoul: "서울",
@@ -109,7 +109,7 @@ function renderLocalPage(regionData) {
         </article>
 
         <article class="profile-card">
-          <img src="${profilePhotoUrl}" alt="전문 관리사 프로필 사진" loading="lazy">
+          <img src="${profilePhotoUrl}" loading="lazy" alt="전문 관리사 프로필 사진">
           <div>
             <p class="eyebrow">프로필</p>
             <h2>전문 관리사 배정</h2>
