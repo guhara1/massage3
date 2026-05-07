@@ -94,16 +94,22 @@
 
   <footer class="site-footer"><strong>마짱</strong><p>전국 권역별 지역 정보 안내</p></footer>
   <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>전화예약</span><strong>0508-202-4683</strong></a>
+  <script src="/static-area-links.js"></script>
   <script>
     function decodePart(value, fallback) {
       try { return decodeURIComponent(value || "") || fallback; } catch { return value || fallback; }
     }
 
+    function fromSlug(value, fallback) {
+      const decoded = decodePart(value, fallback);
+      return window.MAZZANG_AREA_SLUGS?.fromSlug?.(decoded) || decoded || fallback;
+    }
+
     const params = new URLSearchParams(location.search);
     const parts = location.pathname.split("/").filter(Boolean);
-    const city = params.get("city") || (parts[0] === "area" ? decodePart(parts[1], "서울") : "서울");
-    const district = params.get("district") || (parts[0] === "area" ? decodePart(parts[2], "강남") : "강남");
-    const dong = params.get("dong") || (parts[0] === "area" ? decodePart(parts[3], "개포동") : "개포동");
+    const city = fromSlug(params.get("city") || (parts[0] === "area" ? parts[1] : ""), "서울");
+    const district = fromSlug(params.get("district") || (parts[0] === "area" ? parts[2] : ""), "강남");
+    const dong = fromSlug(params.get("dong") || (parts[0] === "area" ? parts[3] : ""), "개포동");
     const areaName = `${city} ${district} ${dong}`;
     const title = `${dong} 출장마사지 예약 전 확인사항 | ${district} 가격·지역·코스 안내`;
     const description = `${areaName} 이용 전 확인하면 좋은 예약 기준, 가격 차이, 주요 생활권, 코스 선택 방법을 정리했습니다.`;
