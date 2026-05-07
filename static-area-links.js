@@ -8,23 +8,32 @@
     ["인천|연수 송도|송도동", "incheon-songdo.html"]
   ]);
 
-  function decode(value) {
-    try { return decodeURIComponent(value || ""); } catch { return value || ""; }
+  function clean(value) {
+    try { return decodeURIComponent(value || "").trim(); } catch { return (value || "").trim(); }
   }
 
-  function staticUrlFromHref(href) {
+  function areaInfoFromHref(href) {
     const url = new URL(href, location.href);
     if (!url.pathname.endsWith("area.html")) return null;
-    const key = ["city", "district", "dong"].map((name) => decode(url.searchParams.get(name))).join("|");
-    return staticAreaMap.get(key) || null;
+    const city = clean(url.searchParams.get("city"));
+    const district = clean(url.searchParams.get("district"));
+    const dong = clean(url.searchParams.get("dong"));
+    if (!city || !district || !dong) return null;
+    return { city, district, dong, key: [city, district, dong].join("|") };
+  }
+
+  function cleanAreaUrl(info) {
+    const staticUrl = staticAreaMap.get(info.key);
+    if (staticUrl) return staticUrl;
+    return `/area/${encodeURIComponent(info.city)}/${encodeURIComponent(info.district)}/${encodeURIComponent(info.dong)}/`;
   }
 
   function applyStaticLinks() {
     document.querySelectorAll('a[href*="area.html?"]').forEach((link) => {
-      const staticUrl = staticUrlFromHref(link.getAttribute("href"));
-      if (!staticUrl) return;
-      link.setAttribute("href", staticUrl);
-      link.setAttribute("data-static-area", "true");
+      const info = areaInfoFromHref(link.getAttribute("href"));
+      if (!info) return;
+      link.setAttribute("href", cleanAreaUrl(info));
+      link.setAttribute("data-clean-area", "true");
     });
   }
 
