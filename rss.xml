@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>마짱 지역 안내 및 예약 정보</title>
+    <link>https://mazzanng.netlify.app/</link>
+    <description>마짱의 지역별 방문 가능 안내, 예약 전 확인사항, 코스 및 요금, 공지사항 업데이트를 제공합니다.</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Thu, 07 May 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://mazzanng.netlify.app/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>서울 출장마사지 가능 지역 안내</title>
+      <link>https://mazzanng.netlify.app/area/seoul/</link>
+      <guid>https://mazzanng.netlify.app/area/seoul/</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0900</pubDate>
+      <description>서울 주요 행정구별 방문 가능 범위와 예약 전 확인 기준을 안내합니다.</description>
+    </item>
+    <item>
+      <title>경기 출장마사지 가능 지역 안내</title>
+      <link>https://mazzanng.netlify.app/area/gyeonggi/</link>
+      <guid>https://mazzanng.netlify.app/area/gyeonggi/</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0900</pubDate>
+      <description>경기 주요 도시별 방문 가능 범위, 이동 시간, 예약 전 확인 기준을 안내합니다.</description>
+    </item>
+    <item>
+      <title>인천 출장마사지 가능 지역 안내</title>
+      <link>https://mazzanng.netlify.app/area/incheon/</link>
+      <guid>https://mazzanng.netlify.app/area/incheon/</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0900</pubDate>
+      <description>인천 송도, 부평, 남동 등 생활권별 방문 가능 기준을 안내합니다.</description>
+    </item>
+    <item>
+      <title>예약 전 확인사항</title>
+      <link>https://mazzanng.netlify.app/checklist.html</link>
+      <guid>https://mazzanng.netlify.app/checklist.html</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0900</pubDate>
+      <description>예약 전 가격, 시간, 방문 주소, 출입 방식, 코스, 변경 기준을 확인할 수 있습니다.</description>
+    </item>
+    <item>
+      <title>공지사항 및 운영 기준</title>
+      <link>https://mazzanng.netlify.app/notice.html</link>
+      <guid>https://mazzanng.netlify.app/notice.html</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0900</pubDate>
+      <description>운영시간, 예약 변경 및 취소, 방문 가능 지역 확인 기준을 안내합니다.</description>
+    </item>
+  </channel>
+</rss>
