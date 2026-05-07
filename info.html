@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지역 정보 | 마짱</title>
+  <meta name="description" content="마짱 지역 정보 페이지에서 서울, 경기, 인천 및 주요 권역별 예약 전 확인할 생활권, 이동 시간, 코스 선택 기준, 가격 확인 방법을 안내합니다.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .info-hero { background: radial-gradient(circle at 12% 8%, rgba(255, 138, 29, .18), transparent 34%), linear-gradient(180deg, #101010 0%, #050505 100%); border-bottom: 1px solid rgba(255, 138, 29, .26); padding: 92px max(22px, calc((100vw - var(--max)) / 2)) 64px; }
+    .info-hero h1 { font-size: clamp(38px, 5.8vw, 70px); max-width: 920px; }
+    .info-hero p:not(.eyebrow) { color: #fff; font-size: 19px; margin-top: 16px; max-width: 790px; }
+    .info-page { display: grid; gap: 26px; }
+    .info-lead { background: linear-gradient(135deg, rgba(255, 138, 29, .15), rgba(255,255,255,.035)); border: 1px solid rgba(255, 138, 29, .35); border-radius: 8px; padding: 26px; }
+    .info-lead h2, .info-section h2, .info-faq h2 { font-size: 30px; }
+    .info-lead p, .info-section p, .info-card p, .info-faq p { color: rgba(255,255,255,.78); margin-top: 10px; }
+    .info-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .info-card { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); border: 1px solid rgba(255,255,255,.13); border-radius: 8px; padding: 22px; }
+    .info-card strong { color: var(--orange); display: block; font-size: 22px; line-height: 1.35; margin-bottom: 8px; }
+    .info-card ul { color: rgba(255,255,255,.78); display: grid; gap: 7px; margin: 12px 0 0; padding-left: 18px; }
+    .info-section { background: #141414; border: 1px solid rgba(255, 138, 29, .24); border-radius: 8px; padding: 24px; }
+    .region-info-list { display: grid; gap: 14px; margin-top: 18px; }
+    .region-info-row { background: #0a0a0a; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; display: grid; gap: 14px; grid-template-columns: 180px minmax(0, 1fr) 180px; padding: 18px; }
+    .region-info-row h3 { font-size: 24px; }
+    .region-info-row p { margin: 0; }
+    .region-info-row a { align-items: center; background: rgba(255, 138, 29, .12); border: 1px solid rgba(255, 138, 29, .36); border-radius: 999px; color: #fff; display: inline-flex; font-weight: 900; justify-content: center; min-height: 42px; padding: 8px 13px; text-align: center; }
+    .region-info-row a:hover { color: var(--orange); }
+    .info-checklist { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; }
+    .check-item { background: #0b0b0b; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 16px; }
+    .check-item span { color: var(--orange); display: block; font-weight: 900; margin-bottom: 6px; }
+    .check-item p { margin: 0; }
+    .internal-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .internal-links a { background: rgba(255, 138, 29, .1); border: 1px solid rgba(255, 138, 29, .34); border-radius: 999px; color: #fff; font-weight: 900; padding: 9px 13px; }
+    .internal-links a:hover { color: var(--orange); }
+    .info-faq { background: #141414; border: 1px solid rgba(255, 138, 29, .24); border-radius: 8px; display: grid; gap: 12px; padding: 24px; }
+    .info-faq details { background: #0a0a0a; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 15px 16px; }
+    .info-faq summary { color: #fff; cursor: pointer; font-weight: 900; }
+    @media (max-width: 920px) { .info-grid, .region-info-row, .info-checklist { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .info-hero { padding-top: 70px; } .info-lead, .info-section, .info-card, .info-faq { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="마짱 홈"><span class="brand-mark">M</span><span><strong>마짱</strong><small>전국 지역 안내</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">메뉴</button>
+    <nav id="main-nav" class="main-nav" aria-label="상단 메뉴">
+      <div class="nav-item"><a href="index.html#regions">지역 출장마사지</a><div class="dropdown"><a href="index.html?region=capital#regions">수도권</a><a href="index.html?region=yeongnam#regions">영남권</a><a href="index.html?region=chungcheong#regions">충청권</a><a href="index.html?region=honam#regions">호남권</a><a href="index.html?region=gangwonjeju#regions">강원·제주</a></div></div>
+      <div class="nav-item"><a href="services.html">서비스 안내</a><div class="dropdown"><a href="swedish.html">스웨디시</a><a href="thai.html">타이마사지</a><a href="aroma.html">아로마 마사지</a><a href="sports.html">스포츠 마사지</a><a href="checklist.html">예약 전 확인사항</a></div></div>
+      <div class="nav-item"><a href="guide.html">이용안내</a><div class="dropdown"><a href="booking.html">예약방법</a><a href="process.html">이용순서</a><a href="price.html">가격 안내</a><a href="coverage.html">방문 가능 지역</a><a href="first.html">처음 이용하는 분 안내</a></div></div>
+      <div class="nav-item"><a href="reviews.html">후기</a><div class="dropdown"><a href="reviews.html">고객후기</a><a href="info.html">지역 정보</a></div></div>
+      <div class="nav-item"><a href="support.html">고객센터</a><div class="dropdown"><a href="reservation.html">예약문의</a><a href="partner.html">제휴문의</a><a href="notice.html">공지사항</a><a href="policy.html">운영정책</a></div></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="info-hero">
+      <p class="eyebrow">Local information</p>
+      <h1>지역 정보</h1>
+      <p>지역별 예약 가능 여부를 보기 전에 생활권, 이동 시간, 코스 선택, 가격 확인 기준을 먼저 정리했습니다. 같은 지역명이라도 주소와 시간대에 따라 안내가 달라질 수 있습니다.</p>
+    </section>
+
+    <section class="section info-page">
+      <article class="info-lead">
+        <h2>지역 정보 페이지는 이렇게 보는 것이 좋습니다</h2>
+        <p>단순히 지역명을 많이 나열하는 페이지보다, 고객이 실제 예약 전에 확인해야 할 기준을 알려주는 페이지가 더 도움이 됩니다. 마짱은 지역별 생활권, 방문 전 확인사항, 요금이 달라지는 이유를 함께 안내해 문의 전에 필요한 정보를 줄이는 방향으로 구성했습니다.</p>
+      </article>
+
+      <div class="info-grid" aria-label="지역 정보 핵심 기준">
+        <article class="info-card"><strong>생활권 기준</strong><p>행정구 이름만 보는 것보다 역세권, 오피스 밀집 지역, 주거 단지, 상권 위치를 함께 확인해야 실제 도착 시간을 예측하기 쉽습니다.</p><ul><li>역 주변과 주거 단지 구분</li><li>오피스텔 출입 방식 확인</li><li>주차 가능 여부 확인</li></ul></article>
+        <article class="info-card"><strong>시간대 기준</strong><p>퇴근 이후와 심야 시간대에는 문의가 몰릴 수 있습니다. 원하는 시간이 있다면 지역명과 함께 희망 시간을 먼저 전달하는 것이 좋습니다.</p><ul><li>당일 예약 가능 여부</li><li>심야 상담 가능 여부</li><li>도착 예상 시간 확인</li></ul></article>
+        <article class="info-card"><strong>코스 기준</strong><p>스웨디시, 타이마사지, 아로마, 스포츠 마사지는 목적과 진행 방식이 다릅니다. 처음이라면 몸 상태와 원하는 강도를 함께 말하는 편이 좋습니다.</p><ul><li>이완 중심</li><li>전신 피로 관리</li><li>강도 조절 가능 여부</li></ul></article>
+      </div>
+
+      <section class="info-section">
+        <h2>주요 지역별 확인 포인트</h2>
+        <p>아래 내용은 지역명을 반복하기 위한 문장이 아니라, 실제 문의 전에 확인하면 좋은 지역별 차이를 정리한 것입니다.</p>
+        <div class="region-info-list">
+          <article class="region-info-row"><h3>서울</h3><p>강남, 서초, 송파, 마포, 영등포처럼 업무지구와 주거지가 섞인 곳은 퇴근 이후 문의가 많습니다. 건물 출입 방식과 주차 여부를 먼저 확인하면 예약 안내가 빨라집니다.</p><a href="index.html?region=capital#regions">서울 생활권 보기</a></article>
+          <article class="region-info-row"><h3>경기</h3><p>분당, 수원, 용인, 일산처럼 이동 거리가 넓은 지역은 세부 동네와 시간대에 따라 도착 안내가 달라질 수 있습니다. 희망 시간보다 30분 정도 여유를 두면 선택지가 늘어납니다.</p><a href="coverage.html#bundang">경기 대표 지역</a></article>
+          <article class="region-info-row"><h3>인천</h3><p>송도, 부평, 구월, 청라 생활권은 아파트 단지와 오피스텔 출입 조건이 예약 정확도에 영향을 줍니다. 주소 확인 후 방문 가능 여부를 안내받는 흐름이 좋습니다.</p><a href="coverage.html#songdo">인천 대표 지역</a></article>
+          <article class="region-info-row"><h3>영남권</h3><p>부산, 대구, 울산 등은 지역별 이동 동선 차이가 커서 광역 권역보다 세부 생활권을 먼저 확인하는 것이 좋습니다. 상권 중심지와 주거지에 따라 가능 시간이 달라질 수 있습니다.</p><a href="index.html?region=yeongnam#regions">영남권 보기</a></article>
+        </div>
+      </section>
+
+      <section class="info-section">
+        <h2>예약 전 확인하면 좋은 기준</h2>
+        <p>정보를 많이 읽는 것보다 실제 예약에 필요한 내용을 순서대로 확인하는 것이 중요합니다.</p>
+        <div class="info-checklist">
+          <div class="check-item"><span>1. 지역과 세부 동네</span><p>구 단위보다 동, 역, 건물 출입 조건까지 알려주면 가능 시간 안내가 정확해집니다.</p></div>
+          <div class="check-item"><span>2. 희망 시간</span><p>당일 예약은 가능한 시간대가 빠르게 바뀔 수 있어 1순위와 2순위 시간을 함께 말하면 좋습니다.</p></div>
+          <div class="check-item"><span>3. 원하는 코스</span><p>처음 이용한다면 코스명보다 원하는 느낌을 말해도 됩니다. 예를 들어 부드러운 관리, 전신 피로, 강한 압 조절처럼 설명하면 됩니다.</p></div>
+          <div class="check-item"><span>4. 최종 요금</span><p>코스, 시간, 지역, 심야 여부에 따라 금액이 달라질 수 있으니 예약 확정 전 최종 요금을 확인하세요.</p></div>
+        </div>
+        <div class="internal-links"><a href="booking.html">예약방법</a><a href="price.html">가격 안내</a><a href="coverage.html">방문 가능 지역</a><a href="reviews.html">고객후기</a><a href="first.html">처음 이용 안내</a></div>
+      </section>
+
+      <section class="info-faq">
+        <h2>지역 정보 자주 묻는 질문</h2>
+        <details open><summary>지역 정보 페이지와 방문 가능 지역 페이지는 무엇이 다른가요?</summary><p>지역 정보 페이지는 예약 전 판단 기준을 설명하는 페이지이고, 방문 가능 지역 페이지는 대표 지역별 도착 시간과 세부 동네를 빠르게 확인하는 페이지입니다.</p></details>
+        <details><summary>내 지역이 목록에 없으면 예약이 불가능한가요?</summary><p>목록에 없더라도 시간대와 이동 동선에 따라 가능할 수 있습니다. 정확한 지역명과 희망 시간을 알려주시면 확인 후 안내합니다.</p></details>
+        <details><summary>지역명만 알려줘도 상담이 가능한가요?</summary><p>가능하지만 세부 동네, 건물 출입 방식, 희망 시간을 함께 알려주면 더 정확한 안내가 가능합니다.</p></details>
+        <details><summary>SEO 관점에서 지역 정보 페이지가 왜 필요한가요?</summary><p>검색자가 지역명만 찾는 것이 아니라 가격, 시간, 코스, 방문 가능 여부를 함께 궁금해하기 때문입니다. 이런 정보를 한곳에 정리하면 내부 링크 흐름과 사용자 만족도에 도움이 됩니다.</p></details>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer"><strong>마짱</strong><p>전국 권역별 출장마사지 정보 안내</p></footer>
+  <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>전화예약</span><strong>0508-202-4683</strong></a>
+  <script src="script.js"></script>
+</body>
+</html>
