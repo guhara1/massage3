@@ -99,10 +99,10 @@ async function loadRegionData() {
   return Function(`"use strict"; return (${match[1]});`)();
 }
 
-function renderDongOutput(region, areaName) {
+function renderDongOutput(regionKey, region, areaName) {
   const dongs = region.areas[areaName] || [];
   const dongLinks = dongs.map((dong) => (
-    `<a href="local.html?region=${currentRegionKey}&area=${encodeURIComponent(areaName)}&dong=${encodeURIComponent(dong)}" aria-label="${areaName} ${dong} 출장마사지 상세 안내">${dong}</a>`
+    `<a href="local.html?region=${regionKey}&area=${encodeURIComponent(areaName)}&dong=${encodeURIComponent(dong)}" aria-label="${areaName} ${dong} 출장마사지 상세 안내">${dong}</a>`
   )).join("");
 
   return `
@@ -155,7 +155,7 @@ function renderAreaBrowser(regionData, selectedRegionKey) {
           <p>고객이 원하는 구 또는 도시를 클릭하면 바로 아래에 3차 지역 동 목록이 표시됩니다.</p>
         </div>
         <div class="district-grid" aria-label="2차 지역 선택">${districtButtons}</div>
-        ${renderDongOutput(currentRegion, currentArea)}
+        ${renderDongOutput(currentRegionKey, currentRegion, currentArea)}
       </section>
     `;
 
@@ -171,7 +171,7 @@ function renderAreaBrowser(regionData, selectedRegionKey) {
       button.addEventListener("click", () => {
         currentArea = button.dataset.area;
         setActiveDistrict(currentArea);
-        document.querySelector("#dong-output").outerHTML = renderDongOutput(currentRegion, currentArea);
+        document.querySelector("#dong-output").outerHTML = renderDongOutput(currentRegionKey, currentRegion, currentArea);
       });
     });
   }
