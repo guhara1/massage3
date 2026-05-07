@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>아로마 마사지 안내 | 오일 선택과 컨디션별 이용 가이드</title>
+  <meta name="description" content="아로마 마사지를 처음 이용하는 분을 위해 전신 아로마, 경추와 어깨 집중 관리, 발 아로마, 오일 선택 기준, 피부와 건강 상태별 주의사항을 안내합니다.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .aroma-hero { background: linear-gradient(120deg, rgba(0,0,0,.97), rgba(31,17,8,.92)); border-bottom: 1px solid rgba(255,138,29,.26); padding: 108px max(22px, calc((100vw - var(--max)) / 2)) 58px; }
+    .aroma-hero h1 { color: var(--orange); font-size: clamp(36px,5vw,62px); max-width: 940px; }
+    .aroma-hero p:not(.eyebrow) { color: #f2f2f2; font-size: 18px; line-height: 1.82; margin-top: 18px; max-width: 840px; }
+    .aroma-actions, .aroma-quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .aroma-quick a { background: #151515; border: 1px solid rgba(255,138,29,.42); border-radius: 8px; color: #fff; font-weight: 800; padding: 12px 14px; }
+    .aroma-layout { display: grid; gap: 18px; grid-template-columns: 300px minmax(0,1fr); }
+    .aroma-side { align-self: start; background: #141414; border: 1px solid rgba(255,138,29,.34); border-radius: 8px; display: grid; gap: 10px; padding: 18px; position: sticky; top: 86px; }
+    .aroma-side a { border-bottom: 1px solid #2b2b2b; color: #f5f5f5; font-weight: 800; padding: 10px 0; }
+    .aroma-side a:last-child { border-bottom: 0; }
+    .aroma-content { display: grid; gap: 18px; }
+    .aroma-card, .aroma-faq, .aroma-cta { background: #171717; border: 1px solid #353535; border-radius: 8px; padding: 24px; }
+    .aroma-card h2, .aroma-faq h2, .aroma-cta h2 { color: var(--orange); font-size: clamp(24px,3vw,34px); margin-bottom: 14px; }
+    .aroma-card p, .aroma-faq p, .aroma-cta p, .aroma-card li { color: #e8e8e8; line-height: 1.84; }
+    .aroma-grid, .caution-grid, .match-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 16px; }
+    .aroma-mini, .caution-mini, .match-mini, .oil-note { background: #101010; border: 1px solid rgba(255,138,29,.32); border-radius: 8px; padding: 16px; }
+    .aroma-mini strong, .caution-mini strong, .match-mini strong, .oil-note strong { color: var(--orange); display: block; font-size: 18px; margin-bottom: 8px; }
+    .caution-mini { border-color: rgba(255, 99, 71, .38); }
+    .caution-mini strong { color: #ffb15e; }
+    .aroma-list { display: grid; gap: 10px; margin-top: 14px; padding: 0; }
+    .aroma-list li { background: linear-gradient(90deg, rgba(255,138,29,.11), rgba(255,138,29,0)); border-left: 2px solid rgba(255,138,29,.58); list-style: none; padding: 10px 14px; }
+    .oil-guide { display: grid; gap: 12px; margin-top: 16px; }
+    .oil-note { display: grid; gap: 6px; }
+    .faq-item { background: #101010; border: 1px solid #303030; border-radius: 8px; margin-top: 10px; padding: 14px 16px; }
+    .faq-item summary { color: #fff; cursor: pointer; font-weight: 900; }
+    .aroma-cta { background: linear-gradient(135deg, rgba(255,138,29,.16), rgba(23,23,23,1) 46%); border-color: rgba(255,138,29,.48); }
+    @media (max-width: 920px) { .aroma-layout, .aroma-grid, .caution-grid, .match-grid { grid-template-columns: 1fr; } .aroma-side { position: static; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="출장마사지 홈"><span class="brand-mark">M</span><span><strong>출장마사지</strong><small>서울 · 경기 · 인천 지역 안내</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">메뉴</button>
+    <nav id="main-nav" class="main-nav" aria-label="상단 메뉴">
+      <div class="nav-item"><a href="index.html">홈</a></div>
+      <div class="nav-item"><a href="aroma.html">아로마 마사지 소개</a><div class="dropdown"><a href="#fullbody">전신 아로마 마사지</a><a href="#neck">경추/어깨 집중 코스</a><a href="#foot">발 아로마 리플렉솔로지</a><a href="#oil-guide">오일 선택 가이드</a></div></div>
+      <div class="nav-item"><a href="#caution">오일 주의 상태</a><div class="dropdown"><a href="#skin-heat">염증/열감 있는 피부</a><a href="#pregnancy">임신 또는 수유 중</a><a href="#bloodpressure">고혈압 / 저혈압</a><a href="#insomnia">극심한 불면 & 두통</a><a href="#medication">약물 복용 중</a></div></div>
+      <div class="nav-item"><a href="#match">내 상태에 맞는 오일</a><div class="dropdown"><a href="#muscle">근육통 / 피로</a><a href="#stress">스트레스 / 불안</a><a href="#swelling">부종 / 림프 순환</a><a href="#skin">건성 / 민감성 피부</a></div></div>
+      <div class="nav-item"><a href="#faq">FAQ</a></div>
+      <div class="nav-item"><a href="reservation.html">예약 / 문의</a></div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="aroma-hero">
+      <p class="eyebrow">Aroma massage</p>
+      <h1>아로마 마사지 안내, 오일 선택 전 꼭 확인해야 할 내용</h1>
+      <p>아로마 마사지는 향과 오일의 느낌만 보고 고르는 코스가 아닙니다. 피부 상태, 피로 유형, 긴장 정도, 건강 상태에 따라 잘 맞는 방향이 달라질 수 있으므로 예약 전 확인이 중요합니다.</p>
+      <div class="aroma-actions"><a class="button primary" href="tel:0508-202-4683">0508-202-4683 전화예약</a><a class="button secondary" href="price.html">코스와 요금 보기</a></div>
+      <div class="aroma-quick" aria-label="아로마 마사지 빠른 이동"><a href="#intro">아로마 소개</a><a href="#oil-guide">오일 선택</a><a href="#caution">오일 주의</a><a href="#match">상태별 추천</a><a href="#faq">자주 묻는 질문</a></div>
+    </section>
+
+    <section class="section">
+      <div class="aroma-layout">
+        <aside class="aroma-side" aria-label="아로마 마사지 목차"><a href="#intro">아로마 마사지 소개</a><a href="#fullbody">전신 아로마</a><a href="#neck">경추/어깨 집중</a><a href="#foot">발 아로마</a><a href="#oil-guide">오일 선택 가이드</a><a href="#caution">오일 주의 상태</a><a href="#match">내 상태별 선택</a><a href="#faq">FAQ</a></aside>
+        <div class="aroma-content">
+          <article class="aroma-card" id="intro"><h2>아로마 마사지는 어떤 관리인가요?</h2><p>아로마 마사지는 오일을 활용해 피부 마찰을 줄이고, 부드러운 압과 일정한 흐름으로 피로를 풀어가는 관리입니다. 향이 주는 편안함도 있지만, 핵심은 오일의 촉감과 관리 강도, 고객의 피부 상태가 잘 맞는지 확인하는 것입니다.</p><ul class="aroma-list"><li>강한 압보다 부드러운 흐름과 편안한 회복을 선호하는 고객에게 잘 맞습니다.</li><li>건조함, 예민함, 향 민감도가 있다면 오일 사용 전 확인이 필요합니다.</li><li>처음 이용자는 향보다 피부 반응과 최종 요금, 관리 시간을 먼저 확인하는 것이 좋습니다.</li></ul></article>
+
+          <article class="aroma-card"><h2>아로마 마사지 소개</h2><div class="aroma-grid"><div class="aroma-mini" id="fullbody"><strong>전신 아로마 마사지</strong><p>목, 어깨, 등, 하체까지 전체 피로감을 부드럽게 풀고 싶을 때 선택하기 좋습니다. 오래 앉아 있거나 전신이 무거운 날에 상담해볼 수 있습니다.</p></div><div class="aroma-mini" id="neck"><strong>경추/어깨 집중 코스</strong><p>목 주변 긴장, 어깨 결림, 승모근 피로가 큰 고객에게 어울립니다. 강한 압보다 반복적인 긴장 완화가 중요합니다.</p></div><div class="aroma-mini" id="foot"><strong>발 아로마 리플렉솔로지</strong><p>장시간 서 있거나 많이 걸은 날, 발과 종아리 피로가 큰 경우에 참고할 수 있습니다. 부종감이 있다면 강도 조절이 필요합니다.</p></div><div class="aroma-mini"><strong>오일 사용 기준</strong><p>오일은 향보다 피부 반응이 먼저입니다. 민감성 피부, 피부 열감, 알레르기 경험이 있다면 예약 전에 말해 주세요.</p></div></div></article>
+
+          <article class="aroma-card" id="oil-guide"><h2>오일 선택 가이드</h2><p>오일은 무조건 향이 좋은 것을 고르는 방식보다, 현재 컨디션과 피부 상태에 맞춰 선택하는 것이 좋습니다. 향이 강하면 오히려 머리가 무겁거나 부담스러울 수 있으므로 처음에는 무난한 향과 낮은 자극 기준으로 상담하는 편이 안전합니다.</p><div class="oil-guide"><div class="oil-note"><strong>처음 이용</strong><p>향이 강한 오일보다는 무난하고 부드러운 타입으로 시작하는 것이 좋습니다.</p></div><div class="oil-note"><strong>민감성 피부</strong><p>피부가 쉽게 붉어지거나 따가운 편이라면 오일 사용 가능 여부를 먼저 확인하세요.</p></div><div class="oil-note"><strong>향에 예민한 경우</strong><p>향이 강하면 두통이나 불편함이 생길 수 있어 약한 향 또는 무향에 가까운 방향을 상담하세요.</p></div></div></article>
+
+          <article class="aroma-card" id="caution"><h2>이런 상태라면 오일 사용을 주의하세요</h2><p>아로마 마사지는 피부에 오일이 닿는 관리이기 때문에 컨디션과 피부 상태를 반드시 확인해야 합니다. 아래에 해당한다면 예약 전 상담에서 먼저 알려 주세요.</p><div class="caution-grid"><div class="caution-mini" id="skin-heat"><strong>염증/열감 있는 피부</strong><p>피부가 붉거나 열감이 있으면 오일과 마찰이 부담될 수 있습니다.</p></div><div class="caution-mini" id="pregnancy"><strong>임신 또는 수유 중</strong><p>향과 압박, 자세 제한이 있을 수 있어 반드시 사전 상담이 필요합니다.</p></div><div class="caution-mini" id="bloodpressure"><strong>고혈압 / 저혈압</strong><p>컨디션 변화가 있을 수 있으므로 강도와 시간을 무리하게 잡지 않는 편이 좋습니다.</p></div><div class="caution-mini" id="insomnia"><strong>극심한 불면 & 두통</strong><p>향에 예민한 상태라면 강한 향이 오히려 불편할 수 있습니다.</p></div><div class="caution-mini" id="medication"><strong>약물 복용 중</strong><p>피부 반응이나 컨디션 변화가 걱정된다면 이용 전 확인이 필요합니다.</p></div><div class="caution-mini"><strong>알레르기 경험</strong><p>특정 향이나 오일에 반응한 경험이 있다면 예약 전 반드시 말해 주세요.</p></div></div></article>
+
+          <article class="aroma-card" id="match"><h2>내 상태에 맞는 오일 찾기</h2><p>오일 선택은 “향이 마음에 드는지”보다 지금 몸 상태와 피부 상태를 기준으로 보는 것이 좋습니다. 아래 항목은 상담 전 스스로 점검하기 위한 기준입니다.</p><div class="match-grid"><div class="match-mini" id="muscle"><strong>근육통 / 피로</strong><p>전신이 무겁고 뻐근하면 관리 강도와 집중 부위를 먼저 정리해 주세요.</p></div><div class="match-mini" id="stress"><strong>스트레스 / 불안</strong><p>향이 너무 강하지 않은 편안한 방향으로 상담하는 것이 좋습니다.</p></div><div class="match-mini" id="swelling"><strong>부종 / 림프 순환</strong><p>압이 강하면 불편할 수 있어 부드러운 흐름과 강도 조절이 중요합니다.</p></div><div class="match-mini" id="skin"><strong>건성 / 민감성 피부</strong><p>오일 사용 후 따가움이나 붉어짐이 있었는지 미리 알려주세요.</p></div></div></article>
+
+          <article class="aroma-card"><h2>예약 전 확인하면 좋은 질문</h2><p>아로마 마사지는 코스 시간과 오일 기준, 피부 상태 확인이 중요합니다. 예약 전 아래 질문을 확인하면 불필요한 오해를 줄일 수 있습니다.</p><ul class="aroma-list"><li>오일 사용 방식과 향 선택이 가능한지 확인하세요.</li><li>아로마 90분, 120분 기준과 최종 요금을 확인하세요.</li><li>피부가 예민하거나 향에 민감한 경우 대체 가능한지 물어보세요.</li><li>심야, 원거리, 주차 조건에 따른 추가 안내가 있는지 확인하세요.</li></ul></article>
+
+          <section class="aroma-faq" id="faq"><h2>자주 묻는 질문</h2><details class="faq-item" open><summary>아로마 마사지는 처음 이용해도 괜찮나요?</summary><p>처음 이용해도 상담을 통해 강도와 오일 사용 기준을 조절할 수 있습니다. 피부가 예민하다면 예약 전에 꼭 말해 주세요.</p></details><details class="faq-item"><summary>오일 향을 선택할 수 있나요?</summary><p>가능 여부는 운영 상황에 따라 달라질 수 있습니다. 향에 예민하다면 강한 향은 피하고 무난한 방향으로 상담하는 것이 좋습니다.</p></details><details class="faq-item"><summary>피부가 민감한데 받을 수 있나요?</summary><p>민감성 피부는 오일 사용 전 확인이 필요합니다. 열감, 염증, 알레르기 경험이 있다면 이용을 미루거나 먼저 상담하세요.</p></details><details class="faq-item"><summary>아로마와 스웨디시는 어떻게 다른가요?</summary><p>아로마는 오일 사용과 부드러운 관리감이 핵심이고, 스웨디시는 이완 흐름과 순환 중심으로 안내되는 경우가 많습니다. 실제 구성은 예약 전 확인하세요.</p></details><details class="faq-item"><summary>예약할 때 무엇을 말하면 되나요?</summary><p>이용 지역, 희망 시간, 아로마 희망 여부, 피부 민감도, 원하는 관리 부위를 말하면 상담이 빨라집니다.</p></details></section>
+
+          <article class="aroma-cta"><h2>예약 / 문의</h2><p>아로마 마사지를 예약하기 전에는 이용 지역, 희망 시간, 피부 상태, 원하는 관리 부위를 알려주세요. 오일 사용이 걱정된다면 처음부터 “피부가 예민합니다”라고 말하는 것이 가장 좋습니다.</p><div class="aroma-actions"><a class="button primary" href="tel:0508-202-4683">지금 전화예약</a><a class="button secondary" href="first.html">처음 이용 안내 보기</a></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><strong>출장마사지 지역 안내</strong><p>서울 · 경기 · 인천 지역별 출장마사지 정보 허브</p></footer>
+  <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>전화예약</span><strong>0508-202-4683</strong></a>
+  <script src="script.js"></script>
+</body>
+</html>
