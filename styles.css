@@ -397,6 +397,78 @@ p {
   color: var(--orange);
 }
 
+.review-grid article {
+  background:
+    linear-gradient(135deg, rgba(255, 138, 29, 0.1), rgba(255, 138, 29, 0) 46%),
+    var(--panel);
+}
+
+.review-grid .review-stars {
+  color: var(--orange);
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review-grid .review-meta {
+  color: var(--muted);
+  display: block;
+  font-size: 14px;
+  margin-top: 14px;
+}
+
+.review-grid article > * {
+  display: none;
+}
+
+.review-grid article::before {
+  color: var(--text);
+  content: "";
+  display: block;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+.review-grid article:nth-child(1)::before {
+  content: "★★★★★\A 익명 · 서울 강남구\A\A 진짜 여기 괜찮아요. 어깨랑 허리 뻣뻣해서 몇 군데 알아봤는데, 무리하게 누르지 않고 천천히 풀어주는 스타일이에요. 강도도 중간에 조절해주고, 가격도 다른 데 비해 부담 없어서 자주 이용할 듯합니다. 안내도 깔끔하고, 관리사님이 계속 편한지 물어보는 태도가 좋았음. 내돈내산 인증합니다.";
+}
+
+.review-grid article:nth-child(2)::before {
+  content: "★★★★☆\A 익명 · 경기 분당\A\A 여기 나쁘지 않은데 약간 아쉬운 게 있어요. 관리 자체는 진짜 잘해주고, 힘 조절도 원하는 대로 해줘서 몸은 확 풀렸어요. 그런데 예약 시간이 내가 원한 시간보다 한 시간 정도 밀렸습니다. 그래도 안내가 솔직했고, 다음에는 시간 여유 두고 예약할 생각이에요. 가격 대비 나쁘지 않습니다.";
+}
+
+.review-grid article:nth-child(3)::before {
+  content: "★★★★★\A 익명 · 인천 송도\A\A 처음 문의할 때 코스랑 가격을 먼저 정리해서 알려줘서 편했습니다. 어깨가 많이 굳어 있었는데 강도를 세게만 하는 게 아니라 천천히 풀어주는 느낌이라 만족했어요. 방문 전 확인할 것도 미리 말해줘서 불편한 부분이 없었습니다.";
+}
+
+.review-grid article:nth-child(4)::before {
+  content: "★★★★★\A 익명 · 서울 마포\A\A 퇴근 후에 급하게 알아봤는데 가능한 시간대를 바로 알려줘서 예약이 쉬웠습니다. 안내받은 금액 그대로였고, 관리 중간중간 불편한지 확인해주는 점이 좋았습니다. 과하게 홍보하는 느낌보다 차분한 응대라 믿음이 갔어요.";
+}
+
+.review-grid article:nth-child(5)::before {
+  content: "★★★★☆\A 익명 · 경기 수원\A\A 허리랑 다리 피로가 심해서 이용했는데 스포츠 쪽으로 추천받길 잘했습니다. 압 조절이 괜찮았고 끝나고 나서 몸이 가벼워졌어요. 다만 늦은 시간은 가능 여부가 빨리 바뀌는 것 같아서 미리 문의하는 게 좋을 듯합니다.";
+}
+
+.review-grid article:nth-child(6)::before {
+  content: "★★★★★\A 익명 · 서울 서초\A\A 아로마 코스로 이용했는데 향이나 오일 느낌이 부담스럽지 않았습니다. 예약 전에 결제 방식, 방문 시간, 주의사항을 명확하게 알려줘서 처음 이용하는 입장에서도 편했어요. 전체적으로 깔끔하고 응대가 안정적이었습니다.";
+}
+
+.review-grid article:nth-child(7)::before {
+  content: "★★★★☆\A 익명 · 경기 일산\A\A 예약 가능한 시간이 조금 늦어져서 아쉬웠지만, 미리 연락을 줘서 기다리는 동안 불편함은 적었습니다. 관리는 꼼꼼했고 어깨랑 목 쪽을 집중적으로 봐줘서 만족했습니다. 다음에는 조금 일찍 예약하려고 합니다.";
+}
+
+.review-grid article:nth-child(8)::before {
+  content: "★★★★★\A 익명 · 인천 부평\A\A 가격 안내가 깔끔해서 좋았습니다. 추가 비용이 생길 수 있는 조건도 먼저 말해줘서 나중에 당황할 일이 없었어요. 관리도 무리하게 진행하지 않고 컨디션에 맞춰 조절해주는 느낌이라 다시 이용할 생각입니다.";
+}
+
+.review-grid article:nth-child(9)::before {
+  content: "★★★★★\A 익명 · 서울 송파\A\A 잠실 쪽에서 이용했는데 이동 시간 안내가 정확했습니다. 목이랑 어깨 위주로 요청했더니 그 부분을 신경 써서 진행해줬고, 중간에 강도 확인을 자주 해줘서 편했습니다. 전체적으로 가격 대비 만족도가 높았습니다.";
+}
+
+.review-grid article:nth-child(10)::before {
+  content: "★★★★☆\A 익명 · 경기 용인\A\A 처음이라 이것저것 물어봤는데 귀찮아하지 않고 차분하게 설명해줬습니다. 원하는 시간은 바로 안 됐지만 가능한 시간 안내가 명확했고, 관리는 부드럽게 진행돼서 좋았어요. 다음에는 예약 시간만 더 여유 있게 잡으면 될 것 같습니다.";
+}
+
 .principles {
   display: grid;
   gap: 14px;
@@ -602,6 +674,239 @@ p {
   background: #2d2d2d;
 }
 
+.local-hero {
+  align-items: end;
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.76)),
+    url("assets/hero-massage.svg") center / cover;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  padding: 104px max(22px, calc((100vw - var(--max)) / 2)) 70px;
+}
+
+.local-hero h1 {
+  font-size: clamp(38px, 6vw, 70px);
+  max-width: 900px;
+}
+
+.local-hero p:not(.eyebrow) {
+  font-size: 18px;
+  margin-top: 16px;
+  max-width: 780px;
+}
+
+.booking-panel,
+.business-info,
+.profile-card,
+.local-block,
+.notice-box,
+.local-review-card,
+.seo-article,
+.faq-section {
+  background: #171717;
+  border: 1px solid #343434;
+  border-radius: 8px;
+}
+
+.booking-panel {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+}
+
+.booking-panel strong {
+  color: var(--orange);
+  font-size: 28px;
+}
+
+.local-section {
+  display: grid;
+  gap: 22px;
+}
+
+.local-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+}
+
+.business-info,
+.profile-card,
+.local-block,
+.local-review-card,
+.seo-article,
+.faq-section {
+  padding: 24px;
+}
+
+.business-info dl {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.business-info dl div {
+  border-bottom: 1px solid #303030;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.business-info dt {
+  color: var(--muted);
+}
+
+.business-info dd {
+  color: var(--text);
+  font-weight: 800;
+  margin: 0;
+  text-align: right;
+}
+
+.profile-card {
+  align-items: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 180px minmax(0, 1fr);
+}
+
+.profile-card img {
+  aspect-ratio: 4 / 5;
+  border: 1px solid #393939;
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.profile-card span {
+  color: var(--orange-soft);
+  display: block;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.price-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.price-card {
+  background: #101010;
+  border: 1px solid #343434;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.price-card h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.price-card p {
+  border-bottom: 1px dashed #353535;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.price-card strong {
+  color: var(--text);
+}
+
+.price-note,
+.seo-article p,
+.faq-item p,
+.profile-card p,
+.notice-box p {
+  color: var(--muted);
+}
+
+.price-note {
+  margin-top: 14px;
+}
+
+.notice-box {
+  background: #25180d;
+  border-color: rgba(255, 138, 29, 0.38);
+  padding: 20px 24px;
+}
+
+.notice-box strong {
+  color: var(--orange);
+}
+
+.local-review-card {
+  background:
+    linear-gradient(135deg, rgba(255, 138, 29, 0.12), rgba(255, 138, 29, 0) 42%),
+    #181818;
+  display: grid;
+  gap: 12px;
+}
+
+.local-review-card h2 {
+  font-size: 28px;
+}
+
+.review-stars {
+  color: var(--orange);
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.local-review-card blockquote {
+  border-left: 3px solid var(--orange);
+  color: var(--text);
+  line-height: 1.75;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.local-review-card span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.seo-article {
+  display: grid;
+  gap: 14px;
+}
+
+.seo-article h2,
+.faq-section h2 {
+  font-size: 28px;
+}
+
+.seo-article h2:not(:first-child) {
+  margin-top: 14px;
+}
+
+.faq-section {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  background: #101010;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.faq-item summary {
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.faq-item p {
+  margin-top: 10px;
+}
+
 .mobile-call-button {
   display: none;
 }
@@ -643,7 +948,10 @@ p {
   .guide-grid,
   .support-grid,
   .subpage-layout,
-  .region-switcher {
+  .region-switcher,
+  .local-hero,
+  .local-grid,
+  .price-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -675,7 +983,11 @@ p {
   .review-grid,
   .support-grid,
   .subpage-layout,
-  .region-switcher {
+  .region-switcher,
+  .local-hero,
+  .local-grid,
+  .price-grid,
+  .profile-card {
     grid-template-columns: 1fr;
   }
 
