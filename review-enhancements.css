@@ -85,6 +85,31 @@
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
+.seo-article {
+  gap: 16px;
+}
+
+.seo-article h2:not(:first-child) {
+  border-top: 1px solid rgba(255, 138, 29, 0.22);
+  margin-top: 18px;
+  padding-top: 24px;
+}
+
+.seo-copy {
+  display: grid;
+  gap: 10px;
+  max-width: 920px;
+}
+
+.seo-copy p {
+  background: linear-gradient(90deg, rgba(255, 138, 29, 0.08), rgba(255, 138, 29, 0));
+  border-left: 2px solid rgba(255, 138, 29, 0.42);
+  color: #e6e6e6;
+  line-height: 1.82;
+  margin: 0;
+  padding: 10px 14px;
+}
+
 @media (max-width: 680px) {
   .review-slider {
     gap: 10px;
@@ -101,5 +126,10 @@
     font-size: 28px;
     height: 40px;
     width: 40px;
+  }
+
+  .seo-copy p {
+    line-height: 1.72;
+    padding: 10px 12px;
   }
 }
