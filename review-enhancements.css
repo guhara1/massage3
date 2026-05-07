@@ -1,0 +1,105 @@
+.review-slider {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+}
+
+.review-viewport {
+  overflow: hidden;
+}
+
+.review-track {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.34s ease;
+  will-change: transform;
+}
+
+.review-card {
+  background:
+    linear-gradient(135deg, rgba(255, 138, 29, 0.2), rgba(255, 177, 94, 0.05) 42%),
+    linear-gradient(180deg, #1b1b1b, #111111);
+  border: 1px solid rgba(255, 138, 29, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  flex: 0 0 calc((100% - 18px) / 2);
+  min-height: 276px;
+  padding: 24px;
+}
+
+.review-card strong {
+  color: var(--orange);
+  display: block;
+  font-size: 18px;
+  margin: 8px 0 14px;
+}
+
+.review-card p {
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.review-card .review-stars {
+  color: #ffd36b;
+  display: block;
+  font-size: 19px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 16px rgba(255, 211, 107, 0.22);
+}
+
+.review-nav {
+  align-items: center;
+  background: #1b140d;
+  border: 1px solid rgba(255, 138, 29, 0.62);
+  border-radius: 999px;
+  color: var(--orange);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 34px;
+  font-weight: 800;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  width: 48px;
+}
+
+.review-nav:hover {
+  background: var(--orange);
+  color: #050505;
+  transform: translateY(-1px);
+}
+
+.review-nav:disabled {
+  cursor: default;
+  opacity: 0.42;
+  transform: none;
+}
+
+.local-review-card {
+  background:
+    linear-gradient(135deg, rgba(255, 138, 29, 0.18), rgba(255, 177, 94, 0.05) 44%),
+    linear-gradient(180deg, #1b1b1b, #111111);
+  border-color: rgba(255, 138, 29, 0.5);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 680px) {
+  .review-slider {
+    gap: 10px;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+  }
+
+  .review-card {
+    flex-basis: 100%;
+    min-height: 330px;
+    padding: 20px;
+  }
+
+  .review-nav {
+    font-size: 28px;
+    height: 40px;
+    width: 40px;
+  }
+}
