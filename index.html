@@ -9,6 +9,17 @@
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="review-enhancements.css">
+  <style>
+    .hero { min-height: calc(100vh - 72px); place-items: center; }
+    .hero-content { align-self: center; display: grid; justify-items: center; max-width: 920px; padding: 82px 22px 96px; text-align: center; }
+    .hero-panel { background: linear-gradient(180deg, rgba(15, 15, 15, .9), rgba(6, 6, 6, .86)); border: 1px solid rgba(255, 138, 29, .34); border-radius: 8px; box-shadow: 0 24px 70px rgba(0, 0, 0, .42); display: grid; justify-items: center; padding: clamp(34px, 6vw, 68px) clamp(20px, 5vw, 64px); width: min(100%, 860px); }
+    .hero h1 { color: var(--orange); font-size: clamp(34px, 5.2vw, 64px); line-height: 1.12; max-width: 760px; }
+    .hero h2 { color: #fff; font-size: clamp(18px, 2.4vw, 28px); font-weight: 800; line-height: 1.45; margin: 18px 0 0; }
+    .hero-note { color: var(--orange-soft); font-size: 15px; font-weight: 800; margin-top: 22px; }
+    .hero-actions { justify-content: center; margin-top: 30px; }
+    .hero-actions .button { align-items: center; justify-content: center; min-width: 150px; }
+    @media (max-width: 680px) { .hero-content { padding-top: 56px; } .hero-panel { padding: 32px 18px; } .hero-actions { width: 100%; } .hero-actions .button { flex: 1 1 100%; } }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -27,10 +38,12 @@
     <section class="hero">
       <div class="hero-media" role="img" aria-label="차분한 마사지 룸 이미지"></div>
       <div class="hero-content">
-        <p class="eyebrow">Mazzang real-time matching</p>
-        <h1>출장 마사지 바로 예약 | 실시간 관리사 매칭</h1>
-        <p>내 지역으로 오는 출장 마사지. 전국 어디든 관리사 매칭. 강남, 인천, 수원, 부산 등 전국 50개 지역 예약 가능.</p>
-        <div class="hero-actions"><a class="button primary" href="tel:0508-202-4683">0508-202-4683 전화예약</a><a class="button secondary" href="#regions">지역 선택</a></div>
+        <div class="hero-panel">
+          <h1>내 지역으로 오는 출장 마사지</h1>
+          <h2>서울·부산 등 전국 어디든, 내가 원하는 시간에</h2>
+          <div class="hero-actions"><a class="button primary" href="#regions">지역 확인하기</a><a class="button secondary" href="booking.html">예약 안내</a></div>
+          <p class="hero-note">* 강남, 인천, 부산 외 전국 50개 지역 가능</p>
+        </div>
       </div>
     </section>
 
