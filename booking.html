@@ -131,14 +131,14 @@
       margin-bottom: 8px;
     }
 
-    .internal-link-grid {
+    .guide-card-grid {
       display: grid;
       gap: 12px;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 16px;
     }
 
-    .internal-link-grid a {
+    .guide-card-grid a {
       background: #101010;
       border: 1px solid rgba(255, 138, 29, 0.36);
       border-radius: 8px;
@@ -149,12 +149,12 @@
       padding: 16px;
     }
 
-    .internal-link-grid strong {
+    .guide-card-grid strong {
       color: var(--orange);
       font-size: 18px;
     }
 
-    .internal-link-grid span {
+    .guide-card-grid span {
       color: #d8d8d8;
       line-height: 1.5;
     }
@@ -180,7 +180,7 @@
 
     @media (max-width: 920px) {
       .booking-grid,
-      .internal-link-grid {
+      .guide-card-grid {
         grid-template-columns: 1fr;
       }
 
@@ -257,10 +257,10 @@
         <a class="button primary" href="tel:0508-202-4683">0508-202-4683 전화예약</a>
         <a class="button secondary" href="#steps">예약 단계 보기</a>
       </div>
-      <div class="quick-links" aria-label="예약방법 페이지 내부 링크">
+      <div class="quick-links" aria-label="예약방법 페이지 빠른 안내">
         <a href="#before">예약 전 확인사항</a>
         <a href="#steps">예약 6단계</a>
-        <a href="#links">관련 페이지</a>
+        <a href="#guides">필수 안내</a>
         <a href="#change">변경 및 취소</a>
         <a href="#faq">자주 묻는 질문</a>
       </div>
@@ -362,10 +362,10 @@
             </ul>
           </article>
 
-          <article class="booking-card" id="links">
-            <h2>예약 전 함께 보면 좋은 내부 링크</h2>
-            <p>예약방법 페이지에서는 비용, 지역, 공지, 자주 묻는 질문으로 자연스럽게 이동할 수 있어야 합니다. 아래 링크를 통해 예약 전에 필요한 정보를 바로 확인하세요.</p>
-            <div class="internal-link-grid">
+          <article class="booking-card" id="guides">
+            <h2>예약 전 함께 보면 좋은 안내</h2>
+            <p>예약 전에 비용, 방문 가능 지역, 운영 공지, 자주 묻는 질문을 미리 확인하면 상담이 훨씬 빠르고 정확해집니다. 필요한 내용을 먼저 살펴본 뒤 지역과 희망 시간을 알려주세요.</p>
+            <div class="guide-card-grid">
               <a href="price.html"><strong>코스 및 비용 안내</strong><span>예약 전 가격과 코스 기준을 확인합니다.</span></a>
               <a href="seoul.html"><strong>서울 출장마사지 가능 지역</strong><span>서울 고객용 방문 가능 지역을 확인합니다.</span></a>
               <a href="gyeonggi.html"><strong>경기 출장마사지 가능 지역</strong><span>경기 주요 도시 방문 가능 여부를 확인합니다.</span></a>
