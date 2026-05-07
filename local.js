@@ -1,4 +1,5 @@
 const phoneNumber = "0508-202-4683";
+const profilePhotoUrl = "https://images.pexels.com/photos/19899329/pexels-photo-19899329.jpeg?auto=compress&cs=tinysrgb&w=480&h=720&fit=crop";
 
 const regionNames = {
   seoul: "서울",
@@ -108,7 +109,7 @@ function renderLocalPage(regionData) {
         </article>
 
         <article class="profile-card">
-          <img src="assets/profile-therapist.svg" alt="전문 관리사 프로필 이미지">
+          <img src="${profilePhotoUrl}" alt="전문 관리사 프로필 사진" loading="lazy">
           <div>
             <p class="eyebrow">프로필</p>
             <h2>전문 관리사 배정</h2>
@@ -134,14 +135,19 @@ function renderLocalPage(regionData) {
         <h2>${dongName} 출장마사지를 찾는 분들이 많은 이유</h2>
         <p>${context}</p>
         <p>${dongName} 출장마사지를 찾는 고객은 단순히 가까운 업체보다 예약 가능 시간, 가격 설명, 코스 차이, 실제 방문 범위를 함께 확인하려는 경우가 많습니다.</p>
+
         <h2>${dongName} 주요 생활권과 방문 가능 범위</h2>
         <p>${areaName} 안에서도 역 주변, 상권, 주거 밀집지, 오피스텔 구간은 예약 수요가 다릅니다. ${nearby.length ? `${nearby.join(", ")} 등 인근 동도 함께 비교하면 이동 가능 시간을 더 정확히 잡을 수 있습니다.` : "인근 생활권까지 함께 확인하면 이동 가능 시간을 더 정확히 잡을 수 있습니다."}</p>
+
         <h2>${dongName}에서 선택할 수 있는 마사지 종류</h2>
         <p>스웨디시는 부드러운 순환 관리에 가깝고, 홈타이는 스트레칭과 압박 중심입니다. 아로마는 오일 사용 여부를 확인해야 하며, 스포츠 마사지는 목·어깨·허리처럼 특정 부위 피로를 말해두는 편이 좋습니다.</p>
+
         <h2>예약 전 꼭 확인해야 할 사항</h2>
         <p>가격, 이용 시간, 상세 위치, 추가비용, 운영정책, 예약 변경 기준은 문의 단계에서 확인해야 합니다. 특히 ${dongName}처럼 건물 출입 방식이 다른 곳은 공동현관, 주차, 엘리베이터 이용 가능 여부를 미리 알려주는 것이 좋습니다.</p>
+
         <h2>가격이 달라지는 이유</h2>
         <p>코스 시간, 서비스 종류, 심야 여부, 이동 거리, 대기 시간에 따라 금액이 달라질 수 있습니다. 너무 낮은 가격만 앞세우는 안내보다 총 비용과 조건을 분명히 말하는 곳을 선택하는 편이 안전합니다.</p>
+
         <h2>처음 이용하는 분들을 위한 현실적인 조언</h2>
         <p>과장된 표현이나 확인되지 않은 후기만 보고 결정하지 말고, 문의할 때 응답이 구체적인지 확인하세요. 실제 이용 전에는 “총 금액이 얼마인지”, “몇 분 코스인지”, “예약 변경은 어떻게 되는지”를 물어보면 불필요한 오해를 줄일 수 있습니다.</p>
       </article>
