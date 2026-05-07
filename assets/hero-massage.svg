@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1000" role="img" aria-label="차분한 마사지 룸">
+  <defs>
+    <linearGradient id="wall" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101010"/>
+      <stop offset="0.55" stop-color="#18120d"/>
+      <stop offset="1" stop-color="#060606"/>
+    </linearGradient>
+    <linearGradient id="linen" x1="0" x2="1">
+      <stop offset="0" stop-color="#282828"/>
+      <stop offset="1" stop-color="#3a2a1d"/>
+    </linearGradient>
+    <radialGradient id="lamp" cx="50%" cy="42%" r="48%">
+      <stop offset="0" stop-color="#ffb15e" stop-opacity="0.9"/>
+      <stop offset="0.45" stop-color="#ff8a1d" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1800" height="1000" fill="url(#wall)"/>
+  <rect y="690" width="1800" height="310" fill="#090909"/>
+  <circle cx="1240" cy="210" r="250" fill="url(#lamp)"/>
+  <rect x="1110" y="130" width="260" height="58" rx="8" fill="#24180f"/>
+  <rect x="1197" y="188" width="86" height="238" rx="22" fill="#151515"/>
+  <ellipse cx="1240" cy="447" rx="190" ry="40" fill="#080808"/>
+  <rect x="340" y="520" width="860" height="145" rx="20" fill="#151515"/>
+  <rect x="410" y="435" width="750" height="170" rx="40" fill="url(#linen)"/>
+  <rect x="290" y="650" width="970" height="52" rx="12" fill="#1f1f1f"/>
+  <rect x="350" y="702" width="54" height="170" rx="16" fill="#121212"/>
+  <rect x="1145" y="702" width="54" height="170" rx="16" fill="#121212"/>
+  <rect x="1255" y="600" width="210" height="18" rx="9" fill="#5c3920"/>
+  <circle cx="1285" cy="564" r="40" fill="#ff8a1d" opacity="0.82"/>
+  <circle cx="1362" cy="548" r="52" fill="#ffb15e" opacity="0.68"/>
+  <circle cx="1422" cy="570" r="34" fill="#ff8a1d" opacity="0.7"/>
+  <rect x="0" y="0" width="1800" height="1000" fill="#000" opacity="0.28"/>
+</svg>
