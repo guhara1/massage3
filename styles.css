@@ -251,7 +251,7 @@ p {
 
 .region-tabs,
 .region-panel,
-.dong-card,
+dong-card,
 .service-card,
 .guide-grid article,
 .review-grid article,
@@ -389,84 +389,83 @@ p {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.review-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.review-slider {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
 }
 
-.review-grid strong {
-  color: var(--orange);
+.review-viewport {
+  overflow: hidden;
 }
 
-.review-grid article {
+.review-track {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.34s ease;
+  will-change: transform;
+}
+
+.review-card {
   background:
-    linear-gradient(135deg, rgba(255, 138, 29, 0.1), rgba(255, 138, 29, 0) 46%),
-    var(--panel);
+    linear-gradient(135deg, rgba(255, 138, 29, 0.2), rgba(255, 177, 94, 0.05) 42%),
+    linear-gradient(180deg, #1b1b1b, #111111);
+  border: 1px solid rgba(255, 138, 29, 0.48);
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  flex: 0 0 calc((100% - 18px) / 2);
+  min-height: 276px;
+  padding: 24px;
 }
 
-.review-grid .review-stars {
+.review-card strong {
   color: var(--orange);
   display: block;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin: 8px 0 14px;
 }
 
-.review-grid .review-meta {
-  color: var(--muted);
-  display: block;
-  font-size: 14px;
-  margin-top: 14px;
-}
-
-.review-grid article > * {
-  display: none;
-}
-
-.review-grid article::before {
+.review-card p {
   color: var(--text);
-  content: "";
-  display: block;
   line-height: 1.75;
-  white-space: pre-line;
 }
 
-.review-grid article:nth-child(1)::before {
-  content: "★★★★★\A 익명 · 서울 강남구\A\A 진짜 여기 괜찮아요. 어깨랑 허리 뻣뻣해서 몇 군데 알아봤는데, 무리하게 누르지 않고 천천히 풀어주는 스타일이에요. 강도도 중간에 조절해주고, 가격도 다른 데 비해 부담 없어서 자주 이용할 듯합니다. 안내도 깔끔하고, 관리사님이 계속 편한지 물어보는 태도가 좋았음. 내돈내산 인증합니다.";
+.review-card .review-stars {
+  color: #ffd36b;
+  display: block;
+  font-size: 19px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 16px rgba(255, 211, 107, 0.22);
 }
 
-.review-grid article:nth-child(2)::before {
-  content: "★★★★☆\A 익명 · 경기 분당\A\A 여기 나쁘지 않은데 약간 아쉬운 게 있어요. 관리 자체는 진짜 잘해주고, 힘 조절도 원하는 대로 해줘서 몸은 확 풀렸어요. 그런데 예약 시간이 내가 원한 시간보다 한 시간 정도 밀렸습니다. 그래도 안내가 솔직했고, 다음에는 시간 여유 두고 예약할 생각이에요. 가격 대비 나쁘지 않습니다.";
+.review-nav {
+  align-items: center;
+  background: #1b140d;
+  border: 1px solid rgba(255, 138, 29, 0.62);
+  border-radius: 999px;
+  color: var(--orange);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 34px;
+  font-weight: 800;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  width: 48px;
 }
 
-.review-grid article:nth-child(3)::before {
-  content: "★★★★★\A 익명 · 인천 송도\A\A 처음 문의할 때 코스랑 가격을 먼저 정리해서 알려줘서 편했습니다. 어깨가 많이 굳어 있었는데 강도를 세게만 하는 게 아니라 천천히 풀어주는 느낌이라 만족했어요. 방문 전 확인할 것도 미리 말해줘서 불편한 부분이 없었습니다.";
+.review-nav:hover {
+  background: var(--orange);
+  color: #050505;
+  transform: translateY(-1px);
 }
 
-.review-grid article:nth-child(4)::before {
-  content: "★★★★★\A 익명 · 서울 마포\A\A 퇴근 후에 급하게 알아봤는데 가능한 시간대를 바로 알려줘서 예약이 쉬웠습니다. 안내받은 금액 그대로였고, 관리 중간중간 불편한지 확인해주는 점이 좋았습니다. 과하게 홍보하는 느낌보다 차분한 응대라 믿음이 갔어요.";
-}
-
-.review-grid article:nth-child(5)::before {
-  content: "★★★★☆\A 익명 · 경기 수원\A\A 허리랑 다리 피로가 심해서 이용했는데 스포츠 쪽으로 추천받길 잘했습니다. 압 조절이 괜찮았고 끝나고 나서 몸이 가벼워졌어요. 다만 늦은 시간은 가능 여부가 빨리 바뀌는 것 같아서 미리 문의하는 게 좋을 듯합니다.";
-}
-
-.review-grid article:nth-child(6)::before {
-  content: "★★★★★\A 익명 · 서울 서초\A\A 아로마 코스로 이용했는데 향이나 오일 느낌이 부담스럽지 않았습니다. 예약 전에 결제 방식, 방문 시간, 주의사항을 명확하게 알려줘서 처음 이용하는 입장에서도 편했어요. 전체적으로 깔끔하고 응대가 안정적이었습니다.";
-}
-
-.review-grid article:nth-child(7)::before {
-  content: "★★★★☆\A 익명 · 경기 일산\A\A 예약 가능한 시간이 조금 늦어져서 아쉬웠지만, 미리 연락을 줘서 기다리는 동안 불편함은 적었습니다. 관리는 꼼꼼했고 어깨랑 목 쪽을 집중적으로 봐줘서 만족했습니다. 다음에는 조금 일찍 예약하려고 합니다.";
-}
-
-.review-grid article:nth-child(8)::before {
-  content: "★★★★★\A 익명 · 인천 부평\A\A 가격 안내가 깔끔해서 좋았습니다. 추가 비용이 생길 수 있는 조건도 먼저 말해줘서 나중에 당황할 일이 없었어요. 관리도 무리하게 진행하지 않고 컨디션에 맞춰 조절해주는 느낌이라 다시 이용할 생각입니다.";
-}
-
-.review-grid article:nth-child(9)::before {
-  content: "★★★★★\A 익명 · 서울 송파\A\A 잠실 쪽에서 이용했는데 이동 시간 안내가 정확했습니다. 목이랑 어깨 위주로 요청했더니 그 부분을 신경 써서 진행해줬고, 중간에 강도 확인을 자주 해줘서 편했습니다. 전체적으로 가격 대비 만족도가 높았습니다.";
-}
-
-.review-grid article:nth-child(10)::before {
-  content: "★★★★☆\A 익명 · 경기 용인\A\A 처음이라 이것저것 물어봤는데 귀찮아하지 않고 차분하게 설명해줬습니다. 원하는 시간은 바로 안 됐지만 가능한 시간 안내가 명확했고, 관리는 부드럽게 진행돼서 좋았어요. 다음에는 예약 시간만 더 여유 있게 잡으면 될 것 같습니다.";
+.review-nav:disabled {
+  cursor: default;
+  opacity: 0.42;
+  transform: none;
 }
 
 .principles {
@@ -483,13 +482,60 @@ p {
 }
 
 .site-footer {
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  padding: 32px max(22px, calc((100vw - var(--max)) / 2));
+  background:
+    linear-gradient(180deg, rgba(255, 138, 29, 0.08), rgba(255, 138, 29, 0) 44%),
+    linear-gradient(180deg, #111111, #060606);
+  border-top: 1px solid rgba(255, 138, 29, 0.32);
+  color: var(--text);
+  display: grid;
+  gap: 24px;
+  padding: 44px max(22px, calc((100vw - var(--max)) / 2)) 24px;
 }
 
-.site-footer strong {
-  color: var(--orange);
+.site-footer > strong,
+.site-footer > p {
+  display: none;
+}
+
+.site-footer::before {
+  content:
+    "회사 정보\A"
+    "상호명  마짱\A"
+    "대표자명  강백호\A"
+    "주소  서울시 강남구 테헤란로 313 (우)06151\A"
+    "운영시간  오후 4시~익일 오전 8시\A\A"
+    "고객 지원\A"
+    "공지사항  바로가기\A"
+    "자주 묻는 질문  확인하기\A"
+    "1:1 문의  예약문의\A"
+    "전화번호  0508-202-4683\A\A"
+    "소셜 & 법적 정보\A"
+    "인스타그램  준비중\A"
+    "유튜브  준비중\A"
+    "블로그  준비중\A"
+    "카카오채널  준비중\A"
+    "개인정보처리방침  확인하기\A"
+    "이용약관  확인하기";
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  font-size: 15px;
+  line-height: 1.95;
+  max-width: var(--max);
+  padding: 24px;
+  white-space: pre-line;
+}
+
+.site-footer::after {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.58);
+  content: "Copyright © 2026 Mazzang. All rights reserved.";
+  display: block;
+  padding-top: 18px;
+  text-align: center;
 }
 
 .sub-hero {
@@ -842,8 +888,10 @@ p {
 
 .local-review-card {
   background:
-    linear-gradient(135deg, rgba(255, 138, 29, 0.12), rgba(255, 138, 29, 0) 42%),
-    #181818;
+    linear-gradient(135deg, rgba(255, 138, 29, 0.18), rgba(255, 177, 94, 0.05) 44%),
+    linear-gradient(180deg, #1b1b1b, #111111);
+  border-color: rgba(255, 138, 29, 0.5);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   display: grid;
   gap: 12px;
 }
@@ -989,6 +1037,23 @@ p {
   .price-grid,
   .profile-card {
     grid-template-columns: 1fr;
+  }
+
+  .review-slider {
+    gap: 10px;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+  }
+
+  .review-card {
+    flex-basis: 100%;
+    min-height: 330px;
+    padding: 20px;
+  }
+
+  .review-nav {
+    font-size: 28px;
+    height: 40px;
+    width: 40px;
   }
 
   .section {
