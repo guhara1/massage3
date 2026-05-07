@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /area.html
+Disallow: /area-landing.html
+Disallow: /subpage.html
+Disallow: /station.html
 
 Sitemap: https://mazzanng.netlify.app/sitemap.xml
 Sitemap: https://mazzanng.netlify.app/sitemap-gyeonggi.xml
