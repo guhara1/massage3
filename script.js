@@ -48,6 +48,97 @@
     return tag;
   }
 
+  function canonicalUrl() {
+    if (location.pathname === "/" || page === "index.html") return `${site}/`;
+    return `${site}${location.pathname}`;
+  }
+
+  function addJsonLd(id, data) {
+    if (document.getElementById(id)) return;
+    const schema = document.createElement("script");
+    schema.id = id;
+    schema.type = "application/ld+json";
+    schema.textContent = JSON.stringify(data);
+    document.head.appendChild(schema);
+  }
+
+  function installGlobalSchema() {
+    const url = canonicalUrl();
+    const pageTitle = document.title || "마짱";
+    const pageDescription = document.querySelector('meta[name="description"]')?.content || "마짱 전국 지역 안내 및 예약 상담";
+    const business = {
+      "@type": "LocalBusiness",
+      "@id": `${site}/#localbusiness`,
+      name: "마짱",
+      alternateName: "Mazzang",
+      url: site,
+      telephone: phone,
+      image: `${site}/favicon.svg`,
+      priceRange: "전화 문의",
+      areaServed: ["서울", "경기", "인천", "부산", "대구", "대전", "광주", "강원", "제주"],
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "KR",
+        addressLocality: "서울",
+        streetAddress: "서울시 강남구 테헤란로 313",
+        postalCode: "06151"
+      },
+      openingHoursSpecification: [{
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "16:00",
+        closes: "08:00"
+      }]
+    };
+    addJsonLd("ma-global-schema", {
+      "@context": "https://schema.org",
+      "@graph": [
+        business,
+        {
+          "@type": "Organization",
+          "@id": `${site}/#organization`,
+          name: "마짱",
+          alternateName: "Mazzang",
+          url: site,
+          logo: `${site}/favicon.svg`,
+          contactPoint: [{
+            "@type": "ContactPoint",
+            telephone: phone,
+            contactType: "customer support",
+            areaServed: "KR",
+            availableLanguage: ["ko-KR"]
+          }]
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${site}/#website`,
+          url: site,
+          name: "마짱",
+          inLanguage: "ko-KR",
+          publisher: { "@id": `${site}/#organization` }
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${url}#webpage`,
+          url,
+          name: pageTitle,
+          description: pageDescription,
+          inLanguage: "ko-KR",
+          isPartOf: { "@id": `${site}/#website` },
+          about: { "@id": `${site}/#localbusiness` }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": `${url}#breadcrumb`,
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "홈", item: `${site}/` },
+            { "@type": "ListItem", position: 2, name: pageTitle, item: url }
+          ]
+        }
+      ]
+    });
+  }
+
   function applySeo() {
     if (isAreaPage) return;
     const data = pageSeo[page];
@@ -111,6 +202,7 @@
   function run() {
     installStyle();
     applySeo();
+    installGlobalSchema();
     applyRegionNav();
     installFooter();
     mobileNav();
