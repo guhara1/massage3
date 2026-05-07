@@ -2,3 +2,6 @@
   Link: </favicon.svg>; rel="icon"; type="image/svg+xml"
   Link: </favicon.ico>; rel="shortcut icon"
   Link: </region-polish.css>; rel="stylesheet"; type="text/css"
+
+/area.html
+  X-Robots-Tag: noindex, follow
