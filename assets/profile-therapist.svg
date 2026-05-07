@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 640" role="img" aria-labelledby="title desc">
+  <title id="title">전문 관리사 프로필 이미지</title>
+  <desc id="desc">차분한 분위기의 비실사 프로필 일러스트</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#3a2b20"/><stop offset="1" stop-color="#0e0e0e"/></linearGradient>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f1c7a7"/><stop offset="1" stop-color="#d79a75"/></linearGradient>
+    <linearGradient id="hair" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#16100d"/><stop offset="1" stop-color="#050505"/></linearGradient>
+  </defs>
+  <rect width="520" height="640" rx="34" fill="url(#bg)"/>
+  <circle cx="398" cy="96" r="96" fill="#ff8a1d" opacity=".16"/>
+  <circle cx="102" cy="528" r="120" fill="#ff8a1d" opacity=".10"/>
+  <path d="M145 598c16-108 72-166 117-166s101 58 117 166H145z" fill="#141414"/>
+  <path d="M176 584c19-72 58-110 86-110s67 38 86 110H176z" fill="#242424"/>
+  <path d="M171 250c0-84 42-150 99-150s96 66 96 150c0 68-28 125-97 125s-98-57-98-125z" fill="url(#hair)"/>
+  <path d="M198 252c0-60 30-103 72-103s72 43 72 103c0 70-28 116-72 116s-72-46-72-116z" fill="url(#skin)"/>
+  <path d="M188 251c24-80 68-119 128-118 25 24 40 61 43 111-56-10-98-33-126-69-13 34-28 58-45 76z" fill="url(#hair)"/>
+  <path d="M223 282c10 11 23 17 39 17s29-6 39-17" fill="none" stroke="#7a4532" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="239" cy="240" r="6" fill="#1b120f"/><circle cx="301" cy="240" r="6" fill="#1b120f"/>
+  <path d="M267 246l-9 50h22l-7-50h-6z" fill="#c98766" opacity=".65"/>
+  <path d="M222 342c28 30 67 30 96 0 1 58-13 90-48 90s-49-32-48-90z" fill="url(#skin)"/>
+  <path d="M180 184c-28 40-37 93-24 153 10-42 25-76 47-101l-23-52z" fill="url(#hair)"/>
+  <path d="M349 188c27 41 34 94 20 152-9-42-24-75-47-101l27-51z" fill="url(#hair)"/>
+  <rect x="78" y="46" width="148" height="34" rx="17" fill="#ff8a1d" opacity=".95"/>
+  <text x="152" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#050505">PROFILE</text>
+</svg>
