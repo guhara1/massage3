@@ -490,13 +490,13 @@ p {
 
 .area-browser {
   display: grid;
-  gap: 18px;
-  padding: 24px;
+  gap: 22px;
+  padding: 28px;
 }
 
 .area-browser-head {
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .area-browser-head p {
@@ -515,21 +515,28 @@ p {
 }
 
 .district-grid {
-  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
 }
 
 .area-button,
 .district-button {
-  background: #080808;
+  align-items: center;
+  background: linear-gradient(180deg, #101010, #070707);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
   color: var(--text);
   cursor: pointer;
+  display: inline-flex;
   font: inherit;
-  font-weight: 700;
-  min-height: 48px;
-  padding: 10px 12px;
-  text-align: left;
+  font-size: 15px;
+  font-weight: 800;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 9px 12px;
+  position: relative;
+  text-align: center;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
 }
 
 .area-button:hover,
@@ -540,13 +547,26 @@ p {
   color: var(--orange);
 }
 
+.area-button:hover,
+.district-button:hover {
+  transform: translateY(-1px);
+}
+
+.area-button.is-active,
+.district-button.is-active {
+  background: #120b04;
+  box-shadow: inset 3px 0 0 var(--orange);
+}
+
 .dong-output {
-  background: #090909;
+  background:
+    linear-gradient(180deg, rgba(255, 138, 29, 0.08), rgba(9, 9, 9, 0) 34%),
+    #090909;
   border: 1px solid var(--line);
   border-radius: 8px;
   display: grid;
-  gap: 14px;
-  padding: 18px;
+  gap: 16px;
+  padding: 22px;
 }
 
 .dong-output h3 {
@@ -558,17 +578,19 @@ p {
 }
 
 .dong-chip-grid {
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(94px, 1fr));
 }
 
 .dong-chip-grid a {
-  background: var(--panel);
+  background: #050505;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 6px;
   color: var(--text);
   font-size: 14px;
-  padding: 8px 11px;
+  font-weight: 700;
+  padding: 8px 10px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .dong-chip-grid a:hover {
