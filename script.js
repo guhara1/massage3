@@ -1,40 +1,68 @@
 (() => {
-  const regionLinks = [
-    ["수도권", "capital"],
-    ["영남권", "yeongnam"],
-    ["충청권", "chungcheong"],
-    ["호남권", "honam"],
-    ["강원·제주", "gangwonjeju"]
-  ];
+  const regionLinks = [["수도권", "capital"], ["영남권", "yeongnam"], ["충청권", "chungcheong"], ["호남권", "honam"], ["강원·제주", "gangwonjeju"]];
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .guide-grid { align-items: stretch; }
+    .guide-grid > a { display: block; height: 100%; }
+    .guide-grid article { display: flex; flex-direction: column; height: 100%; min-height: 168px; }
+    .guide-grid article p { margin-top: 10px; }
+
+    #regions .subregion-list.mobile-step-focus,
+    #regions .dong-card.mobile-step-focus { outline: 2px solid rgba(255, 138, 29, .92); box-shadow: 0 0 0 4px rgba(255, 138, 29, .16), 0 22px 54px rgba(0, 0, 0, .5) !important; }
+    #regions .subregion-list, #regions .dong-card { scroll-margin-top: 92px; }
+
+    .site-footer { background: radial-gradient(circle at 12% 0%, rgba(255,138,29,.18), transparent 28%), linear-gradient(180deg,#141414 0%,#080808 68%,#050505 100%) !important; border-top: 1px solid rgba(255,138,29,.38) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 -18px 60px rgba(0,0,0,.38); color: #fff !important; padding: 0 max(22px, calc((100vw - var(--max)) / 2)) !important; }
+    .footer-inner { display: grid; gap: 20px; padding: 34px 0 26px; }
+    .footer-brand-panel { align-items: center; background: linear-gradient(135deg, rgba(255,138,29,.16), rgba(255,255,255,.035)); border: 1px solid rgba(255,138,29,.28); border-radius: 8px; display: flex; gap: 14px; padding: 16px 18px; }
+    .footer-brand-mark { align-items: center; background: var(--orange); border-radius: 7px; color: #050505; display: inline-flex; flex: 0 0 auto; font-weight: 900; height: 42px; justify-content: center; width: 42px; }
+    .footer-brand-panel strong { color: #fff; display: block; font-size: 20px; line-height: 1.2; }
+    .footer-brand-panel p { color: rgba(255,255,255,.72); font-size: 13px; margin-top: 3px; }
+    .footer-info-grid { display: grid; gap: 18px; grid-template-columns: 1.05fr .95fr 1.1fr; }
+    .footer-column { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 18px; }
+    .footer-column h2 { border-bottom: 1px solid rgba(255,138,29,.32); color: var(--orange); font-size: 17px; line-height: 1.4; margin: 0 0 4px; padding: 0 0 12px; }
+    .footer-column dl { display: grid; margin: 0; }
+    .footer-column dl > div { align-items: start; border-bottom: 1px solid rgba(255,255,255,.09); display: grid; gap: 12px; grid-template-columns: 92px minmax(0,1fr); min-height: 44px; padding: 12px 0; }
+    .footer-column dl > div:last-child { border-bottom: 0; }
+    .footer-column dt, .footer-column dd { color: #fff; font-size: 15px; line-height: 1.55; margin: 0; }
+    .footer-column dt { color: rgba(255,255,255,.66); }
+    .footer-column dd { font-weight: 800; word-break: keep-all; }
+    .footer-column a, .footer-legal-links a { color: #fff; text-decoration: none; }
+    .footer-column a:hover, .footer-legal-links a:hover { color: var(--orange); }
+    .footer-socials { display: grid; gap: 10px; grid-template-columns: repeat(2,minmax(0,1fr)); padding-top: 16px; }
+    .social-link { align-items: center; background: rgba(0,0,0,.26); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; display: flex; gap: 9px; min-height: 46px; padding: 10px 12px; transition: border-color .16s ease, transform .16s ease, background .16s ease; }
+    .social-link:hover { background: rgba(255,138,29,.1); border-color: rgba(255,138,29,.58); transform: translateY(-1px); }
+    .social-link svg { fill: none; height: 21px; stroke: var(--orange); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; width: 21px; }
+    .social-link svg path:first-child { fill: rgba(255,138,29,.14); }
+    .social-link span { color: #fff; font-size: 13px; font-weight: 900; }
+    .footer-legal-links { border-top: 1px solid rgba(255,255,255,.09); display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; padding-top: 16px; }
+    .footer-legal-links a { background: rgba(255,138,29,.1); border: 1px solid rgba(255,138,29,.28); border-radius: 999px; font-size: 13px; font-weight: 900; padding: 8px 12px; }
+    .footer-copyright { border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.62); font-size: 14px; margin: 0; padding: 18px 0 22px; text-align: center; width: 100%; }
+    @media (max-width: 900px) { .footer-info-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .footer-column dl > div { grid-template-columns: 82px minmax(0,1fr); } .footer-socials { grid-template-columns: 1fr 1fr; } }
+  `;
+  document.head.appendChild(style);
 
   function applyRegionNav() {
-    const navItems = Array.from(document.querySelectorAll(".main-nav .nav-item"));
-    const regionItem = navItems.find((item) => item.querySelector(":scope > a")?.textContent.includes("지역"));
+    const regionItem = Array.from(document.querySelectorAll(".main-nav .nav-item")).find((item) => item.querySelector(":scope > a")?.textContent.includes("지역"));
     if (!regionItem) return;
-
     const mainLink = regionItem.querySelector(":scope > a");
     mainLink.href = "index.html#regions";
     mainLink.textContent = "지역 출장마사지";
-
     let dropdown = regionItem.querySelector(":scope > .dropdown");
     if (!dropdown) {
       dropdown = document.createElement("div");
       dropdown.className = "dropdown";
       regionItem.appendChild(dropdown);
     }
-
-    dropdown.innerHTML = regionLinks.map(([label, key]) => (
-      `<a href="index.html?region=${key}#regions" data-nav-region="${key}">${label}</a>`
-    )).join("");
+    dropdown.innerHTML = regionLinks.map(([label, key]) => `<a href="index.html?region=${key}#regions" data-nav-region="${key}">${label}</a>`).join("");
   }
 
   function activateRegionFromUrl() {
     const region = new URLSearchParams(window.location.search).get("region");
     if (!region) return;
-
     window.setTimeout(() => {
-      const target = document.querySelector(`#regions .region-tabs button[data-region="${region}"]`);
-      target?.click();
+      document.querySelector(`#regions .region-tabs button[data-region="${region}"]`)?.click();
       document.querySelector("#regions")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 250);
   }
@@ -43,31 +71,14 @@
     const regions = document.querySelector("#regions");
     if (!regions) return;
 
-    const style = document.createElement("style");
-    style.textContent = `
-      #regions .subregion-list.mobile-step-focus,
-      #regions .dong-card.mobile-step-focus {
-        outline: 2px solid rgba(255, 138, 29, .92);
-        box-shadow: 0 0 0 4px rgba(255, 138, 29, .16), 0 22px 54px rgba(0, 0, 0, .5) !important;
-      }
-
-      #regions .subregion-list,
-      #regions .dong-card {
-        scroll-margin-top: 92px;
-      }
-    `;
-    document.head.appendChild(style);
-
     function jumpToStep(selector) {
       window.requestAnimationFrame(() => {
         window.setTimeout(() => {
           const target = regions.querySelector(selector);
           if (!target) return;
-
           const header = document.querySelector(".site-header");
           const headerHeight = header ? header.getBoundingClientRect().height : 72;
           const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 14;
-
           target.classList.add("mobile-step-focus");
           window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
           window.setTimeout(() => target.classList.remove("mobile-step-focus"), 1200);
@@ -76,18 +87,8 @@
     }
 
     regions.addEventListener("click", (event) => {
-      const regionButton = event.target.closest(".region-tabs button[data-region]");
-      const cityButton = event.target.closest("#subregion-list button[data-city]");
-      const districtButton = event.target.closest("#dong-list button[data-district]");
-
-      if (regionButton) {
-        jumpToStep(".subregion-list");
-        return;
-      }
-
-      if (cityButton || districtButton) {
-        jumpToStep(".dong-card");
-      }
+      if (event.target.closest(".region-tabs button[data-region]")) return jumpToStep(".subregion-list");
+      if (event.target.closest("#subregion-list button[data-city]") || event.target.closest("#dong-list button[data-district]")) jumpToStep(".dong-card");
     }, true);
   }
 
@@ -102,27 +103,6 @@
     </div>
     <p class="footer-copyright">Copyright © 2026 Mazzang. All rights reserved.</p>
   `;
-
-  const footerStyle = document.createElement("style");
-  footerStyle.textContent = `
-    .site-footer { background: radial-gradient(circle at 12% 0%, rgba(255,138,29,.18), transparent 28%), linear-gradient(180deg,#141414 0%,#080808 68%,#050505 100%) !important; border-top: 1px solid rgba(255,138,29,.38) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 -18px 60px rgba(0,0,0,.38); color: #fff !important; padding: 0 max(22px, calc((100vw - var(--max)) / 2)) !important; }
-    .footer-inner { display: grid; gap: 20px; padding: 34px 0 26px; }
-    .footer-brand-panel { align-items: center; background: linear-gradient(135deg, rgba(255,138,29,.16), rgba(255,255,255,.035)); border: 1px solid rgba(255,138,29,.28); border-radius: 8px; display: flex; gap: 14px; padding: 16px 18px; }
-    .footer-brand-mark { align-items: center; background: var(--orange); border-radius: 7px; color: #050505; display: inline-flex; flex: 0 0 auto; font-weight: 900; height: 42px; justify-content: center; width: 42px; }
-    .footer-brand-panel strong { color: #fff; display: block; font-size: 20px; line-height: 1.2; } .footer-brand-panel p { color: rgba(255,255,255,.72); font-size: 13px; margin-top: 3px; }
-    .footer-info-grid { display: grid; gap: 18px; grid-template-columns: 1.05fr .95fr 1.1fr; }
-    .footer-column { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 18px; }
-    .footer-column h2 { border-bottom: 1px solid rgba(255,138,29,.32); color: var(--orange); font-size: 17px; line-height: 1.4; margin: 0 0 4px; padding: 0 0 12px; }
-    .footer-column dl { display: grid; margin: 0; } .footer-column dl > div { align-items: start; border-bottom: 1px solid rgba(255,255,255,.09); display: grid; gap: 12px; grid-template-columns: 92px minmax(0,1fr); min-height: 44px; padding: 12px 0; } .footer-column dl > div:last-child { border-bottom: 0; }
-    .footer-column dt, .footer-column dd { color: #fff; font-size: 15px; line-height: 1.55; margin: 0; } .footer-column dt { color: rgba(255,255,255,.66); } .footer-column dd { font-weight: 800; word-break: keep-all; }
-    .footer-column a, .footer-legal-links a { color: #fff; text-decoration: none; } .footer-column a:hover, .footer-legal-links a:hover { color: var(--orange); }
-    .footer-socials { display: grid; gap: 10px; grid-template-columns: repeat(2,minmax(0,1fr)); padding-top: 16px; } .social-link { align-items: center; background: rgba(0,0,0,.26); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; display: flex; gap: 9px; min-height: 46px; padding: 10px 12px; transition: border-color .16s ease, transform .16s ease, background .16s ease; } .social-link:hover { background: rgba(255,138,29,.1); border-color: rgba(255,138,29,.58); transform: translateY(-1px); } .social-link svg { fill: none; height: 21px; stroke: var(--orange); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; width: 21px; } .social-link svg path:first-child { fill: rgba(255,138,29,.14); } .social-link span { color: #fff; font-size: 13px; font-weight: 900; }
-    .footer-legal-links { border-top: 1px solid rgba(255,255,255,.09); display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; padding-top: 16px; } .footer-legal-links a { background: rgba(255,138,29,.1); border: 1px solid rgba(255,138,29,.28); border-radius: 999px; font-size: 13px; font-weight: 900; padding: 8px 12px; }
-    .footer-copyright { border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.62); font-size: 14px; margin: 0; padding: 18px 0 22px; text-align: center; width: 100%; }
-    @media (max-width: 900px) { .footer-info-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 520px) { .footer-column dl > div { grid-template-columns: 82px minmax(0,1fr); } .footer-socials { grid-template-columns: 1fr 1fr; } }
-  `;
-  document.head.appendChild(footerStyle);
 
   document.querySelectorAll(".site-footer").forEach((footer) => { footer.innerHTML = footerMarkup; });
 
