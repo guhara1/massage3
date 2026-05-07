@@ -1,198 +1,300 @@
-const pageMap = {
-  regions: ["지역 출장마사지", "서울, 경기, 인천 권역별 출장마사지 안내를 확인하세요.", "지역"],
-  seoul: ["서울 출장마사지", "강남, 서초, 송파, 마포, 영등포 등 서울 전역의 출장마사지 안내입니다.", "지역"],
-  gyeonggi: ["경기 출장마사지", "분당, 수원, 용인, 일산, 안양 등 경기 주요 지역 안내입니다.", "지역"],
-  incheon: ["인천 출장마사지", "송도, 부평, 청라, 검단 등 인천 주요 권역 안내입니다.", "지역"],
-  services: ["서비스 안내", "스웨디시, 홈타이, 아로마 마사지, 스포츠 마사지 안내입니다.", "서비스"],
-  swedish: ["스웨디시", "부드러운 순환 관리 중심의 출장마사지 서비스입니다.", "서비스"],
-  thai: ["홈타이", "스트레칭과 압박 위주의 방문 홈타이 안내입니다.", "서비스"],
-  aroma: ["아로마 마사지", "오일과 향을 활용한 편안한 관리 안내입니다.", "서비스"],
-  sports: ["스포츠 마사지", "목, 어깨, 허리 등 특정 부위 피로 관리 안내입니다.", "서비스"],
-  checklist: ["예약 전 확인사항", "방문 주소, 출입 방식, 코스, 시간, 결제 방식을 예약 전에 확인하세요.", "서비스"],
-  guide: ["이용안내", "예약부터 방문 관리까지 전체 이용 흐름을 안내합니다.", "이용안내"],
-  booking: ["예약방법", "지역, 시간, 코스, 주소를 알려주시면 가능 여부를 확인합니다.", "이용안내"],
-  process: ["이용순서", "문의 접수부터 방문 확정, 관리 진행까지의 순서입니다.", "이용안내"],
-  price: ["가격 안내", "코스 시간, 이동 거리, 심야 여부에 따라 가격 안내가 달라질 수 있습니다.", "이용안내"],
-  coverage: ["방문 가능 지역", "서울, 경기, 인천 중심의 방문 가능 지역 안내입니다.", "이용안내"],
-  first: ["처음 이용하는 분 안내", "처음 예약하는 분이 알아두면 좋은 준비사항입니다.", "이용안내"],
-  reviews: ["고객후기", "서울, 경기, 인천 지역별 이용 후기를 확인하세요.", "후기"],
-  info: ["지역 정보", "지역별 검색 의도와 이용 팁을 다르게 구성한 안내입니다.", "후기"],
-  support: ["고객센터", "예약문의, 제휴문의, 공지사항, 운영정책 안내입니다.", "고객센터"],
-  reservation: ["예약문의", "전화예약과 예약 문의에 필요한 정보를 안내합니다.", "고객센터"],
-  partner: ["제휴문의", "지역 제휴, 콘텐츠 제휴, 운영 협업 문의 안내입니다.", "고객센터"],
-  notice: ["공지사항", "운영 시간, 지역 확장, 예약 관련 공지를 안내합니다.", "고객센터"],
-  policy: ["운영정책", "건전한 출장마사지 안내 사이트 운영 기준입니다.", "고객센터"]
-};
+const siteUrl = "https://mazzanng.netlify.app";
+const phone = "0508-202-4683";
 
-const detailByGroup = {
-  "지역": [
-    ["지역 안내", "서울, 경기, 인천 권역별 이동 시간과 예약 가능 조건을 나누어 안내합니다."],
-    ["예약 팁", "희망 시간, 방문 주소, 주차 또는 출입 방식을 미리 알려주시면 예약 확인이 빨라집니다."],
-    ["검색 의도", "지역명과 출장마사지 키워드를 함께 구성해 실제 이용자가 찾는 정보를 중심으로 안내합니다."]
-  ],
-  "서비스": [
-    ["서비스 특징", "서비스별 관리 방식과 준비사항이 다르므로 목적에 맞는 코스를 선택하는 것이 좋습니다."],
-    ["예약 전 확인", "오일 사용 여부, 집중 관리 부위, 공간 확보 여부를 예약 전에 확인하세요."],
-    ["주의사항", "불법·무리한 요청은 진행하지 않으며 건전한 방문 관리 기준을 지킵니다."]
-  ],
-  "이용안내": [
-    ["이용 흐름", "문의 접수, 지역 확인, 코스 선택, 방문 확정, 관리 진행 순서로 안내합니다."],
-    ["필수 정보", "지역, 상세 주소, 희망 시간, 코스, 이용 환경을 알려주세요."],
-    ["확정 안내", "방문 가능 여부와 예상 도착 시간을 확인한 뒤 예약을 진행합니다."]
-  ],
-  "후기": [
-    ["고객후기", "강남, 분당, 송도 등 실제 지역명을 기준으로 후기를 구성합니다."],
-    ["지역 정보", "지역별 이동 시간, 야간 예약 팁, 출입 확인사항을 다르게 안내합니다."],
-    ["콘텐츠 기준", "얇은 반복 페이지가 되지 않도록 지역마다 실제 안내와 주의사항을 다르게 구성합니다."]
-  ],
-  "고객센터": [
-    ["전화예약", "0508-202-4683으로 전화하면 예약 가능 여부를 확인할 수 있습니다."],
-    ["문의 정보", "지역, 시간, 코스, 주소, 출입 방식을 알려주시면 안내가 빨라집니다."],
-    ["운영정책", "건전한 서비스 이용 기준에 맞춰 예약과 문의를 안내합니다."]
-  ]
-};
-
-const regionSlugMap = {
-  regions: "seoul",
-  seoul: "seoul",
-  gyeonggi: "gyeonggi",
-  incheon: "incheon"
-};
-
-const regionNames = {
-  seoul: "서울",
-  gyeonggi: "경기",
-  incheon: "인천"
-};
-
-const pathSlug = window.location.pathname
-  .split("/")
-  .pop()
-  .replace(".html", "");
-const params = new URLSearchParams(window.location.search);
-const slug = params.get("slug") || pathSlug || "regions";
-const [title, description, group] = pageMap[slug] || pageMap.regions;
-const details = detailByGroup[group];
-
-document.title = `${title} | 출장마사지`;
-document.querySelector('meta[name="description"]').setAttribute("content", description);
-document.querySelector("#sub-kicker").textContent = group;
-document.querySelector("#sub-title").textContent = title;
-document.querySelector("#sub-description").textContent = description;
-const subContent = document.querySelector("#sub-content");
-
-function renderBasicContent() {
-  subContent.innerHTML = details.map(([heading, text]) => (
-    `<section class="sub-block"><h2>${heading}</h2><p>${text}</p></section>`
-  )).join("");
-}
-
-async function loadRegionData() {
-  const response = await fetch("script.js", { cache: "no-store" });
-  const source = await response.text();
-  const match = source.match(/const regionData = ([\s\S]*?);\s*const tabs/);
-
-  if (!match) {
-    throw new Error("지역 데이터를 찾을 수 없습니다.");
+const pages = {
+  regions: {
+    title: "전국 지역 안내",
+    description: "서울, 경기, 인천, 부산, 대구, 대전, 광주, 강원, 제주 주요 권역의 방문 가능 기준과 예약 전 확인사항을 정리했습니다.",
+    group: "지역 안내",
+    sections: [
+      ["지역을 먼저 나누는 이유", "지역명만으로 예약 가능 여부를 단정하기 어렵습니다. 같은 도시 안에서도 이동 거리, 건물 출입 방식, 주차 가능 여부, 희망 시간대에 따라 안내가 달라집니다. 그래서 마짱은 1차 권역, 2차 구·도시, 3차 동 단위로 나누어 고객이 실제 이용할 위치를 더 정확히 확인할 수 있게 구성했습니다."],
+      ["예약 전 확인할 기준", "문의할 때는 지역, 희망 시간, 원하는 코스, 방문 장소의 출입 방식을 함께 알려주시면 좋습니다. 이 네 가지가 확인되면 가능 시간과 최종 요금 안내가 훨씬 정확해집니다."],
+      ["얇은 지역 페이지를 피하는 방식", "단순히 지역 이름만 바꾼 반복 페이지는 검색엔진에도 고객에게도 도움이 되지 않습니다. 각 지역 페이지는 생활권, 이동 조건, 예약 시 주의할 부분을 다르게 설명하도록 설계했습니다."]
+    ]
+  },
+  services: {
+    title: "서비스 안내",
+    description: "스웨디시, 타이마사지, 아로마 마사지, 스포츠 마사지의 차이와 예약 전 확인할 기준을 안내합니다.",
+    group: "서비스 안내",
+    sections: [
+      ["코스 이름보다 중요한 것", "마사지 코스 이름이 같아도 실제 만족도는 관리 강도, 진행 시간, 오일 사용 여부, 집중 부위 확인에 따라 달라집니다. 처음 이용한다면 원하는 느낌을 길게 설명하기보다 피로한 부위와 선호 강도를 먼저 말하는 편이 좋습니다."],
+      ["코스별 선택 기준", "스웨디시는 부드러운 순환 관리가 필요한 분에게, 타이마사지는 스트레칭과 전신 피로 완화를 원하는 분에게, 아로마는 편안한 오일 관리를 원하는 분에게, 스포츠 마사지는 특정 부위의 긴장 완화가 필요한 분에게 어울립니다."],
+      ["예약 전 주의사항", "건강 상태가 좋지 않거나 강한 압이 부담스러운 경우에는 예약 전 반드시 말씀해 주세요. 무리한 진행보다 컨디션에 맞는 코스를 선택하는 것이 안전합니다."]
+    ]
+  },
+  swedish: {
+    title: "스웨디시 마사지 안내",
+    description: "스웨디시 마사지의 특징, 추천 대상, 진행 방식, 예약 전 확인사항과 주의사항을 정리했습니다.",
+    group: "서비스 안내",
+    sections: [
+      ["스웨디시 마사지는 어떤 관리인가요?", "스웨디시는 강한 압으로 누르기보다 부드러운 흐름과 리듬을 중심으로 몸의 긴장을 천천히 낮추는 관리입니다. 피로가 누적되어 몸이 예민한 날에는 강도보다 안정적인 진행감이 더 중요할 수 있습니다."],
+      ["잘 맞는 분", "장시간 앉아서 일해 어깨와 목 주변이 무겁거나, 강한 압이 부담스러운 분, 처음 방문 관리를 이용해 긴장감이 있는 분에게 비교적 접근하기 쉬운 코스입니다."],
+      ["예약 전 확인사항", "오일 사용 여부, 관리 시간, 집중하고 싶은 부위, 피해야 할 부위를 먼저 알려주시면 상담이 정확해집니다. 피부가 예민하거나 특정 향에 민감하다면 예약 전에 꼭 말하는 것이 좋습니다."]
+    ]
+  },
+  thai: {
+    title: "타이마사지 안내",
+    description: "타이마사지를 처음 이용하는 분도 이해하기 쉽도록 관리 특징, 추천 대상, 진행 방식, 주의사항을 정리했습니다.",
+    group: "서비스 안내",
+    sections: [
+      ["타이마사지는 어떤 관리인가요?", "타이마사지는 전신 압박과 스트레칭 요소가 함께 들어가는 관리입니다. 단순히 세게 누르는 방식이 아니라 몸의 움직임과 근육 긴장도를 보면서 진행하는 것이 핵심입니다."],
+      ["스웨디시와 다른 점", "스웨디시가 부드러운 순환감에 가깝다면, 타이마사지는 전신을 움직이며 뻣뻣한 부위를 풀어주는 느낌이 더 큽니다. 활동량이 많거나 몸이 굳은 느낌이 강한 분에게 선택지가 될 수 있습니다."],
+      ["주의해야 할 경우", "최근 부상, 심한 통증, 수술 후 회복 중인 상태라면 무리하게 진행하지 않는 것이 좋습니다. 통증 해결이나 치료를 약속하는 표현보다 현재 컨디션에 맞춘 상담이 중요합니다."]
+    ]
+  },
+  aroma: {
+    title: "아로마 마사지 안내",
+    description: "아로마 마사지의 오일 선택 기준, 피부 상태별 주의사항, 예약 전 확인할 내용을 안내합니다.",
+    group: "서비스 안내",
+    sections: [
+      ["아로마 마사지는 어떤 관리인가요?", "아로마 마사지는 오일을 사용해 부드럽게 진행되는 관리입니다. 향과 촉감의 편안함이 장점이지만, 피부 상태나 향 민감도에 따라 선택이 달라질 수 있습니다."],
+      ["오일 선택 전 확인", "건성 피부, 민감성 피부, 향에 예민한 경우에는 예약 전에 미리 알려주시는 것이 좋습니다. 염증, 열감, 피부 자극이 있는 날에는 이용을 미루는 편이 안전합니다."],
+      ["이런 분에게 어울립니다", "몸이 뻣뻣하지만 강한 압이 부담스럽거나, 긴장을 천천히 낮추고 싶은 분에게 잘 맞습니다. 단, 오일 관리가 처음이라면 관리 후 샤워 가능 여부와 준비물도 함께 확인하세요."]
+    ]
+  },
+  sports: {
+    title: "스포츠 마사지 안내",
+    description: "스포츠 마사지의 특징, 필요한 상황, 일반 마사지와의 차이, 예약 전 체크할 부분을 안내합니다.",
+    group: "서비스 안내",
+    sections: [
+      ["스포츠 마사지는 어떤 관리인가요?", "스포츠 마사지는 특정 부위의 뻣뻣함과 활동 후 피로를 고려해 진행하는 관리입니다. 치료나 완치를 약속하는 서비스가 아니라, 몸 상태에 맞춰 무리 없는 강도를 찾는 것이 중요합니다."],
+      ["필요한 대표 상황", "운동 후 근육이 무겁거나, 오래 앉아 있어 허리와 어깨가 굳은 느낌이 들 때, 특정 부위 위주로 집중 관리가 필요할 때 선택할 수 있습니다."],
+      ["이용 전 주의사항", "심한 통증, 염증, 발열, 최근 부상, 의료적 판단이 필요한 증상이 있다면 먼저 전문가와 상담하는 것이 좋습니다. 강한 압이 항상 좋은 결과로 이어지는 것은 아닙니다."]
+    ]
+  },
+  checklist: {
+    title: "예약 전 확인사항",
+    description: "예약 전 가격, 시간, 주소, 출입 방식, 코스, 변경 기준을 확인할 수 있는 체크리스트입니다.",
+    group: "이용안내",
+    sections: [
+      ["예약 전에 먼저 확인할 것", "지역과 희망 시간만 말하고 바로 확정하기보다 코스 시간, 최종 요금, 방문 장소의 출입 방식, 변경 가능 기준까지 함께 확인하는 것이 좋습니다."],
+      ["가격 확인 기준", "기본 요금 외에 심야 시간, 이동 거리, 코스 변경 여부에 따라 안내가 달라질 수 있습니다. 문의 단계에서 최종 요금을 먼저 확인하면 불필요한 오해를 줄일 수 있습니다."],
+      ["안전한 이용 기준", "발열, 심한 통증, 과도한 음주 상태, 무리한 요청이 있는 경우에는 이용을 미루거나 진행이 제한될 수 있습니다. 건전한 이용 기준을 지키는 것이 가장 중요합니다."]
+    ]
+  },
+  guide: {
+    title: "이용안내",
+    description: "예약방법, 이용순서, 가격 안내, 방문 가능 지역, 처음 이용 안내를 한눈에 확인하세요.",
+    group: "이용안내",
+    sections: [
+      ["처음 보는 고객을 위한 안내", "이용안내는 예약을 어렵게 느끼는 고객이 전체 흐름을 빠르게 이해하도록 구성했습니다. 문의, 상담, 예약 확정, 방문 전 준비, 관리 진행, 종료 후 확인까지 순서대로 확인할 수 있습니다."],
+      ["예약 전환에 필요한 정보", "지역, 시간, 코스, 방문 장소를 먼저 정리하면 상담이 빠릅니다. 가격 안내와 방문 가능 지역 페이지를 함께 보면 예약 전에 필요한 정보를 대부분 확인할 수 있습니다."],
+      ["신뢰를 만드는 운영 기준", "운영시간, 예약 변경 기준, 이용 제한 기준을 별도로 안내해 고객이 불안한 상태에서 문의하지 않도록 했습니다."]
+    ]
+  },
+  booking: {
+    title: "출장마사지 예약방법",
+    description: "처음 문의부터 예약 확정까지 지역, 시간, 코스, 방문 장소 전달 방법을 단계별로 안내합니다.",
+    group: "이용안내",
+    sections: [
+      ["예약 전 먼저 확인할 사항", "예약은 지역과 시간을 먼저 확인하는 것에서 시작합니다. 이용할 동네, 희망 날짜와 시간, 원하는 코스, 방문 장소의 출입 방식을 알려주시면 가능 여부를 빠르게 확인할 수 있습니다."],
+      ["문의할 때 이렇게 말하면 편합니다", "예를 들어 ‘강남구 역삼동입니다. 오늘 밤 9시쯤 아로마 120분 가능할까요? 처음 이용이라 코스와 최종 요금 안내 부탁드립니다.’처럼 말하면 상담이 깔끔하게 진행됩니다."],
+      ["예약 확정 전 확인", "최종 요금, 도착 가능 시간, 코스 시간, 변경 및 취소 기준을 확인한 뒤 예약을 확정하는 것이 좋습니다. 확정 전 조건이 불분명하면 바로 다시 물어보세요."]
+    ]
+  },
+  process: {
+    title: "출장마사지 이용순서",
+    description: "문의부터 방문 준비, 관리 진행, 종료 후 확인까지 처음 고객도 쉽게 볼 수 있는 진행 절차입니다.",
+    group: "이용안내",
+    sections: [
+      ["1단계부터 3단계", "먼저 이용 지역과 희망 시간을 문의합니다. 상담을 통해 코스와 가능 시간을 확인하고, 최종 요금과 방문 조건을 확인한 뒤 예약을 확정합니다."],
+      ["4단계부터 7단계", "방문 전에는 편안한 공간을 준비하고, 관리사 방문 후 기본 안내를 확인합니다. 관리 중에는 몸 상태에 맞춰 강도를 조절하고, 종료 후 컨디션을 확인합니다."],
+      ["이용 중 주의사항", "불편한 부분이 있으면 바로 말하는 것이 좋습니다. 강한 압이 부담스럽거나 특정 부위를 피해야 한다면 관리 중에도 조정할 수 있도록 알려주세요."]
+    ]
+  },
+  price: {
+    title: "마사지 코스 및 요금 안내",
+    description: "타이, 아로마, VIP 코스별 요금 기준과 가격이 달라지는 이유, 예약 전 확인사항을 정리했습니다.",
+    group: "이용안내",
+    sections: [
+      ["코스 선택 전 확인", "요금은 코스 이름만으로 결정되지 않습니다. 이용 시간, 관리 방식, 이동 거리, 심야 상담 여부, 현장 조건에 따라 최종 안내가 달라질 수 있습니다."],
+      ["코스별 추천 상황", "타이마사지는 전신 피로와 스트레칭이 필요한 경우, 아로마는 오일을 사용한 편안한 관리를 원하는 경우, VIP는 긴 시간과 세부 상담이 필요한 경우에 적합합니다."],
+      ["하단 CTA 기준", "코스와 요금을 확인하셨다면 이용 지역과 희망 시간을 알려주세요. 예약 가능 여부와 최종 요금을 순서대로 안내해드립니다."]
+    ]
+  },
+  coverage: {
+    title: "방문 가능 지역 안내",
+    description: "주요 생활권별 방문 가능 여부, 예상 도착 기준, 지역별 확인사항을 안내합니다.",
+    group: "이용안내",
+    sections: [
+      ["대표 지역을 먼저 확인하세요", "한 페이지에 전국 모든 지역을 무리하게 나열하기보다 문의가 많은 주요 생활권을 중심으로 안내합니다. 원하는 지역이 보이지 않으면 고객센터로 문의해 주세요."],
+      ["지역별로 달라지는 기준", "도착 시간은 거리뿐 아니라 주차 가능 여부, 건물 출입 방식, 시간대별 이동 동선에 따라 달라질 수 있습니다. 지역별 정확한 도착 시간은 예약 시 안내합니다."],
+      ["후기와 지역 맥락", "지역 페이지에는 단순 전화번호보다 실제 이용 상황에 가까운 안내와 후기 문장을 함께 배치하는 것이 고객 신뢰와 검색 품질에 더 도움이 됩니다."]
+    ]
+  },
+  first: {
+    title: "출장마사지 처음 이용 안내",
+    description: "첫 예약 전 궁금한 부분, 코스 선택, 문의 예시, 방문 전 준비사항과 주의사항을 안내합니다.",
+    group: "이용안내",
+    sections: [
+      ["처음 이용하는 분이 궁금해하는 부분", "처음에는 어떤 코스를 골라야 하는지, 비용이 어떻게 확정되는지, 방문 전 무엇을 준비해야 하는지 가장 많이 궁금해합니다. 이 페이지는 절차보다 불안을 줄이는 데 초점을 둡니다."],
+      ["문의 예시", "‘처음 이용합니다. 서울 관악구 쪽이고, 오늘 저녁 가능한 시간과 기본 코스 안내 부탁드립니다.’처럼 지역과 시간만 먼저 말해도 충분합니다."],
+      ["이용을 미루는 것이 좋은 경우", "발열, 심한 통증, 염증, 과도한 음주 상태, 의료적 판단이 필요한 상황에서는 이용을 미루는 것을 권장합니다."]
+    ]
+  },
+  reviews: {
+    title: "고객 후기",
+    description: "지역별 이용 경험, 상담 만족도, 가격 안내, 코스 만족도를 익명 후기 형태로 확인할 수 있습니다.",
+    group: "후기",
+    sections: [
+      ["후기를 보는 기준", "후기는 별점만 보는 것보다 어떤 상황에서 이용했는지, 가격 안내가 명확했는지, 관리 강도를 조절해주었는지를 함께 보는 것이 좋습니다."],
+      ["익명 처리 방식", "고객명은 김0영처럼 가운데 이름을 가려 개인정보를 보호합니다. 실제 이용 상황을 떠올릴 수 있는 문장은 남기되, 개인을 특정할 수 있는 정보는 노출하지 않습니다."],
+      ["후기와 신뢰도", "모든 지역에 같은 후기를 반복 배치하지 않고, 지역과 이용 상황에 맞는 문장을 구성해야 검색 품질과 고객 신뢰에 도움이 됩니다."]
+    ]
+  },
+  info: {
+    title: "지역 정보",
+    description: "지역별 검색 의도, 생활권 특징, 예약 전 확인하면 좋은 기준을 정리한 정보 페이지입니다.",
+    group: "후기",
+    sections: [
+      ["지역 정보 페이지의 역할", "이 페이지는 단순 홍보가 아니라 고객이 지역을 선택하기 전에 생활권 특성과 예약 기준을 이해하도록 돕는 정보 페이지입니다."],
+      ["검색 의도에 맞춘 구성", "서울, 경기, 인천처럼 넓은 키워드는 권역 선택을 돕고, 강남, 분당, 송도처럼 구체적인 키워드는 세부 생활권과 예약 조건을 설명해야 합니다."],
+      ["중복 콘텐츠 방지", "지역 이름만 바꾸는 방식은 피해야 합니다. 실제 이동 시간, 상권, 주거 형태, 문의가 많은 시간대처럼 지역별 차이를 반영해야 합니다."]
+    ]
+  },
+  support: {
+    title: "고객센터",
+    description: "예약문의, 제휴문의, 공지사항, 운영정책을 확인할 수 있는 고객센터 안내입니다.",
+    group: "고객센터",
+    sections: [
+      ["문의 전 준비", "문의 전에 지역, 시간, 코스, 방문 장소를 정리해 두면 상담이 빠릅니다. 처음 이용이라면 최종 요금과 변경 기준도 함께 확인하세요."],
+      ["공지와 정책", "운영시간, 방문 가능 지역, 예약 변경 기준은 공지사항과 운영정책에서 확인할 수 있습니다. 안내 기준이 분명할수록 불필요한 오해를 줄일 수 있습니다."],
+      ["연락 방법", "예약 관련 문의는 전화 연결이 가장 빠릅니다. 운영시간은 오후 4시부터 익일 오전 8시까지입니다."]
+    ]
+  },
+  reservation: {
+    title: "예약문의",
+    description: "전화예약 전 알려주면 좋은 정보와 상담 흐름을 안내합니다.",
+    group: "고객센터",
+    sections: [
+      ["전화 전 준비할 정보", "이용 지역, 희망 시간, 코스, 방문 장소의 출입 방식을 알려주시면 가능 여부를 빠르게 확인할 수 있습니다."],
+      ["확정 전 확인", "최종 요금, 도착 가능 시간, 변경 기준을 확인한 뒤 예약을 확정하는 흐름을 권장합니다."],
+      ["예약번호", "예약 문의는 0508-202-4683으로 연락해 주세요. 모바일에서는 하단 전화예약 버튼을 통해 바로 연결할 수 있습니다."]
+    ]
+  },
+  partner: {
+    title: "제휴문의",
+    description: "지역 제휴, 콘텐츠 제휴, 운영 협업 문의 기준을 안내합니다.",
+    group: "고객센터",
+    sections: [
+      ["제휴 문의 범위", "지역 정보 제휴, 콘텐츠 제휴, 운영 관련 협업 문의를 받을 수 있습니다. 문의 목적과 지역, 연락 가능한 시간을 함께 남기면 검토가 수월합니다."],
+      ["검토 기준", "고객에게 도움이 되는 정보인지, 운영 기준과 충돌하지 않는지, 신뢰할 수 있는 안내가 가능한지를 우선 확인합니다."],
+      ["주의사항", "과장 광고, 허위 후기, 검색 순위 조작 목적의 얇은 콘텐츠 제안은 진행하지 않습니다."]
+    ]
+  },
+  notice: {
+    title: "공지사항",
+    description: "운영시간, 예약 변경, 방문 가능 지역 확인 기준, 안전 이용 안내를 공지합니다.",
+    group: "고객센터",
+    sections: [
+      ["상담 운영시간 안내", "예약 상담은 오후 4시부터 익일 오전 8시까지 진행됩니다. 상담량이 많은 시간대에는 답변이 순차적으로 진행될 수 있으며, 정확한 예약 가능 여부는 지역과 희망 시간을 확인한 뒤 안내합니다."],
+      ["방문 가능 지역 확인 기준", "방문 가능 여부는 단순 지역명만으로 확정하지 않습니다. 세부 동네, 건물 출입 방식, 주차 가능 여부, 시간대별 이동 동선을 함께 확인합니다."],
+      ["예약 변경 및 취소 안내", "예약 변경은 방문 준비가 시작되기 전에 요청하는 것이 가장 좋습니다. 무단 취소나 반복 변경이 있는 경우 이후 예약이 어려울 수 있습니다."]
+    ]
+  },
+  policy: {
+    title: "운영정책",
+    description: "예약 기준, 변경 및 취소, 안전 이용, 개인정보 처리 관련 안내를 정리했습니다.",
+    group: "고객센터",
+    sections: [
+      ["예약 확정 기준", "예약은 지역, 희망 시간, 코스, 방문 장소, 최종 요금이 확인된 뒤 확정됩니다. 조건이 불분명한 상태에서는 확정 안내를 하지 않습니다."],
+      ["이용 제한 기준", "불법적이거나 무리한 요청, 과도한 음주 상태, 안전이 우려되는 상황에서는 이용이 제한될 수 있습니다. 건전한 이용 기준을 지키는 것이 운영정책의 핵심입니다."],
+      ["개인정보와 신뢰", "예약 상담에 필요한 최소한의 정보만 확인하며, 사이트 푸터에는 사업자번호와 이메일을 노출하지 않습니다. 필요한 법적 안내는 정책 페이지에서 확인할 수 있도록 구성합니다."]
+    ]
   }
+};
 
-  return Function(`"use strict"; return (${match[1]});`)();
+const pathSlug = window.location.pathname.split("/").pop().replace(".html", "") || "regions";
+const params = new URLSearchParams(window.location.search);
+const slug = params.get("slug") || pathSlug;
+const page = pages[slug] || pages.regions;
+
+function ensureMeta(name) {
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.name = name;
+    document.head.appendChild(tag);
+  }
+  return tag;
 }
 
-function renderDongOutput(regionKey, region, areaName) {
-  const dongs = region.areas[areaName] || [];
-  const dongLinks = dongs.map((dong) => (
-    `<a href="local.html?region=${regionKey}&area=${encodeURIComponent(areaName)}&dong=${encodeURIComponent(dong)}" aria-label="${areaName} ${dong} 출장마사지 상세 안내">${dong}</a>`
-  )).join("");
-
-  return `
-    <div class="dong-output" id="dong-output">
-      <div>
-        <p class="eyebrow">3차 지역</p>
-        <h3>${areaName}</h3>
-      </div>
-      <p>${areaName} 선택 시 방문 가능 동을 한눈에 확인할 수 있습니다. 예약 전에는 상세 주소, 출입 방식, 희망 시간을 함께 알려주세요.</p>
-      <div class="dong-chip-grid">${dongLinks}</div>
-    </div>
-  `;
+function ensureLink(rel) {
+  let tag = document.querySelector(`link[rel="${rel}"]`);
+  if (!tag) {
+    tag = document.createElement("link");
+    tag.rel = rel;
+    document.head.appendChild(tag);
+  }
+  return tag;
 }
 
-function setActiveDistrict(areaName) {
-  document.querySelectorAll(".district-button").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.area === areaName);
+function ensureOg(property) {
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute("property", property);
+    document.head.appendChild(tag);
+  }
+  return tag;
+}
+
+function applySeo() {
+  const canonicalPath = slug === "index" ? "/" : `/${slug}.html`;
+  document.title = `${page.title} | 마짱`;
+  ensureMeta("description").content = page.description;
+  ensureLink("canonical").href = `${siteUrl}${canonicalPath}`;
+  ensureOg("og:title").content = `${page.title} | 마짱`;
+  ensureOg("og:description").content = page.description;
+  ensureOg("og:url").content = `${siteUrl}${canonicalPath}`;
+  ensureOg("og:site_name").content = "마짱";
+  ensureOg("og:type").content = "website";
+
+  if (!document.getElementById("subpage-schema")) {
+    const schema = document.createElement("script");
+    schema.id = "subpage-schema";
+    schema.type = "application/ld+json";
+    schema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: page.title,
+      description: page.description,
+      url: `${siteUrl}${canonicalPath}`,
+      publisher: {
+        "@type": "LocalBusiness",
+        name: "마짱",
+        telephone: phone,
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "KR",
+          addressLocality: "서울",
+          streetAddress: "서울시 강남구 테헤란로 313",
+          postalCode: "06151"
+        }
+      }
+    });
+    document.head.appendChild(schema);
+  }
+}
+
+function render() {
+  document.querySelector("#sub-kicker").textContent = page.group;
+  document.querySelector("#sub-title").textContent = page.title;
+  document.querySelector("#sub-description").textContent = page.description;
+  document.querySelector("#sub-content").innerHTML = page.sections.map(([heading, text]) => (
+    `<section class="sub-block"><h2>${heading}</h2><p>${text}</p></section>`
+  )).join("") + `<section class="sub-block"><h2>바로 확인할 수 있는 안내</h2><p>예약 전에는 <a href="/price.html">가격 안내</a>, <a href="/coverage.html">방문 가능 지역</a>, <a href="/checklist.html">예약 전 확인사항</a>을 함께 보면 좋습니다. 문의가 필요하면 <a href="tel:${phone}">${phone}</a>로 연락해 주세요.</p></section>`;
+}
+
+function bindNav() {
+  const navToggle = document.querySelector(".nav-toggle");
+  const mainNav = document.querySelector("#main-nav");
+  navToggle?.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
-function renderAreaBrowser(regionData, selectedRegionKey) {
-  let currentRegionKey = selectedRegionKey;
-  let currentRegion = regionData[currentRegionKey];
-  let currentArea = Object.keys(currentRegion.areas)[0];
-
-  function draw() {
-    currentRegion = regionData[currentRegionKey];
-    const areaNames = Object.keys(currentRegion.areas);
-    currentArea = areaNames.includes(currentArea) ? currentArea : areaNames[0];
-
-    const regionButtons = Object.keys(regionData).map((regionKey) => (
-      `<button class="area-button ${regionKey === currentRegionKey ? "is-active" : ""}" type="button" data-region="${regionKey}">${regionNames[regionKey]}</button>`
-    )).join("");
-
-    const districtButtons = areaNames.map((areaName) => (
-      `<button class="district-button ${areaName === currentArea ? "is-active" : ""}" type="button" data-area="${areaName}">${areaName}</button>`
-    )).join("");
-
-    subContent.innerHTML = `
-      <section class="area-browser">
-        <div class="area-browser-head">
-          <p class="eyebrow">1차 지역</p>
-          <h2>${currentRegion.title}</h2>
-          <p>${currentRegion.description}</p>
-        </div>
-        <div class="region-switcher" aria-label="1차 지역 선택">${regionButtons}</div>
-        <div class="area-browser-head">
-          <p class="eyebrow">2차 지역</p>
-          <h2>${regionNames[currentRegionKey]} 행정구·주요 지역 선택</h2>
-          <p>고객이 원하는 구 또는 도시를 클릭하면 바로 아래에 3차 지역 동 목록이 표시됩니다.</p>
-        </div>
-        <div class="district-grid" aria-label="2차 지역 선택">${districtButtons}</div>
-        ${renderDongOutput(currentRegionKey, currentRegion, currentArea)}
-      </section>
-    `;
-
-    subContent.querySelectorAll(".area-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        currentRegionKey = button.dataset.region;
-        currentArea = Object.keys(regionData[currentRegionKey].areas)[0];
-        draw();
-      });
-    });
-
-    subContent.querySelectorAll(".district-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        currentArea = button.dataset.area;
-        setActiveDistrict(currentArea);
-        document.querySelector("#dong-output").outerHTML = renderDongOutput(currentRegionKey, currentRegion, currentArea);
-      });
-    });
-  }
-
-  draw();
-}
-
-if (group === "지역") {
-  loadRegionData()
-    .then((regionData) => renderAreaBrowser(regionData, regionSlugMap[slug] || "seoul"))
-    .catch(() => {
-      renderBasicContent();
-    });
-} else {
-  renderBasicContent();
-}
-
-const navToggle = document.querySelector(".nav-toggle");
-const mainNav = document.querySelector("#main-nav");
-
-navToggle.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
+applySeo();
+render();
+bindNav();
