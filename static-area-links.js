@@ -69,6 +69,14 @@
     "대구": {
       title: "대구 출장마사지 가능 지역 | 수성·중구·달서 예약 안내",
       description: "대구 출장마사지 예약 전 확인할 주요 생활권, 방문 가능 시간, 코스와 요금 차이를 안내합니다."
+    },
+    "대전": {
+      title: "대전 출장마사지 가능 지역 | 둔산·유성·중구 예약 안내",
+      description: "대전 출장마사지 이용 전 확인할 주요 생활권, 예약 가능 시간, 이동 기준, 코스와 요금 차이를 안내합니다."
+    },
+    "광주": {
+      title: "광주 출장마사지 가능 지역 | 상무·첨단·수완 예약 안내",
+      description: "광주 출장마사지 가능 지역과 생활권별 상담 기준, 예약 가능 시간, 코스 선택 전 확인사항을 정리했습니다."
     }
   };
 
@@ -89,8 +97,12 @@
     root.setAttribute("data-current-description", description);
   }
 
+  function cleanLabel(text) {
+    return (text || "").replace(/\s*선택\s*$/, "").trim();
+  }
+
   function activeText(selector) {
-    return root.querySelector(selector)?.textContent.replace(/\s*선택\s*$/, "").trim() || "";
+    return cleanLabel(root.querySelector(selector)?.textContent || "");
   }
 
   function selectedRegion() {
@@ -129,10 +141,10 @@
     return `${district} 출장마사지 이용 전 확인하면 좋은 예약 기준, 가격 차이, 주요 생활권, 방문 가능 범위와 코스 선택 방법을 정리했습니다.`;
   }
 
-  function updateMeta(depth) {
-    const region = selectedRegion();
-    const city = selectedCity();
-    const district = selectedDistrict();
+  function updateMeta(depth, override = {}) {
+    const region = override.region || selectedRegion();
+    const city = override.city || selectedCity();
+    const district = override.district || selectedDistrict();
 
     if (depth === "district" && city && district) {
       setMeta(titleForDistrict(city, district), descriptionForDistrict(city, district));
@@ -160,15 +172,18 @@
     const districtButton = event.target.closest("#dong-list button[data-district]");
 
     if (districtButton) {
-      window.setTimeout(() => updateMeta("district"), 80);
+      updateMeta("district", {
+        city: selectedCity(),
+        district: cleanLabel(districtButton.textContent)
+      });
       return;
     }
     if (cityButton) {
-      window.setTimeout(() => updateMeta("city"), 80);
+      window.setTimeout(() => updateMeta("city", { city: cleanLabel(cityButton.textContent) }), 80);
       return;
     }
     if (regionButton) {
-      window.setTimeout(() => updateMeta("region"), 80);
+      window.setTimeout(() => updateMeta("region", { region: cleanLabel(regionButton.textContent) }), 80);
     }
   }, true);
 
