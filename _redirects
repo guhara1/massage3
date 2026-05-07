@@ -12,7 +12,7 @@
 /gangnam-yeoksam.html /area/seoul/gangnam/yeoksam-dong/ 301
 /songpa-jamsil.html /area/seoul/songpa/jamsil-dong/ 301
 /seocho-banpo.html /area/seoul/seocho/banpo-dong/ 301
-/mapo-hapjeong.html /area/seoul/mapop/hapjeong-dong/ 301
+/mapo-hapjeong.html /area/seoul/mapo/hapjeong-dong/ 301
 /bundang-pangyo.html /area/gyeonggi/bundang/pangyo-dong/ 301
 /incheon-songdo.html /area/incheon/songdo/songdo-dong/ 301
 /area/:city/:district/:dong/ /area.html?city=:city&district=:district&dong=:dong 200
