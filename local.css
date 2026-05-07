@@ -26,6 +26,7 @@
 .profile-card,
 .local-block,
 .notice-box,
+.local-review-card,
 .seo-article,
 .faq-section {
   background: #171717;
@@ -58,6 +59,7 @@
 .business-info,
 .profile-card,
 .local-block,
+.local-review-card,
 .seo-article,
 .faq-section {
   padding: 24px;
@@ -162,6 +164,37 @@
 
 .notice-box strong {
   color: var(--orange);
+}
+
+.local-review-card {
+  background:
+    linear-gradient(135deg, rgba(255, 138, 29, 0.12), rgba(255, 138, 29, 0) 42%),
+    #181818;
+  display: grid;
+  gap: 12px;
+}
+
+.local-review-card h2 {
+  font-size: 28px;
+}
+
+.review-stars {
+  color: var(--orange);
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.local-review-card blockquote {
+  border-left: 3px solid var(--orange);
+  color: var(--text);
+  line-height: 1.75;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.local-review-card span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .seo-article {
