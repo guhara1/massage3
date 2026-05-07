@@ -1,3 +1,5 @@
+/area/:city/:district/:dong/ /area.html?city=:city&district=:district&dong=:dong 200
+/area/:city/:district/:dong /area.html?city=:city&district=:district&dong=:dong 200
 /regions.html /subpage.html?slug=regions 200
 /seoul.html /subpage.html?slug=seoul 200
 /gyeonggi.html /subpage.html?slug=gyeonggi 200
