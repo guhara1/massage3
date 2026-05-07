@@ -521,8 +521,8 @@ p {
 .area-button,
 .district-button {
   align-items: center;
-  background: linear-gradient(180deg, #101010, #070707);
-  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #242424, #171717);
+  border: 1px solid #3d3d3d;
   border-radius: 6px;
   color: var(--text);
   cursor: pointer;
@@ -549,20 +549,23 @@ p {
 
 .area-button:hover,
 .district-button:hover {
+  background: linear-gradient(180deg, #2d2d2d, #1d1d1d);
   transform: translateY(-1px);
 }
 
 .area-button.is-active,
 .district-button.is-active {
-  background: #120b04;
-  box-shadow: inset 3px 0 0 var(--orange);
+  background: linear-gradient(180deg, #ff8a1d, #d86606);
+  border-color: var(--orange);
+  box-shadow: 0 10px 24px rgba(255, 138, 29, 0.18);
+  color: #050505;
 }
 
 .dong-output {
   background:
-    linear-gradient(180deg, rgba(255, 138, 29, 0.08), rgba(9, 9, 9, 0) 34%),
-    #090909;
-  border: 1px solid var(--line);
+    linear-gradient(180deg, rgba(255, 138, 29, 0.11), rgba(28, 28, 28, 0) 42%),
+    #1a1a1a;
+  border: 1px solid #343434;
   border-radius: 8px;
   display: grid;
   gap: 16px;
@@ -582,8 +585,8 @@ p {
 }
 
 .dong-chip-grid a {
-  background: #050505;
-  border: 1px solid var(--line);
+  background: #242424;
+  border: 1px solid #3b3b3b;
   border-radius: 6px;
   color: var(--text);
   font-size: 14px;
@@ -596,6 +599,7 @@ p {
 .dong-chip-grid a:hover {
   border-color: var(--orange);
   color: var(--orange);
+  background: #2d2d2d;
 }
 
 .mobile-call-button {
