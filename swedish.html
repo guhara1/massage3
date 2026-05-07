@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>스웨디시 마사지 안내 | 처음 이용 전 알아두면 좋은 내용</title>
+  <meta name="description" content="스웨디시 마사지가 어떤 관리인지, 잘 맞는 고객, 일반 마사지와 다른 점, 진행 방식, 예약 전 확인사항과 FAQ를 처음 이용 고객 기준으로 안내합니다.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .service-hero { background: linear-gradient(120deg, rgba(0,0,0,.96), rgba(34,18,5,.9)); border-bottom: 1px solid rgba(255,138,29,.24); padding: 108px max(22px, calc((100vw - var(--max)) / 2)) 58px; }
+    .service-hero h1 { color: var(--orange); font-size: clamp(36px,5vw,62px); max-width: 920px; }
+    .service-hero p:not(.eyebrow) { color: #f1f1f1; font-size: 18px; line-height: 1.8; margin-top: 18px; max-width: 820px; }
+    .service-actions, .service-quick { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .service-quick a { background: #151515; border: 1px solid rgba(255,138,29,.42); border-radius: 8px; color: #fff; font-weight: 800; padding: 12px 14px; }
+    .service-layout { display: grid; gap: 18px; grid-template-columns: 280px minmax(0,1fr); }
+    .service-side { align-self: start; background: #141414; border: 1px solid rgba(255,138,29,.34); border-radius: 8px; display: grid; gap: 10px; padding: 18px; position: sticky; top: 86px; }
+    .service-side a { border-bottom: 1px solid #2b2b2b; color: #f5f5f5; font-weight: 800; padding: 10px 0; }
+    .service-side a:last-child { border-bottom: 0; }
+    .service-content { display: grid; gap: 18px; }
+    .service-card, .service-faq, .service-cta { background: #171717; border: 1px solid #353535; border-radius: 8px; padding: 24px; }
+    .service-card h2, .service-faq h2, .service-cta h2 { color: var(--orange); font-size: clamp(24px,3vw,34px); margin-bottom: 14px; }
+    .service-card p, .service-faq p, .service-cta p, .service-card li { color: #e8e8e8; line-height: 1.82; }
+    .service-list, .service-grid { display: grid; gap: 10px; margin-top: 14px; padding: 0; }
+    .service-list li { background: linear-gradient(90deg, rgba(255,138,29,.1), rgba(255,138,29,0)); border-left: 2px solid rgba(255,138,29,.55); list-style: none; padding: 10px 14px; }
+    .service-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .mini-card, .talk-box { background: #101010; border: 1px solid rgba(255,138,29,.32); border-radius: 8px; padding: 16px; }
+    .mini-card strong, .talk-box strong { color: var(--orange); display: block; font-size: 18px; margin-bottom: 8px; }
+    .talk-box p { color: #fff; font-weight: 800; }
+    .faq-item { background: #101010; border: 1px solid #303030; border-radius: 8px; margin-top: 10px; padding: 14px 16px; }
+    .faq-item summary { color: #fff; cursor: pointer; font-weight: 900; }
+    .service-cta { background: linear-gradient(135deg, rgba(255,138,29,.16), rgba(23,23,23,1) 46%); border-color: rgba(255,138,29,.48); }
+    @media (max-width: 920px) { .service-layout, .service-grid { grid-template-columns: 1fr; } .service-side { position: static; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="출장마사지 홈"><span class="brand-mark">M</span><span><strong>출장마사지</strong><small>서울 · 경기 · 인천 지역 안내</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">메뉴</button>
+    <nav id="main-nav" class="main-nav" aria-label="상단 메뉴">
+      <div class="nav-item"><a href="regions.html">지역 출장마사지</a><div class="dropdown"><a href="seoul.html">서울 출장마사지</a><a href="gyeonggi.html">경기 출장마사지</a><a href="incheon.html">인천 출장마사지</a></div></div>
+      <div class="nav-item"><a href="services.html">서비스 안내</a><div class="dropdown"><a href="swedish.html">스웨디시</a><a href="thai.html">타이마사지</a><a href="aroma.html">아로마 마사지</a><a href="sports.html">스포츠 마사지</a><a href="checklist.html">예약 전 확인사항</a></div></div>
+      <div class="nav-item"><a href="guide.html">이용안내</a><div class="dropdown"><a href="booking.html">예약방법</a><a href="process.html">이용순서</a><a href="price.html">가격 안내</a><a href="coverage.html">방문 가능 지역</a><a href="first.html">처음 이용하는 분 안내</a></div></div>
+      <div class="nav-item"><a href="reviews.html">후기</a><div class="dropdown"><a href="reviews.html">고객후기</a><a href="info.html">지역 정보</a></div></div>
+      <div class="nav-item"><a href="support.html">고객센터</a><div class="dropdown"><a href="reservation.html">예약문의</a><a href="partner.html">제휴문의</a><a href="notice.html">공지사항</a><a href="policy.html">운영정책</a></div></div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="service-hero">
+      <p class="eyebrow">Swedish massage</p>
+      <h1>스웨디시 마사지 안내, 처음 이용 전 알아두면 좋은 내용</h1>
+      <p>스웨디시 마사지는 강하게 누르는 관리보다 부드러운 흐름과 편안한 이완을 원하는 고객이 많이 찾는 코스입니다. 처음 이용 전에는 관리 방식, 본인에게 맞는지, 예약 전 확인할 기준을 먼저 살펴보는 것이 좋습니다.</p>
+      <div class="service-actions"><a class="button primary" href="tel:0508-202-4683">0508-202-4683 전화예약</a><a class="button secondary" href="price.html">코스와 요금 보기</a></div>
+      <div class="service-quick" aria-label="스웨디시 안내 빠른 이동"><a href="#what">어떤 관리인가요?</a><a href="#fit">잘 맞는 분</a><a href="#difference">다른 점</a><a href="#process">진행 방식</a><a href="#faq">자주 묻는 질문</a></div>
+    </section>
+
+    <section class="section">
+      <div class="service-layout">
+        <aside class="service-side" aria-label="스웨디시 안내 목차">
+          <a href="#what">스웨디시란?</a>
+          <a href="#fit">잘 맞는 분</a>
+          <a href="#difference">일반 마사지와 다른 점</a>
+          <a href="#before">관리 전 확인</a>
+          <a href="#process">진행 방식</a>
+          <a href="#talk">불편할 때 말하기</a>
+          <a href="#caution">예약 전 주의사항</a>
+          <a href="#delay">이용을 미루는 경우</a>
+        </aside>
+
+        <div class="service-content">
+          <article class="service-card" id="what"><h2>스웨디시 마사지는 어떤 관리인가요?</h2><p>스웨디시 마사지는 강한 압으로 특정 부위를 누르는 방식보다 부드러운 리듬과 편안한 흐름을 중심으로 하는 관리입니다. 몸이 긴장되어 있거나, 처음 이용이라 강한 압이 부담스러운 고객에게 비교적 접근하기 쉬운 코스입니다.</p><ul class="service-list"><li>부드러운 관리 흐름을 선호하는 고객에게 잘 맞습니다.</li><li>강한 통증보다 편안한 이완감을 원하는 경우에 고려할 수 있습니다.</li><li>처음 이용한다면 강도와 집중 부위를 상담에서 먼저 확인하는 것이 좋습니다.</li></ul></article>
+
+          <article class="service-card" id="fit"><h2>스웨디시 마사지가 잘 맞는 분</h2><p>스웨디시는 모두에게 무조건 맞는 코스라기보다 관리 목적이 편안한 이완과 긴장 완화에 가까운 고객에게 잘 맞습니다. 몸이 뻐근하지만 강한 압은 부담스럽다면 상담해볼 만합니다.</p><div class="service-grid"><div class="mini-card"><strong>강한 압이 부담스러운 분</strong><p>처음 이용하거나 통증에 예민하다면 중간 강도부터 상담하는 것이 좋습니다.</p></div><div class="mini-card"><strong>편안한 회복을 원하는 분</strong><p>퇴근 후 피로감이 크고 몸을 천천히 풀고 싶을 때 어울립니다.</p></div><div class="mini-card"><strong>긴장감이 높은 분</strong><p>목과 어깨가 자주 굳거나 몸이 쉽게 긴장되는 경우 도움이 될 수 있습니다.</p></div><div class="mini-card"><strong>코스 선택이 처음인 분</strong><p>강한 관리보다 부드러운 방향으로 시작하고 싶은 고객에게 선택지가 됩니다.</p></div></div></article>
+
+          <article class="service-card" id="difference"><h2>일반 마사지와 다른 점</h2><p>일반 마사지가 압박이나 특정 부위 중심으로 느껴질 수 있다면, 스웨디시는 전체 흐름과 부드러운 이완감이 더 중요합니다. 그래서 예약 전에는 “강하게 풀고 싶은지”보다 “편안하게 받고 싶은지”를 먼저 생각해보는 것이 좋습니다.</p><ul class="service-list"><li>압이 강한 관리보다 부드러운 진행감을 중시합니다.</li><li>목, 어깨, 등처럼 긴장된 부위를 천천히 풀어가는 방식으로 상담할 수 있습니다.</li><li>오일 사용 여부와 관리 강도는 예약 전 확인하는 것이 좋습니다.</li><li>스포츠 마사지처럼 강한 자극을 기대한다면 다른 코스가 더 맞을 수 있습니다.</li></ul></article>
+
+          <article class="service-card" id="before"><h2>관리 전 확인하면 좋은 사항</h2><p>스웨디시 마사지를 예약하기 전에는 코스 시간, 오일 사용 여부, 관리 강도, 집중 부위, 최종 요금을 먼저 확인하는 것이 좋습니다. 처음 이용자는 “처음이라 강도는 중간 정도로 받고 싶다”고 말하면 상담이 쉬워집니다.</p><ul class="service-list"><li>코스 시간이 90분, 120분, 150분 중 어떤 기준인지 확인하세요.</li><li>오일 사용이나 샤워 가능 환경이 필요한지 상담에서 확인하세요.</li><li>강도는 처음부터 강하게 요청하기보다 중간 정도로 시작하는 것이 좋습니다.</li><li>심야, 원거리, 주차 조건에 따른 추가 안내가 있는지 확인하세요.</li></ul></article>
+
+          <article class="service-card" id="process"><h2>스웨디시 마사지 진행 방식</h2><p>진행 방식은 고객의 몸 상태와 선택한 시간에 따라 달라질 수 있습니다. 보통은 불편한 부위와 원하는 강도를 먼저 확인한 뒤, 전체적으로 긴장을 풀어가는 흐름으로 진행됩니다.</p><ul class="service-list"><li>시작 전 몸 상태와 피로한 부위를 간단히 확인합니다.</li><li>관리 강도와 불편한 부위를 확인한 뒤 진행합니다.</li><li>중간에 압이 강하거나 약하면 바로 조절할 수 있습니다.</li><li>종료 후에는 무리하게 움직이기보다 물을 마시고 잠시 쉬는 것이 좋습니다.</li></ul></article>
+
+          <article class="service-card" id="talk"><h2>관리 중 불편할 때는 이렇게 말하면 됩니다</h2><p>처음 이용할 때는 불편해도 참고 넘어가는 경우가 있습니다. 하지만 스웨디시는 편안함이 중요한 코스라서 중간에 강도나 자세를 조절하는 것이 자연스럽습니다.</p><div class="service-grid"><div class="talk-box"><strong>압이 강할 때</strong><p>“조금만 부드럽게 해주세요.”</p></div><div class="talk-box"><strong>압이 약할 때</strong><p>“어깨 쪽은 조금 더 신경 써주세요.”</p></div><div class="talk-box"><strong>불편한 부위가 있을 때</strong><p>“허리 쪽은 조심해서 진행 부탁드립니다.”</p></div><div class="talk-box"><strong>처음이라 긴장될 때</strong><p>“처음 이용이라 중간 강도로 천천히 부탁드립니다.”</p></div></div></article>
+
+          <article class="service-card" id="caution"><h2>예약 전 꼭 확인해야 할 주의사항</h2><p>스웨디시 마사지는 코스 설명이 업체마다 다르게 안내될 수 있으므로 예약 전 기준을 명확히 확인해야 합니다. 가격, 시간, 관리 방식, 추가비 여부를 먼저 확인하면 불필요한 오해를 줄일 수 있습니다.</p><ul class="service-list"><li>안내받은 금액이 총 금액인지 확인하세요.</li><li>코스 시간과 실제 관리 기준을 확인하세요.</li><li>불법 요청이나 무리한 요청은 진행되지 않습니다.</li><li>방문 주소, 공동현관, 주차 여부는 예약 확정 전에 알려주세요.</li></ul></article>
+
+          <article class="service-card" id="delay"><h2>이런 경우에는 이용을 미루는 것이 좋습니다</h2><p>컨디션이 좋지 않은 상태에서 무리하게 예약하는 것은 권장하지 않습니다. 스웨디시는 편안한 관리를 위한 코스이지만 몸 상태가 좋지 않다면 충분히 쉬는 것이 먼저입니다.</p><div class="service-grid"><div class="mini-card"><strong>과음 직후</strong><p>음주 후에는 몸 상태가 불안정할 수 있어 이용을 미루는 편이 좋습니다.</p></div><div class="mini-card"><strong>고열 또는 몸살</strong><p>열이 있거나 몸살 기운이 있다면 회복 후 문의하세요.</p></div><div class="mini-card"><strong>심한 통증</strong><p>일상 피로가 아닌 강한 통증은 먼저 의료 상담을 고려하세요.</p></div><div class="mini-card"><strong>시간이 촉박한 경우</strong><p>방문과 준비 시간이 필요하므로 여유가 전혀 없다면 일정 조율이 필요합니다.</p></div></div></article>
+
+          <section class="service-faq" id="faq"><h2>스웨디시 마사지 자주 묻는 질문</h2><details class="faq-item" open><summary>스웨디시는 처음 이용해도 괜찮나요?</summary><p>처음 이용 고객도 상담을 통해 강도와 코스 시간을 조절할 수 있습니다. 강한 압이 부담스럽다면 중간 강도로 시작해보는 것이 좋습니다.</p></details><details class="faq-item"><summary>스웨디시와 아로마 마사지는 다른가요?</summary><p>둘 다 부드러운 관리로 느껴질 수 있지만, 업체별 코스 구성과 오일 사용 기준이 다를 수 있습니다. 예약 전 관리 방식과 시간 기준을 확인하세요.</p></details><details class="faq-item"><summary>강도 조절이 가능한가요?</summary><p>가능합니다. 관리 중 압이 강하거나 약하면 바로 말해 주세요. 처음에는 중간 강도로 시작한 뒤 조절하는 방식이 편합니다.</p></details><details class="faq-item"><summary>몇 분 코스를 선택하면 좋나요?</summary><p>처음 이용이라면 90분 또는 120분을 많이 비교합니다. 피로가 누적되어 있거나 여유 있게 받고 싶다면 120분 이상을 상담해볼 수 있습니다.</p></details><details class="faq-item"><summary>예약 전 무엇을 먼저 말하면 되나요?</summary><p>이용 지역, 희망 시간, 원하는 코스, 처음 이용 여부를 먼저 알려주시면 됩니다. 이후 가능 시간과 최종 요금을 안내받을 수 있습니다.</p></details></section>
+
+          <article class="service-cta"><h2>마무리 안내</h2><p>스웨디시 마사지는 강한 자극보다 편안한 이완을 원하는 고객에게 잘 맞는 코스입니다. 처음 이용한다면 지역과 희망 시간, 원하는 강도, 총 요금을 먼저 확인한 뒤 예약하는 것이 좋습니다.</p><div class="service-actions"><a class="button primary" href="tel:0508-202-4683">지금 전화예약</a><a class="button secondary" href="first.html">처음 이용 안내 보기</a></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><strong>출장마사지 지역 안내</strong><p>서울 · 경기 · 인천 지역별 출장마사지 정보 허브</p></footer>
+  <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>전화예약</span><strong>0508-202-4683</strong></a>
+  <script src="script.js"></script>
+</body>
+</html>
