@@ -2,6 +2,40 @@
   Link: </favicon.svg>; rel="icon"; type="image/svg+xml"
   Link: </favicon.ico>; rel="shortcut icon"
   Link: </region-polish.css>; rel="stylesheet"; type="text/css"
+  Cache-Control: public, max-age=300
+
+/*.css
+  Cache-Control: public, max-age=86400
+
+/*.js
+  Cache-Control: public, max-age=86400
+
+/assets/*
+  Cache-Control: public, max-age=604800, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=604800, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=604800, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/sitemap-gyeonggi.xml
+  Cache-Control: public, max-age=3600
+
+/rss.xml
+  Cache-Control: public, max-age=3600
 
 /area.html
+  X-Robots-Tag: noindex, follow
+
+/area-landing.html
+  X-Robots-Tag: noindex, follow
+
+/subpage.html
+  X-Robots-Tag: noindex, follow
+
+/station.html
   X-Robots-Tag: noindex, follow
