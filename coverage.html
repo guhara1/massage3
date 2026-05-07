@@ -16,268 +16,40 @@
       border-bottom: 1px solid rgba(255, 138, 29, .26);
       padding: 92px max(22px, calc((100vw - var(--max)) / 2)) 64px;
     }
-
-    .coverage-hero h1 {
-      font-size: clamp(38px, 5.6vw, 68px);
-      max-width: 900px;
-    }
-
-    .coverage-hero p:not(.eyebrow) {
-      color: #fff;
-      font-size: 19px;
-      margin-top: 16px;
-      max-width: 720px;
-    }
-
-    .coverage-page {
-      display: grid;
-      gap: 28px;
-    }
-
-    .coverage-summary {
-      align-items: center;
-      background: linear-gradient(135deg, rgba(255, 138, 29, .15), rgba(255, 255, 255, .035));
-      border: 1px solid rgba(255, 138, 29, .36);
-      border-radius: 8px;
-      display: grid;
-      gap: 20px;
-      grid-template-columns: minmax(0, 1fr) 300px;
-      padding: 24px;
-    }
-
-    .coverage-summary h2,
-    .area-details h2,
-    .coverage-note h2 {
-      font-size: 30px;
-    }
-
-    .coverage-summary p,
-    .coverage-note p,
-    .area-card p,
-    .map-panel p {
-      color: rgba(255, 255, 255, .78);
-    }
-
-    .phone-box {
-      background: #ff8a1d;
-      border-radius: 8px;
-      color: #050505;
-      display: grid;
-      gap: 6px;
-      justify-items: center;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .phone-box span {
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .phone-box strong {
-      color: #050505;
-      font-size: 28px;
-      line-height: 1.2;
-    }
-
-    .area-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .area-buttons a {
-      background: linear-gradient(180deg, #222, #101010);
-      border: 1px solid rgba(255, 255, 255, .14);
-      border-radius: 999px;
-      color: #fff;
-      font-weight: 900;
-      padding: 10px 15px;
-    }
-
-    .area-buttons a:hover {
-      border-color: var(--orange);
-      color: var(--orange);
-    }
-
-    .coverage-content {
-      display: grid;
-      gap: 22px;
-      grid-template-columns: minmax(0, 1fr) 340px;
-    }
-
-    .area-details {
-      display: grid;
-      gap: 14px;
-    }
-
-    .area-card {
-      background: #141414;
-      border: 1px solid rgba(255, 255, 255, .13);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .area-card summary {
-      align-items: center;
-      cursor: pointer;
-      display: flex;
-      gap: 12px;
-      justify-content: space-between;
-      list-style: none;
-      padding: 20px 22px;
-    }
-
-    .area-card summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .area-card summary strong {
-      color: var(--orange);
-      font-size: 24px;
-    }
-
-    .area-card summary span {
-      background: rgba(255, 138, 29, .12);
-      border: 1px solid rgba(255, 138, 29, .34);
-      border-radius: 999px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      padding: 6px 10px;
-      white-space: nowrap;
-    }
-
-    .area-card[open] summary {
-      background: linear-gradient(90deg, rgba(255, 138, 29, .16), transparent);
-      border-bottom: 1px solid rgba(255, 255, 255, .1);
-    }
-
-    .area-body {
-      display: grid;
-      gap: 14px;
-      padding: 20px 22px 22px;
-    }
-
-    .area-meta {
-      display: grid;
-      gap: 10px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .meta-item {
-      background: #0b0b0b;
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 8px;
-      padding: 14px;
-    }
-
-    .meta-item em {
-      color: rgba(255, 255, 255, .62);
-      display: block;
-      font-style: normal;
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-
-    .meta-item strong {
-      color: #fff;
-      line-height: 1.5;
-    }
-
-    .review-line {
-      border-left: 3px solid var(--orange);
-      color: #fff;
-      font-weight: 800;
-      line-height: 1.7;
-      padding-left: 14px;
-    }
-
-    .map-panel,
-    .coverage-note {
-      background: #141414;
-      border: 1px solid rgba(255, 138, 29, .26);
-      border-radius: 8px;
-      padding: 22px;
-    }
-
-    .map-panel {
-      align-self: start;
-      display: grid;
-      gap: 16px;
-      position: sticky;
-      top: 92px;
-    }
-
-    .simple-map {
-      aspect-ratio: 1 / 1.05;
-      background:
-        radial-gradient(circle at 52% 27%, rgba(255, 138, 29, .92) 0 7%, transparent 8%),
-        radial-gradient(circle at 42% 34%, rgba(255, 177, 94, .76) 0 6%, transparent 7%),
-        radial-gradient(circle at 60% 38%, rgba(255, 138, 29, .78) 0 6%, transparent 7%),
-        radial-gradient(circle at 38% 50%, rgba(255, 138, 29, .58) 0 7%, transparent 8%),
-        radial-gradient(circle at 56% 55%, rgba(255, 177, 94, .62) 0 6%, transparent 7%),
-        linear-gradient(135deg, #292929, #0b0b0b);
-      border: 1px solid rgba(255, 255, 255, .13);
-      border-radius: 8px;
-      box-shadow: inset 0 0 42px rgba(255, 138, 29, .12);
-      position: relative;
-    }
-
-    .simple-map::after {
-      color: rgba(255, 255, 255, .72);
-      content: "대표 방문 가능 생활권";
-      font-size: 13px;
-      font-weight: 900;
-      left: 18px;
-      position: absolute;
-      top: 16px;
-    }
-
-    .coverage-note {
-      display: grid;
-      gap: 12px;
-    }
-
-    .coverage-note ul {
-      color: rgba(255, 255, 255, .78);
-      display: grid;
-      gap: 8px;
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    @media (max-width: 920px) {
-      .coverage-summary,
-      .coverage-content {
-        grid-template-columns: 1fr;
-      }
-
-      .map-panel {
-        position: static;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .coverage-hero {
-        padding-top: 70px;
-      }
-
-      .coverage-summary,
-      .map-panel,
-      .coverage-note {
-        padding: 20px;
-      }
-
-      .area-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .area-card summary {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
+    .coverage-hero h1 { font-size: clamp(38px, 5.6vw, 68px); max-width: 900px; }
+    .coverage-hero p:not(.eyebrow) { color: #fff; font-size: 19px; margin-top: 16px; max-width: 720px; }
+    .coverage-page { display: grid; gap: 28px; }
+    .coverage-summary { align-items: center; background: linear-gradient(135deg, rgba(255, 138, 29, .15), rgba(255, 255, 255, .035)); border: 1px solid rgba(255, 138, 29, .36); border-radius: 8px; display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr) 300px; padding: 24px; }
+    .coverage-summary h2, .area-details h2, .coverage-note h2 { font-size: 30px; }
+    .coverage-summary p, .coverage-note p, .area-card p, .map-panel p { color: rgba(255, 255, 255, .78); }
+    .phone-box { background: #ff8a1d; border-radius: 8px; color: #050505; display: grid; gap: 6px; justify-items: center; padding: 20px; text-align: center; }
+    .phone-box span { font-size: 14px; font-weight: 900; }
+    .phone-box strong { color: #050505; font-size: 28px; line-height: 1.2; }
+    .area-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .area-buttons a { background: linear-gradient(180deg, #222, #101010); border: 1px solid rgba(255, 255, 255, .14); border-radius: 999px; color: #fff; font-weight: 900; padding: 10px 15px; }
+    .area-buttons a:hover { border-color: var(--orange); color: var(--orange); }
+    .coverage-content { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr) 340px; }
+    .area-details { display: grid; gap: 14px; }
+    .area-card { background: #141414; border: 1px solid rgba(255, 255, 255, .13); border-radius: 8px; overflow: hidden; }
+    .area-card summary { align-items: center; cursor: pointer; display: flex; gap: 12px; justify-content: space-between; list-style: none; padding: 20px 22px; }
+    .area-card summary::-webkit-details-marker { display: none; }
+    .area-card summary strong { color: var(--orange); font-size: 24px; }
+    .area-card summary span { background: rgba(255, 138, 29, .12); border: 1px solid rgba(255, 138, 29, .34); border-radius: 999px; color: #fff; font-size: 13px; font-weight: 900; padding: 6px 10px; white-space: nowrap; }
+    .area-card[open] summary { background: linear-gradient(90deg, rgba(255, 138, 29, .16), transparent); border-bottom: 1px solid rgba(255, 255, 255, .1); }
+    .area-body { display: grid; gap: 14px; padding: 20px 22px 22px; }
+    .area-meta { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .meta-item { background: #0b0b0b; border: 1px solid rgba(255, 255, 255, .1); border-radius: 8px; padding: 14px; }
+    .meta-item em { color: rgba(255, 255, 255, .62); display: block; font-style: normal; font-weight: 800; margin-bottom: 5px; }
+    .meta-item strong { color: #fff; line-height: 1.5; }
+    .review-line { border-left: 3px solid var(--orange); color: #fff; font-weight: 800; line-height: 1.7; padding-left: 14px; }
+    .map-panel, .coverage-note { background: #141414; border: 1px solid rgba(255, 138, 29, .26); border-radius: 8px; padding: 22px; }
+    .map-panel { align-self: start; display: grid; gap: 16px; position: sticky; top: 92px; }
+    .simple-map { aspect-ratio: 1 / 1.05; background: radial-gradient(circle at 52% 27%, rgba(255, 138, 29, .92) 0 7%, transparent 8%), radial-gradient(circle at 42% 34%, rgba(255, 177, 94, .76) 0 6%, transparent 7%), radial-gradient(circle at 60% 38%, rgba(255, 138, 29, .78) 0 6%, transparent 7%), radial-gradient(circle at 38% 50%, rgba(255, 138, 29, .58) 0 7%, transparent 8%), radial-gradient(circle at 56% 55%, rgba(255, 177, 94, .62) 0 6%, transparent 7%), linear-gradient(135deg, #292929, #0b0b0b); border: 1px solid rgba(255, 255, 255, .13); border-radius: 8px; box-shadow: inset 0 0 42px rgba(255, 138, 29, .12); position: relative; }
+    .simple-map::after { color: rgba(255, 255, 255, .72); content: "대표 방문 가능 생활권"; font-size: 13px; font-weight: 900; left: 18px; position: absolute; top: 16px; }
+    .coverage-note { display: grid; gap: 12px; }
+    .coverage-note ul { color: rgba(255, 255, 255, .78); display: grid; gap: 8px; margin: 0; padding-left: 18px; }
+    @media (max-width: 920px) { .coverage-summary, .coverage-content { grid-template-columns: 1fr; } .map-panel { position: static; } }
+    @media (max-width: 620px) { .coverage-hero { padding-top: 70px; } .coverage-summary, .map-panel, .coverage-note { padding: 20px; } .area-meta { grid-template-columns: 1fr; } .area-card summary { align-items: flex-start; flex-direction: column; } }
   </style>
 </head>
 <body>
@@ -297,91 +69,32 @@
     <section class="coverage-hero">
       <p class="eyebrow">Coverage</p>
       <h1>방문 가능 지역 안내</h1>
-      <p>아래 대표 지역은 바로 예약 가능 여부를 확인할 수 있습니다. 정확한 도착 시간은 예약 시 이용 주소와 시간대를 확인한 뒤 안내합니다.</p>
+      <p>예약 전 이용하려는 지역과 시간대를 먼저 확인해 주세요. 주요 생활권은 바로 상담 가능하며, 실제 도착 시간은 주소와 출입 조건을 확인한 뒤 안내합니다.</p>
     </section>
 
     <section class="section coverage-page">
       <div class="coverage-summary">
         <div>
-          <h2>대표 지역 8곳만 먼저 확인하세요</h2>
-          <p>한 페이지에 전국 50개 지역을 빽빽하게 나열하지 않고, 문의가 많은 주요 생활권만 정리했습니다. 원하는 지역이 없으면 고객센터로 문의해 주세요.</p>
+          <h2>자주 문의되는 주요 지역</h2>
+          <p>이용 문의가 많은 서울·경기·인천 주요 생활권을 먼저 정리했습니다. 목록에 없는 지역도 시간대와 이동 동선에 따라 가능할 수 있으니, 원하는 지역명을 알려주시면 확인해드립니다.</p>
           <div class="area-buttons" aria-label="대표 지역 바로가기">
             <a href="#gangnam">강남구</a><a href="#seocho">서초구</a><a href="#songpa">송파구</a><a href="#mapo">마포구</a><a href="#yeongdeungpo">영등포구</a><a href="#bundang">분당구</a><a href="#songdo">송도</a><a href="#suwon">수원</a>
           </div>
         </div>
-        <a class="phone-box" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약">
-          <span>통합 예약번호</span>
-          <strong>0508-202-4683</strong>
-        </a>
+        <a class="phone-box" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>통합 예약번호</span><strong>0508-202-4683</strong></a>
       </div>
 
       <div class="coverage-content">
         <section class="area-details" aria-label="지역별 상세 안내">
           <h2>지역별 예약 가능 정보</h2>
-
-          <details class="area-card" id="gangnam" open>
-            <summary><strong>강남구</strong><span>평균 30~40분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>역삼동, 대치동, 삼성동, 논현동</strong></div><div class="meta-item"><em>지역 특징</em><strong>야간 예약 문의가 많고 오피스텔 방문 확인이 중요합니다.</strong></div></div>
-              <p class="review-line">"강남역 근처라 도착 시간이 빨랐고, 예약 전 금액 안내가 명확했어요."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="seocho">
-            <summary><strong>서초구</strong><span>평균 35~45분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>서초동, 반포동, 방배동, 양재동</strong></div><div class="meta-item"><em>지역 특징</em><strong>주거 단지와 오피스가 섞여 있어 출입 방식 확인이 먼저 필요합니다.</strong></div></div>
-              <p class="review-line">"반포 쪽 예약이었는데 방문 전 주차와 출입 방식을 먼저 물어봐줘서 편했습니다."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="songpa">
-            <summary><strong>송파구</strong><span>평균 35~50분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>잠실동, 문정동, 방이동, 가락동</strong></div><div class="meta-item"><em>지역 특징</em><strong>잠실·문정 생활권은 퇴근 이후 문의가 많아 시간 여유가 좋습니다.</strong></div></div>
-              <p class="review-line">"문정동에서 이용했는데 가능한 시간을 두 개로 나눠 안내해줘서 선택하기 쉬웠어요."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="mapo">
-            <summary><strong>마포구</strong><span>평균 40~55분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>공덕동, 합정동, 상암동, 연남동</strong></div><div class="meta-item"><em>지역 특징</em><strong>상권과 주거지가 가까워 주소 확인 후 이동 시간이 달라질 수 있습니다.</strong></div></div>
-              <p class="review-line">"합정 쪽이라 길이 복잡할 줄 알았는데 도착 예정 시간을 미리 알려줘서 좋았어요."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="yeongdeungpo">
-            <summary><strong>영등포구</strong><span>평균 35~50분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>여의도동, 문래동, 당산동, 영등포동</strong></div><div class="meta-item"><em>지역 특징</em><strong>여의도와 문래권은 업무 후 시간대 예약 문의가 많은 편입니다.</strong></div></div>
-              <p class="review-line">"여의도에서 퇴근 후 문의했는데 가능한 시간과 코스를 바로 비교해줬습니다."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="bundang">
-            <summary><strong>분당구</strong><span>평균 45~60분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>정자동, 서현동, 야탑동, 판교동</strong></div><div class="meta-item"><em>지역 특징</em><strong>판교·정자 생활권은 이동 거리와 시간대에 따라 안내가 달라집니다.</strong></div></div>
-              <p class="review-line">"판교 쪽은 시간이 애매했는데 가능한 시간대를 현실적으로 안내해줘서 믿음이 갔어요."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="songdo">
-            <summary><strong>인천 송도</strong><span>평균 45~65분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>송도동, 연수동, 청학동, 동춘동</strong></div><div class="meta-item"><em>지역 특징</em><strong>아파트 단지와 오피스텔 출입 확인이 예약 정확도에 영향을 줍니다.</strong></div></div>
-              <p class="review-line">"송도 오피스텔이라 출입 방법을 먼저 확인했고, 도착 시간도 크게 벗어나지 않았어요."</p>
-            </div>
-          </details>
-
-          <details class="area-card" id="suwon">
-            <summary><strong>수원</strong><span>평균 45~70분</span></summary>
-            <div class="area-body">
-              <div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>인계동, 광교, 영통동, 권선동</strong></div><div class="meta-item"><em>지역 특징</em><strong>광교·영통은 시간대별 이동 동선 차이가 있어 사전 확인이 중요합니다.</strong></div></div>
-              <p class="review-line">"광교에서 문의했는데 이동 시간이 왜 달라지는지 설명해줘서 납득하고 예약했어요."</p>
-            </div>
-          </details>
+          <details class="area-card" id="gangnam" open><summary><strong>강남구</strong><span>평균 30~40분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>역삼동, 대치동, 삼성동, 논현동</strong></div><div class="meta-item"><em>지역 특징</em><strong>야간 예약 문의가 많고 오피스텔 방문 확인이 중요합니다.</strong></div></div><p class="review-line">"강남역 근처라 도착 시간이 빨랐고, 예약 전 금액 안내가 명확했어요."</p></div></details>
+          <details class="area-card" id="seocho"><summary><strong>서초구</strong><span>평균 35~45분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>서초동, 반포동, 방배동, 양재동</strong></div><div class="meta-item"><em>지역 특징</em><strong>주거 단지와 오피스가 섞여 있어 출입 방식 확인이 먼저 필요합니다.</strong></div></div><p class="review-line">"반포 쪽 예약이었는데 방문 전 주차와 출입 방식을 먼저 물어봐줘서 편했습니다."</p></div></details>
+          <details class="area-card" id="songpa"><summary><strong>송파구</strong><span>평균 35~50분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>잠실동, 문정동, 방이동, 가락동</strong></div><div class="meta-item"><em>지역 특징</em><strong>잠실·문정 생활권은 퇴근 이후 문의가 많아 시간 여유가 좋습니다.</strong></div></div><p class="review-line">"문정동에서 이용했는데 가능한 시간을 두 개로 나눠 안내해줘서 선택하기 쉬웠어요."</p></div></details>
+          <details class="area-card" id="mapo"><summary><strong>마포구</strong><span>평균 40~55분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>공덕동, 합정동, 상암동, 연남동</strong></div><div class="meta-item"><em>지역 특징</em><strong>상권과 주거지가 가까워 주소 확인 후 이동 시간이 달라질 수 있습니다.</strong></div></div><p class="review-line">"합정 쪽이라 길이 복잡할 줄 알았는데 도착 예정 시간을 미리 알려줘서 좋았어요."</p></div></details>
+          <details class="area-card" id="yeongdeungpo"><summary><strong>영등포구</strong><span>평균 35~50분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>여의도동, 문래동, 당산동, 영등포동</strong></div><div class="meta-item"><em>지역 특징</em><strong>여의도와 문래권은 업무 후 시간대 예약 문의가 많은 편입니다.</strong></div></div><p class="review-line">"여의도에서 퇴근 후 문의했는데 가능한 시간과 코스를 바로 비교해줬습니다."</p></div></details>
+          <details class="area-card" id="bundang"><summary><strong>분당구</strong><span>평균 45~60분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>정자동, 서현동, 야탑동, 판교동</strong></div><div class="meta-item"><em>지역 특징</em><strong>판교·정자 생활권은 이동 거리와 시간대에 따라 안내가 달라집니다.</strong></div></div><p class="review-line">"판교 쪽은 시간이 애매했는데 가능한 시간대를 현실적으로 안내해줘서 믿음이 갔어요."</p></div></details>
+          <details class="area-card" id="songdo"><summary><strong>인천 송도</strong><span>평균 45~65분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>송도동, 연수동, 청학동, 동춘동</strong></div><div class="meta-item"><em>지역 특징</em><strong>아파트 단지와 오피스텔 출입 확인이 예약 정확도에 영향을 줍니다.</strong></div></div><p class="review-line">"송도 오피스텔이라 출입 방법을 먼저 확인했고, 도착 시간도 크게 벗어나지 않았어요."</p></div></details>
+          <details class="area-card" id="suwon"><summary><strong>수원</strong><span>평균 45~70분</span></summary><div class="area-body"><div class="area-meta"><div class="meta-item"><em>대표 동네</em><strong>인계동, 광교, 영통동, 권선동</strong></div><div class="meta-item"><em>지역 특징</em><strong>광교·영통은 시간대별 이동 동선 차이가 있어 사전 확인이 중요합니다.</strong></div></div><p class="review-line">"광교에서 문의했는데 이동 시간이 왜 달라지는지 설명해줘서 납득하고 예약했어요."</p></div></details>
         </section>
 
         <aside class="map-panel" aria-label="방문 가능 지역 지도 이미지">
@@ -392,15 +105,7 @@
         </aside>
       </div>
 
-      <section class="coverage-note">
-        <h2>예약 전 추가 안내</h2>
-        <ul>
-          <li>지역별 정확한 도착 시간은 예약 시 이용 주소를 확인한 뒤 안내합니다.</li>
-          <li>원하는 지역이 목록에 없으면 고객센터로 문의해 주세요.</li>
-          <li>심야 시간, 주차, 출입 방식, 코스 선택에 따라 안내 시간이 달라질 수 있습니다.</li>
-          <li>방문 가능 여부는 단순 지역명보다 실제 주소와 시간대 확인이 더 중요합니다.</li>
-        </ul>
-      </section>
+      <section class="coverage-note"><h2>예약 전 추가 안내</h2><ul><li>지역별 정확한 도착 시간은 예약 시 이용 주소를 확인한 뒤 안내합니다.</li><li>원하는 지역이 목록에 없으면 고객센터로 문의해 주세요.</li><li>심야 시간, 주차, 출입 방식, 코스 선택에 따라 안내 시간이 달라질 수 있습니다.</li><li>방문 가능 여부는 단순 지역명보다 실제 주소와 시간대 확인이 더 중요합니다.</li></ul></section>
     </section>
   </main>
 
