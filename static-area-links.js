@@ -1,4 +1,8 @@
 (() => {
+  const visualStyle = document.createElement("style");
+  visualStyle.textContent = ".area-card span{display:none!important}.area-card{justify-content:flex-start!important}";
+  document.head.appendChild(visualStyle);
+
   const slugOverrides = {
     "서울": "seoul", "경기": "gyeonggi", "인천": "incheon", "부산": "busan", "대구": "daegu", "대전": "daejeon", "광주": "gwangju", "세종": "sejong", "강원": "gangwon", "제주": "jeju", "전북": "jeonbuk",
     "강남": "gangnam", "서초": "seocho", "송파": "songpa", "마포": "mapo", "영등포": "yeongdeungpo", "용산": "yongsan", "성동": "seongdong", "광진": "gwangjin", "중구": "jung-gu", "종로": "jongno", "강서": "gangseo", "관악": "gwanak", "동작": "dongjak", "강동": "gangdong", "노원": "nowon", "은평": "eunpyeong", "구로": "guro", "금천": "geumcheon", "동대문": "dongdaemun", "서대문": "seodaemun", "성북": "seongbuk", "양천": "yangcheon", "중랑": "jungnang", "강북": "gangbuk", "도봉": "dobong",
