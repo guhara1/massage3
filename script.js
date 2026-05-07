@@ -8,6 +8,29 @@
     .guide-grid article { display: flex; flex-direction: column; height: 100%; min-height: 168px; }
     .guide-grid article p { margin-top: 10px; }
 
+    .home-trust-section { background: radial-gradient(circle at 12% 8%, rgba(255,138,29,.16), transparent 30%), linear-gradient(180deg,#080808 0%,#111 100%); }
+    .home-trust-wrap { display: grid; gap: 18px; }
+    .home-trust-lead { background: linear-gradient(135deg, rgba(255,138,29,.15), rgba(255,255,255,.035)); border: 1px solid rgba(255,138,29,.34); border-radius: 8px; padding: 26px; }
+    .home-trust-lead p { color: rgba(255,255,255,.82); margin-top: 12px; max-width: 820px; }
+    .home-trust-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .home-trust-card { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); border: 1px solid rgba(255,255,255,.13); border-radius: 8px; min-height: 190px; padding: 22px; }
+    .home-trust-card strong { color: var(--orange); display: block; font-size: 21px; line-height: 1.35; margin-bottom: 10px; }
+    .home-trust-card p, .home-trust-card li { color: rgba(255,255,255,.78); }
+    .home-trust-card ul { display: grid; gap: 8px; margin: 0; padding-left: 18px; }
+    .home-trust-card.quote { border-color: rgba(255,138,29,.42); grid-column: span 2; }
+    .home-trust-card.quote p { border-left: 3px solid var(--orange); color: #fff; font-weight: 800; line-height: 1.75; padding-left: 14px; }
+    .home-faq-panel { background: #121212; border: 1px solid rgba(255,138,29,.28); border-radius: 8px; padding: 24px; }
+    .home-faq-panel h3 { font-size: 28px; margin-bottom: 16px; }
+    .home-faq-list { display: grid; gap: 10px; }
+    .home-faq-list details { background: #0a0a0a; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 15px 16px; }
+    .home-faq-list summary { color: #fff; cursor: pointer; font-weight: 900; }
+    .home-faq-list p { color: rgba(255,255,255,.74); margin-top: 10px; }
+    .home-trust-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .home-trust-links a { background: rgba(255,138,29,.1); border: 1px solid rgba(255,138,29,.35); border-radius: 999px; color: #fff; font-weight: 900; padding: 9px 13px; }
+    .home-trust-links a:hover { background: rgba(255,138,29,.18); color: var(--orange); }
+    @media (max-width: 900px) { .home-trust-grid { grid-template-columns: 1fr 1fr; } .home-trust-card.quote { grid-column: span 2; } }
+    @media (max-width: 620px) { .home-trust-grid { grid-template-columns: 1fr; } .home-trust-card, .home-trust-card.quote { grid-column: auto; min-height: 0; } .home-trust-lead, .home-faq-panel { padding: 20px; } }
+
     #regions .subregion-list.mobile-step-focus,
     #regions .dong-card.mobile-step-focus { outline: 2px solid rgba(255, 138, 29, .92); box-shadow: 0 0 0 4px rgba(255, 138, 29, .16), 0 22px 54px rgba(0, 0, 0, .5) !important; }
     #regions .subregion-list, #regions .dong-card { scroll-margin-top: 92px; }
@@ -56,6 +79,59 @@
       regionItem.appendChild(dropdown);
     }
     dropdown.innerHTML = regionLinks.map(([label, key]) => `<a href="index.html?region=${key}#regions" data-nav-region="${key}">${label}</a>`).join("");
+  }
+
+  function injectHomeTrustSection() {
+    const main = document.querySelector("main");
+    const reviews = document.querySelector("#reviews");
+    if (!main || !reviews || document.querySelector("#home-trust")) return;
+
+    const section = document.createElement("section");
+    section.className = "section home-trust-section";
+    section.id = "home-trust";
+    section.innerHTML = `
+      <div class="home-trust-wrap">
+        <div class="home-trust-lead">
+          <p class="eyebrow">Before booking</p>
+          <h2>마짱을 이용하기 전 확인할 기준</h2>
+          <p>처음 문의하는 고객이 지역, 시간, 코스, 최종 요금을 순서대로 확인할 수 있도록 안내합니다. 단순히 빠른 예약만 강조하기보다 방문 가능 여부와 운영 기준을 먼저 설명해 불필요한 오해를 줄이는 것이 핵심입니다.</p>
+        </div>
+        <div class="home-trust-grid">
+          <article class="home-trust-card"><strong>지역별 예약 가능 여부를 안내하는 방식</strong><p>고객이 이용할 권역과 세부 생활권을 먼저 확인한 뒤, 관리사 이동 가능 시간과 방문 조건을 함께 안내합니다. 같은 지역이라도 건물 출입 방식, 주차 가능 여부, 심야 시간대에 따라 가능 시간이 달라질 수 있습니다.</p></article>
+          <article class="home-trust-card"><strong>코스와 요금이 달라지는 이유</strong><p>요금은 코스 종류, 이용 시간, 심야 상담 여부, 이동 거리, 현장 상황에 따라 달라질 수 있습니다. 예약 전에는 기본 요금과 추가 확인이 필요한 조건을 먼저 안내하고 최종 금액을 확정합니다.</p></article>
+          <article class="home-trust-card"><strong>운영정책 및 예약 제한 안내</strong><p>건강 상태가 좋지 않거나 음주가 과한 경우, 출입 정보가 불명확한 경우, 무리한 요청이 있는 경우에는 예약이 제한될 수 있습니다. 안전한 이용을 위해 예약 변경과 취소 기준도 사전에 확인합니다.</p></article>
+          <article class="home-trust-card quote"><strong>처음 이용하는 고객을 위한 상담 예시</strong><p>안녕하세요. 서울 강남구 역삼동입니다. 오늘 밤 9시쯤 아로마 120분 가능할까요? 처음 이용이라 코스 차이와 최종 요금, 방문 전 확인할 사항도 같이 안내 부탁드립니다.</p></article>
+          <article class="home-trust-card"><strong>예약 전 함께 보면 좋은 안내</strong><ul><li>지역 선택 후 세부 생활권 확인</li><li>원하는 시간과 가능한 시간 비교</li><li>코스별 관리 방식과 요금 확인</li><li>방문 주소, 출입 방식, 결제 기준 확인</li></ul></article>
+        </div>
+        <div class="home-faq-panel">
+          <h3>자주 묻는 질문</h3>
+          <div class="home-faq-list">
+            <details><summary>처음 예약할 때 무엇을 먼저 말하면 되나요?</summary><p>이용 지역, 희망 날짜와 시간, 원하는 코스를 먼저 알려주시면 됩니다. 처음 이용하는 경우에는 코스 추천과 최종 요금 안내를 함께 요청하면 상담이 빠릅니다.</p></details>
+            <details><summary>지역이 같아도 예약 가능 시간이 달라질 수 있나요?</summary><p>네. 같은 구나 동이라도 이동 동선, 주차, 건물 출입 방식, 심야 시간대 여부에 따라 방문 가능 시간이 달라질 수 있습니다.</p></details>
+            <details><summary>코스 요금은 언제 확정되나요?</summary><p>상담 단계에서 코스, 이용 시간, 방문 지역, 추가 확인 조건을 확인한 뒤 최종 요금을 안내합니다. 예약 전 금액을 먼저 확인하는 흐름을 권장합니다.</p></details>
+            <details><summary>예약 변경이나 취소는 어떻게 하나요?</summary><p>가능하면 확정 전 또는 방문 준비가 시작되기 전에 알려주시는 것이 좋습니다. 당일 변경은 시간대와 배정 상황에 따라 제한될 수 있습니다.</p></details>
+            <details><summary>몸 상태가 좋지 않아도 이용할 수 있나요?</summary><p>발열, 염증, 심한 통증, 음주 상태, 의료적 판단이 필요한 증상이 있다면 이용을 미루는 편이 좋습니다. 필요한 경우 의료진 상담을 먼저 권장합니다.</p></details>
+          </div>
+          <div class="home-trust-links"><a href="booking.html">예약방법</a><a href="price.html">가격 안내</a><a href="coverage.html">방문 가능 지역</a><a href="policy.html">운영정책</a><a href="first.html">처음 이용 안내</a></div>
+        </div>
+      </div>
+    `;
+    reviews.parentNode.insertBefore(section, reviews);
+
+    const faqSchema = document.createElement("script");
+    faqSchema.type = "application/ld+json";
+    faqSchema.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "처음 예약할 때 무엇을 먼저 말하면 되나요?", "acceptedAnswer": { "@type": "Answer", "text": "이용 지역, 희망 날짜와 시간, 원하는 코스를 먼저 알려주시면 됩니다. 처음 이용하는 경우에는 코스 추천과 최종 요금 안내를 함께 요청하면 상담이 빠릅니다." } },
+        { "@type": "Question", "name": "지역이 같아도 예약 가능 시간이 달라질 수 있나요?", "acceptedAnswer": { "@type": "Answer", "text": "같은 구나 동이라도 이동 동선, 주차, 건물 출입 방식, 심야 시간대 여부에 따라 방문 가능 시간이 달라질 수 있습니다." } },
+        { "@type": "Question", "name": "코스 요금은 언제 확정되나요?", "acceptedAnswer": { "@type": "Answer", "text": "상담 단계에서 코스, 이용 시간, 방문 지역, 추가 확인 조건을 확인한 뒤 최종 요금을 안내합니다." } },
+        { "@type": "Question", "name": "예약 변경이나 취소는 어떻게 하나요?", "acceptedAnswer": { "@type": "Answer", "text": "가능하면 확정 전 또는 방문 준비가 시작되기 전에 알려주시는 것이 좋습니다. 당일 변경은 시간대와 배정 상황에 따라 제한될 수 있습니다." } },
+        { "@type": "Question", "name": "몸 상태가 좋지 않아도 이용할 수 있나요?", "acceptedAnswer": { "@type": "Answer", "text": "발열, 염증, 심한 통증, 음주 상태, 의료적 판단이 필요한 증상이 있다면 이용을 미루는 편이 좋습니다." } }
+      ]
+    });
+    document.head.appendChild(faqSchema);
   }
 
   function activateRegionFromUrl() {
@@ -114,6 +190,7 @@
   });
 
   applyRegionNav();
+  injectHomeTrustSection();
   setupRegionStepJump();
   activateRegionFromUrl();
 })();
