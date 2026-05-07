@@ -102,14 +102,14 @@ async function loadRegionData() {
 function renderDongOutput(region, areaName) {
   const dongs = region.areas[areaName] || [];
   const dongLinks = dongs.map((dong) => (
-    `<a href="booking.html" aria-label="${areaName} ${dong} 출장마사지 예약 안내">${dong} 출장마사지</a>`
+    `<a href="booking.html" aria-label="${areaName} ${dong} 출장마사지 예약 안내">${dong}</a>`
   )).join("");
 
   return `
     <div class="dong-output" id="dong-output">
       <div>
         <p class="eyebrow">3차 지역</p>
-        <h3>${areaName} 출장마사지</h3>
+        <h3>${areaName}</h3>
       </div>
       <p>${areaName} 선택 시 방문 가능 동을 한눈에 확인할 수 있습니다. 예약 전에는 상세 주소, 출입 방식, 희망 시간을 함께 알려주세요.</p>
       <div class="dong-chip-grid">${dongLinks}</div>
@@ -134,11 +134,11 @@ function renderAreaBrowser(regionData, selectedRegionKey) {
     currentArea = areaNames.includes(currentArea) ? currentArea : areaNames[0];
 
     const regionButtons = Object.keys(regionData).map((regionKey) => (
-      `<button class="area-button ${regionKey === currentRegionKey ? "is-active" : ""}" type="button" data-region="${regionKey}">${regionNames[regionKey]} 출장마사지</button>`
+      `<button class="area-button ${regionKey === currentRegionKey ? "is-active" : ""}" type="button" data-region="${regionKey}">${regionNames[regionKey]}</button>`
     )).join("");
 
     const districtButtons = areaNames.map((areaName) => (
-      `<button class="district-button ${areaName === currentArea ? "is-active" : ""}" type="button" data-area="${areaName}">${areaName} 출장마사지</button>`
+      `<button class="district-button ${areaName === currentArea ? "is-active" : ""}" type="button" data-area="${areaName}">${areaName}</button>`
     )).join("");
 
     subContent.innerHTML = `
