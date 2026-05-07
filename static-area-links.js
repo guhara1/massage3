@@ -50,6 +50,34 @@
 
   window.MAZZANG_AREA_SLUGS = { slugOverrides, reverseSlugs, cityRegions, toSlug, fromSlug, areaUrl };
 
+  function applyCleanRegionNav() {
+    const nav = document.querySelector(".main-nav");
+    if (!nav) return;
+    const regionItem = Array.from(nav.querySelectorAll(".nav-item")).find((item) => item.querySelector(":scope > a")?.textContent.includes("지역"));
+    if (!regionItem) return;
+
+    const mainLink = regionItem.querySelector(":scope > a");
+    if (mainLink) {
+      mainLink.href = "/#regions";
+      mainLink.textContent = "지역 출장마사지";
+    }
+
+    let dropdown = regionItem.querySelector(":scope > .dropdown");
+    if (!dropdown) {
+      dropdown = document.createElement("div");
+      dropdown.className = "dropdown";
+      regionItem.appendChild(dropdown);
+    }
+
+    const links = [
+      ["서울", "/area/seoul/"], ["경기", "/area/gyeonggi/"], ["인천", "/area/incheon/"],
+      ["부산", "/area/busan/"], ["대구", "/area/daegu/"], ["대전", "/area/daejeon/"],
+      ["광주", "/area/gwangju/"], ["강원", "/area/gangwon/"], ["제주", "/area/jeju/"]
+    ];
+    const nextMarkup = links.map(([label, href]) => `<a href="${href}">${label}</a>`).join("");
+    if (dropdown.innerHTML !== nextMarkup) dropdown.innerHTML = nextMarkup;
+  }
+
   function areaInfoFromHref(href) {
     const url = new URL(href, location.href);
     if (!url.pathname.endsWith("area.html")) return null;
@@ -61,6 +89,7 @@
   }
 
   function applyStaticLinks() {
+    applyCleanRegionNav();
     document.querySelectorAll('a[href*="area.html?"]').forEach((link) => {
       const info = areaInfoFromHref(link.getAttribute("href"));
       if (!info) return;
@@ -70,21 +99,21 @@
   }
 
   applyStaticLinks();
-  new MutationObserver(applyStaticLinks).observe(document.querySelector("#regions") || document.body, { childList: true, subtree: true });
+  new MutationObserver(applyStaticLinks).observe(document.body, { childList: true, subtree: true });
 
   const root = document.querySelector("#regions");
   if (!root) return;
 
   const baseTitle = "출장 마사지 바로 예약 | 실시간 관리사 매칭";
   const baseDescription = "내 지역으로 오는 출장 마사지. 전국 어디든 관리사 매칭. 강남, 인천, 수원, 부산 등 전국 50개 지역 예약 가능.";
-  const cityCopy = {
-    "서울": { title: "서울 출장마사지 가능 지역 | 가격·코스·예약 안내", description: "서울 출장마사지 이용 전 확인하면 좋은 방문 가능 지역, 예약 기준, 코스 선택 방법, 가격 차이와 상담 전 확인사항을 안내합니다." },
-    "경기": { title: "경기 출장마사지 가능 지역 | 수원·분당·일산 예약 안내", description: "경기 출장마사지 가능 지역과 주요 생활권, 이동 시간, 코스별 요금 차이, 예약 전 확인 기준을 정리했습니다." },
-    "인천": { title: "인천 출장마사지 가능 지역 | 송도·부평·청라 예약 안내", description: "인천 출장마사지 이용 전 확인할 방문 가능 범위, 주요 생활권, 예약 시간, 코스와 가격 기준을 안내합니다." },
-    "부산": { title: "부산 출장마사지 가능 지역 | 해운대·서면·남포 예약 안내", description: "부산 출장마사지 가능 지역과 주요 상권별 예약 흐름, 이동 시간, 코스 선택 기준을 확인할 수 있습니다." },
-    "대구": { title: "대구 출장마사지 가능 지역 | 수성·중구·달서 예약 안내", description: "대구 출장마사지 예약 전 확인할 주요 생활권, 방문 가능 시간, 코스와 요금 차이를 안내합니다." },
-    "대전": { title: "대전 출장마사지 가능 지역 | 둔산·유성·중구 예약 안내", description: "대전 출장마사지 이용 전 확인할 주요 생활권, 예약 가능 시간, 이동 기준, 코스와 요금 차이를 안내합니다." },
-    "광주": { title: "광주 출장마사지 가능 지역 | 상무·첨단·수완 예약 안내", description: "광주 출장마사지 가능 지역과 생활권별 상담 기준, 예약 가능 시간, 코스 선택 전 확인사항을 정리했습니다." }
+  const cityDescriptions = {
+    "서울": "서울 출장마사지 이용 전 확인하면 좋은 방문 가능 지역, 예약 기준, 코스 선택 방법, 가격 차이와 상담 전 확인사항을 안내합니다.",
+    "경기": "경기 출장마사지 가능 지역과 주요 생활권, 이동 시간, 코스별 요금 차이, 예약 전 확인 기준을 정리했습니다.",
+    "인천": "인천 출장마사지 이용 전 확인할 방문 가능 범위, 주요 생활권, 예약 시간, 코스와 가격 기준을 안내합니다.",
+    "부산": "부산 출장마사지 가능 지역과 주요 상권별 예약 흐름, 이동 시간, 코스 선택 기준을 확인할 수 있습니다.",
+    "대구": "대구 출장마사지 예약 전 확인할 주요 생활권, 방문 가능 시간, 코스와 요금 차이를 안내합니다.",
+    "대전": "대전 출장마사지 이용 전 확인할 주요 생활권, 예약 가능 시간, 이동 기준, 코스와 요금 차이를 안내합니다.",
+    "광주": "광주 출장마사지 가능 지역과 생활권별 상담 기준, 예약 가능 시간, 코스 선택 전 확인사항을 정리했습니다."
   };
 
   function metaDescription() {
@@ -106,10 +135,21 @@
     return cleanLabel(root.querySelector(selector)?.textContent || "");
   }
 
-  function titleForCity(city) { return cityCopy[city]?.title || `${city} 출장마사지 가능 지역 | 가격·코스·예약 안내`; }
-  function descriptionForCity(city) { return cityCopy[city]?.description || `${city} 출장마사지 이용 전 확인하면 좋은 방문 가능 범위, 예약 기준, 코스 선택 방법과 가격 차이를 정리했습니다.`; }
-  function titleForDistrict(city, district) { return `${district} 출장마사지 예약 전 확인사항 | ${city} 가격·지역·코스 안내`; }
-  function descriptionForDistrict(city, district) { return `${district} 출장마사지 이용 전 확인하면 좋은 예약 기준, 가격 차이, 주요 생활권, 방문 가능 범위와 코스 선택 방법을 정리했습니다.`; }
+  function titleForCity(city) {
+    return `${city} 출장마사지 가능 지역 | 가격·코스·예약 안내`;
+  }
+
+  function descriptionForCity(city) {
+    return cityDescriptions[city] || `${city} 출장마사지 이용 전 확인하면 좋은 방문 가능 범위, 예약 기준, 코스 선택 방법과 가격 차이를 정리했습니다.`;
+  }
+
+  function titleForDistrict(city, district) {
+    return `${district} 출장마사지 예약 전 확인사항 | ${city} 가격·지역·코스 안내`;
+  }
+
+  function descriptionForDistrict(city, district) {
+    return `${district} 출장마사지 이용 전 확인하면 좋은 예약 기준, 가격 차이, 주요 생활권, 방문 가능 범위와 코스 선택 방법을 정리했습니다.`;
+  }
 
   function pushAreaUrl(city, district) {
     if (!city || location.pathname.includes(".html")) return;
