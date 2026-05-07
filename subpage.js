@@ -102,7 +102,7 @@ async function loadRegionData() {
 function renderDongOutput(region, areaName) {
   const dongs = region.areas[areaName] || [];
   const dongLinks = dongs.map((dong) => (
-    `<a href="booking.html" aria-label="${areaName} ${dong} 출장마사지 예약 안내">${dong}</a>`
+    `<a href="local.html?region=${currentRegionKey}&area=${encodeURIComponent(areaName)}&dong=${encodeURIComponent(dong)}" aria-label="${areaName} ${dong} 출장마사지 상세 안내">${dong}</a>`
   )).join("");
 
   return `
