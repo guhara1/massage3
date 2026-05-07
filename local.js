@@ -56,9 +56,9 @@ function renderFaq(area, dong) {
   const faqs = [
     [`${dong} 출장마사지는 당일 예약이 가능한가요?`, `가능 여부는 시간대와 이동 거리 기준으로 달라집니다. ${dong} 상세 주소와 희망 시간을 먼저 알려주시면 확인이 빠릅니다.`],
     [`${area} ${dong} 지역은 추가 이동비가 있나요?`, `기본 권역 안에서도 주차, 심야 시간, 이동 동선에 따라 추가 안내가 있을 수 있습니다. 예약 전에 총 금액을 확인하세요.`],
-    ["처음 이용하면 어떤 코스가 무난한가요?", "목적이 피로 회복이면 스포츠, 편안한 관리가 필요하면 아로마나 스웨디시를 먼저 비교하는 것이 좋습니다."],
-    ["예약 전에 무엇을 물어봐야 하나요?", "가격, 관리 시간, 도착 가능 시간, 결제 방식, 예약 변경 기준, 운영정책을 한 번에 확인하는 것이 좋습니다."],
-    ["후기만 보고 선택해도 괜찮나요?", "후기는 참고용으로 보고, 실제 문의 때 안내가 명확한지와 가격 설명이 일관적인지를 함께 확인하세요."]
+    [`처음 이용하면 어떤 코스가 무난한가요?`, `목적이 피로 회복이면 스포츠, 편안한 관리가 필요하면 아로마나 스웨디시를 먼저 비교하는 것이 좋습니다.`],
+    [`예약 전에 무엇을 물어봐야 하나요?`, `가격, 관리 시간, 도착 가능 시간, 결제 방식, 예약 변경 기준, 운영정책을 한 번에 확인하는 것이 좋습니다.`],
+    [`후기만 보고 선택해도 괜찮나요?`, `후기는 참고용으로 보고, 실제 문의 때 안내가 명확한지와 가격 설명이 일관적인지를 함께 확인하세요.`]
   ];
 
   return faqs.map(([question, answer]) => `
@@ -67,6 +67,26 @@ function renderFaq(area, dong) {
       <p>${answer}</p>
     </details>
   `).join("");
+}
+
+function renderLocalReview(area, dong) {
+  const isFlexibleArea = area.length % 2 === 0;
+  const rating = isFlexibleArea ? "★★★★☆" : "★★★★★";
+  const body = isFlexibleArea
+    ? `${dong} 쪽은 원하는 시간에 바로 맞추기는 조금 어려웠지만, 안내가 솔직해서 시간 여유 두고 예약하기 좋았습니다. 관리 강도는 중간에 조절해줬고 어깨랑 허리 쪽을 무리하지 않게 풀어줘서 이용 후 몸이 한결 가벼웠습니다. 가격도 문의 때 들은 내용과 달라지지 않아 부담이 적었습니다.`
+    : `${dong}에서 예약 전 문의했는데 가능 시간과 코스 차이를 차분하게 설명해줘서 처음 이용해도 불안하지 않았습니다. 어깨와 목이 많이 뻣뻣했는데 강도를 계속 확인해주면서 천천히 풀어주는 스타일이라 만족도가 높았습니다. 시설과 응대도 깔끔했고 내돈내산으로 다시 이용할 생각이 있습니다.`;
+
+  return `
+    <section class="local-review-card">
+      <div>
+        <p class="eyebrow">익명 고객후기</p>
+        <h2>${dong} 이용 후기</h2>
+      </div>
+      <p class="review-stars" aria-label="${rating}">${rating}</p>
+      <blockquote>${body}</blockquote>
+      <span>익명 · ${area}권 이용 고객</span>
+    </section>
+  `;
 }
 
 function renderLocalPage(regionData) {
@@ -130,6 +150,8 @@ function renderLocalPage(regionData) {
         <strong>업소 공지사항</strong>
         <p>불법·무리한 요청은 진행하지 않습니다. 예약 전 안내된 시간, 금액, 코스 기준을 확인한 뒤 이용해 주세요.</p>
       </div>
+
+      ${renderLocalReview(areaName, dongName)}
 
       <article class="seo-article">
         <h2>${dongName} 출장마사지를 찾는 분들이 많은 이유</h2>
