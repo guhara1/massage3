@@ -25,35 +25,16 @@ const pageMap = {
 };
 
 const detailByGroup = {
-  "지역": [
-    ["지역 안내", "서울, 경기, 인천 권역별 이동 시간과 예약 가능 조건을 나누어 안내합니다."],
-    ["예약 팁", "희망 시간, 방문 주소, 주차 또는 출입 방식을 미리 알려주시면 예약 확인이 빨라집니다."],
-    ["검색 의도", "지역명과 출장마사지 키워드를 함께 구성해 실제 이용자가 찾는 정보를 중심으로 안내합니다."]
-  ],
-  "서비스": [
-    ["서비스 특징", "서비스별 관리 방식과 준비사항이 다르므로 목적에 맞는 코스를 선택하는 것이 좋습니다."],
-    ["예약 전 확인", "오일 사용 여부, 집중 관리 부위, 공간 확보 여부를 예약 전에 확인하세요."],
-    ["주의사항", "불법·무리한 요청은 진행하지 않으며 건전한 방문 관리 기준을 지킵니다."]
-  ],
-  "이용안내": [
-    ["이용 흐름", "문의 접수, 지역 확인, 코스 선택, 방문 확정, 관리 진행 순서로 안내합니다."],
-    ["필수 정보", "지역, 상세 주소, 희망 시간, 코스, 이용 환경을 알려주세요."],
-    ["확정 안내", "방문 가능 여부와 예상 도착 시간을 확인한 뒤 예약을 진행합니다."]
-  ],
-  "후기": [
-    ["고객후기", "강남, 분당, 송도 등 실제 지역명을 기준으로 후기를 구성합니다."],
-    ["지역 정보", "지역별 이동 시간, 야간 예약 팁, 출입 확인사항을 다르게 안내합니다."],
-    ["콘텐츠 기준", "얇은 반복 페이지가 되지 않도록 지역마다 실제 안내와 주의사항을 다르게 구성합니다."]
-  ],
-  "고객센터": [
-    ["전화예약", "0508-202-4683으로 전화하면 예약 가능 여부를 확인할 수 있습니다."],
-    ["문의 정보", "지역, 시간, 코스, 주소, 출입 방식을 알려주시면 안내가 빨라집니다."],
-    ["운영정책", "건전한 서비스 이용 기준에 맞춰 예약과 문의를 안내합니다."]
-  ]
+  "지역": [["지역 안내", "서울, 경기, 인천 권역별 이동 시간과 예약 가능 조건을 나누어 안내합니다."], ["예약 팁", "희망 시간, 방문 주소, 주차 또는 출입 방식을 미리 알려주시면 예약 확인이 빨라집니다."], ["검색 의도", "지역명과 출장마사지 키워드를 함께 구성해 실제 이용자가 찾는 정보를 중심으로 안내합니다."]],
+  "서비스": [["서비스 특징", "서비스별 관리 방식과 준비사항이 다르므로 목적에 맞는 코스를 선택하는 것이 좋습니다."], ["예약 전 확인", "오일 사용 여부, 집중 관리 부위, 공간 확보 여부를 예약 전에 확인하세요."], ["주의사항", "불법·무리한 요청은 진행하지 않으며 건전한 방문 관리 기준을 지킵니다."]],
+  "이용안내": [["이용 흐름", "문의 접수, 지역 확인, 코스 선택, 방문 확정, 관리 진행 순서로 안내합니다."], ["필수 정보", "지역, 상세 주소, 희망 시간, 코스, 이용 환경을 알려주세요."], ["확정 안내", "방문 가능 여부와 예상 도착 시간을 확인한 뒤 예약을 진행합니다."]],
+  "후기": [["고객후기", "강남, 분당, 송도 등 실제 지역명을 기준으로 후기를 구성합니다."], ["지역 정보", "지역별 이동 시간, 야간 예약 팁, 출입 확인사항을 다르게 안내합니다."], ["콘텐츠 기준", "얇은 반복 페이지가 되지 않도록 지역마다 실제 안내와 주의사항을 다르게 구성합니다."]],
+  "고객센터": [["전화예약", "0508-202-4683으로 전화하면 예약 가능 여부를 확인할 수 있습니다."], ["문의 정보", "지역, 시간, 코스, 주소, 출입 방식을 알려주시면 안내가 빨라집니다."], ["운영정책", "건전한 서비스 이용 기준에 맞춰 예약과 문의를 안내합니다."]]
 };
 
+const pathSlug = window.location.pathname.split("/").pop().replace(".html", "");
 const params = new URLSearchParams(window.location.search);
-const slug = params.get("slug") || "regions";
+const slug = params.get("slug") || pathSlug || "regions";
 const [title, description, group] = pageMap[slug] || pageMap.regions;
 const details = detailByGroup[group];
 
@@ -62,13 +43,10 @@ document.querySelector('meta[name="description"]').setAttribute("content", descr
 document.querySelector("#sub-kicker").textContent = group;
 document.querySelector("#sub-title").textContent = title;
 document.querySelector("#sub-description").textContent = description;
-document.querySelector("#sub-content").innerHTML = details.map(([heading, text]) => (
-  `<section class="sub-block"><h2>${heading}</h2><p>${text}</p></section>`
-)).join("");
+document.querySelector("#sub-content").innerHTML = details.map(([heading, text]) => `<section class="sub-block"><h2>${heading}</h2><p>${text}</p></section>`).join("");
 
 const navToggle = document.querySelector(".nav-toggle");
 const mainNav = document.querySelector("#main-nav");
-
 navToggle.addEventListener("click", () => {
   const isOpen = mainNav.classList.toggle("is-open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
