@@ -161,8 +161,9 @@
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background .16s ease;
+  transition: transform .16s ease, border-color .16s ease, color .16s ease;
   width: 100%;
+  will-change: transform;
 }
 
 #regions .dong-list a {
@@ -187,7 +188,6 @@
 #regions .dong-list button:hover,
 #regions .dong-list a:hover {
   border-color: rgba(255, 138, 29, .82) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 18px 42px rgba(255, 138, 29, .16), 0 12px 28px rgba(0,0,0,.4);
   transform: translateY(-2px);
 }
 
@@ -217,6 +217,36 @@
 
 #regions .dong-list a:hover {
   color: #ffd0a0 !important;
+}
+
+#services,
+#guide,
+#reviews,
+#support {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 680px;
+}
+
+#regions button,
+#regions a,
+.review-nav,
+.button,
+.nav-toggle,
+.main-nav a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #regions *,
+  .review-track,
+  .review-nav,
+  .button {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
 }
 
 @media (max-width: 980px) {
