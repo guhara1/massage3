@@ -68,6 +68,45 @@ function loadStationLinks() {
   document.body.appendChild(script);
 }
 
+function setupRegionStepFocus() {
+  const root = document.querySelector("#regions");
+  if (!root) return;
+
+  const regionTabs = root.querySelector(".region-tabs");
+  const subregionList = root.querySelector("#subregion-list");
+  const detailCard = root.querySelector(".dong-card");
+  const detailList = root.querySelector("#dong-list");
+  const headerOffset = 88;
+
+  [subregionList, detailCard, detailList].forEach((element) => {
+    if (element) element.style.scrollMarginTop = `${headerOffset}px`;
+  });
+
+  function focusStep(element) {
+    if (!element) return;
+    requestAnimationFrame(() => {
+      const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    });
+  }
+
+  regionTabs?.addEventListener("click", (event) => {
+    if (!event.target.closest("button[data-region]")) return;
+    focusStep(subregionList);
+  });
+
+  subregionList?.addEventListener("click", (event) => {
+    if (!event.target.closest("button[data-city]")) return;
+    focusStep(detailCard);
+  });
+
+  detailList?.addEventListener("click", (event) => {
+    if (!event.target.closest("button[data-district]")) return;
+    focusStep(detailList);
+  });
+}
+
 setupReviewSlider();
 maskLocalReviewName();
 loadStationLinks();
+setupRegionStepFocus();
