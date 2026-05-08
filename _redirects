@@ -1,6 +1,5 @@
 /station/:city/:station/index.html /station/:city/:station/ 301
-/station/:city/:station/ /station.html?city=:city&station=:station 200
-/station/:city/:station /station.html?city=:city&station=:station 200
+/station/:city/:station /station/:city/:station/ 301
 /area/:city/index.html /area/:city/ 301
 /area/:city/:district/index.html /area/:city/:district/ 301
 /area/:city/:district/:dong/index.html /area/:city/:district/:dong/ 301
