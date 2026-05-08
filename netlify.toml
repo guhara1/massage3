@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = ""
+  command = "node generate-seo-area-pages.js"
 
 [[headers]]
   for = "/*"
