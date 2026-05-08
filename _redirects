@@ -20,6 +20,8 @@
 /incheon-songdo.html /area/incheon/songdo/songdo-dong/ 301
 /area/:city/:district/:dong/ /area.html?city=:city&district=:district&dong=:dong 200
 /area/:city/:district/:dong /area/:city/:district/:dong/ 301
+/area/gyeonggi/:district/ /gyeonggi-district.html 200
+/area/gyeonggi/ /area/gyeonggi/index.html 200
 /area/:city/:district/ /area-landing.html 200
 /area/:city/:district /area/:city/:district/ 301
 /area/:city/ /area-landing.html 200
