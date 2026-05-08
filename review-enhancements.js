@@ -76,18 +76,23 @@ function setupRegionStepFocus() {
   const subregionList = root.querySelector("#subregion-list");
   const detailCard = root.querySelector(".dong-card");
   const detailList = root.querySelector("#dong-list");
-  const headerOffset = 88;
+  const headerOffset = 92;
 
   [subregionList, detailCard, detailList].forEach((element) => {
     if (element) element.style.scrollMarginTop = `${headerOffset}px`;
   });
 
+  function panelTop(element) {
+    const box = element?.closest(".region-panel, .dong-card") || element;
+    return (box?.getBoundingClientRect().top || 0) + window.scrollY - headerOffset;
+  }
+
   function focusStep(element) {
     if (!element) return;
-    requestAnimationFrame(() => {
-      const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-      window.scrollTo({ top, behavior: "smooth" });
-    });
+    const move = () => window.scrollTo({ top: Math.max(0, panelTop(element)), behavior: "smooth" });
+    requestAnimationFrame(move);
+    setTimeout(move, 90);
+    setTimeout(() => window.scrollTo({ top: Math.max(0, panelTop(element)), behavior: "auto" }), 220);
   }
 
   regionTabs?.addEventListener("click", (event) => {
