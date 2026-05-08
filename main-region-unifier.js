@@ -1,7 +1,21 @@
 (() => {
   const citySlugs = { 서울: "seoul", 경기: "gyeonggi", 인천: "incheon", 부산: "busan", 대구: "daegu", 대전: "daejeon", 광주: "gwangju", 강원: "gangwon", 제주: "jeju", 세종: "sejong", 전북: "jeonbuk" };
-  const districtSlugs = { 강남: "gangnam", 서초: "seocho", 송파: "songpa", 마포: "mapo", 영등포: "yeongdeungpo", 용산: "yongsan", 성동: "seongdong", 광진: "gwangjin", 중구: "junggu", 종로: "jongno", 강서: "gangseo", 관악: "gwanak", 동작: "dongjak", 강동: "gangdong", 노원: "nowon", 은평: "eunpyeong", 구로: "guro", 금천: "geumcheon", 동대문: "dongdaemun", 서대문: "seodaemun", 성북: "seongbuk", 양천: "yangcheon", 중랑: "jungnang", 강북: "gangbuk", 도봉: "dobong", 부산진: "busanjin", 해운대: "haeundae", 수영: "suyeong", 동래: "dongnae", 남구: "namgu", 사하: "saha", 미추홀: "michuhol", 부평: "bupyeong", 남동: "namdong", 서구: "seogu", 계양: "gyeyang", "연수 송도": "songdo", 수성: "suseong", 달서: "dalseo", 유성: "yuseong", 광산: "gwangsan", 춘천: "chuncheon", 원주: "wonju", 강릉: "gangneung", 제주시: "jejusi", 서귀포: "seogwipo" };
-  const dongSlugs = { 부전동: "bujeon-dong", 전포동: "jeonpo-dong", 범천동: "beomcheon-dong", 가야동: "gaya-dong", 개금동: "gaegeum-dong", 양정동: "yangjeong-dong", 주안동: "juan-dong", 용현동: "yonghyeon-dong", 학익동: "hagik-dong", 숭의동: "sungui-dong", 도화동: "dohwa-dong", 문학동: "munhak-dong", 우동: "u-dong", 중동: "jung-dong", 좌동: "jwa-dong", 재송동: "jaesong-dong", 반여동: "banyeo-dong", 광안동: "gwangan-dong", 남천동: "namcheon-dong", 민락동: "minrak-dong", 망미동: "mangmi-dong", 압구정동: "apgujeong-dong", 개포동: "gaepo-dong", 논현동: "nonhyeon-dong", 대치동: "daechi-dong", 도곡동: "dogok-dong", 삼성동: "samseong-dong", 역삼동: "yeoksam-dong", 청담동: "cheongdam-dong", 남현동: "namhyeondong", 봉천동: "bongcheondong", 신림동: "sinlimdong" };
+  const districtSlugs = { 강남: "gangnam", 서초: "seocho", 송파: "songpa", 마포: "mapo", 영등포: "yeongdeungpo", 용산: "yongsan", 성동: "seongdong", 광진: "gwangjin", 중구: "junggu", 종로: "jongno", 강서: "gangseo", 관악: "gwanak", 동작: "dongjak", 강동: "gangdong", 노원: "nowon", 은평: "eunpyeong", 구로: "guro", 금천: "geumcheon", 동대문: "dongdaemun", 서대문: "seodaemun", 성북: "seongbuk", 양천: "yangcheon", 중랑: "jungnang", 강북: "gangbuk", 도봉: "dobong", "성남 분당": "bundang", 수원: "suwon", 용인: "yongin", "고양 일산": "ilsan", 안양: "anyang", 부천: "bucheon", "화성 동탄": "dongtan", 부산진: "busanjin", 해운대: "haeundae", 수영: "suyeong", 동래: "dongnae", 남구: "namgu", 사하: "saha", 미추홀: "michuhol", 부평: "bupyeong", 남동: "namdong", 서구: "seogu", 계양: "gyeyang", "연수 송도": "songdo", 수성: "suseong", 달서: "dalseo", 유성: "yuseong", 광산: "gwangsan", 춘천: "chuncheon", 원주: "wonju", 강릉: "gangneung", 제주시: "jeju-si", 서귀포: "seogwipo" };
+  const dongSlugs = { 개포동: "gaepo-dong", 논현동: "nonhyeon-dong", 대치동: "daechi-dong", 도곡동: "dogok-dong", 삼성동: "samseong-dong", 세곡동: "segok-dong", 수서동: "suseo-dong", 신사동: "sinsa-dong", 압구정동: "apgujeong-dong", 역삼동: "yeoksam-dong", 일원동: "irwon-dong", 자곡동: "jagok-dong", 청담동: "cheongdam-dong", 서초동: "seocho-dong", 반포동: "banpo-dong", 방배동: "bangbae-dong", 양재동: "yangjae-dong", 잠원동: "jamwon-dong", 내곡동: "naegok-dong", 잠실동: "jamsil-dong", 문정동: "munjeong-dong", 방이동: "bangi-dong", 석촌동: "seokchon-dong", 가락동: "garak-dong", 오금동: "ogeum-dong", 송파동: "songpa-dong", 공덕동: "gongdeok-dong", 합정동: "hapjeong-dong", 상암동: "sangam-dong", 서교동: "seogyo-dong", 망원동: "mangwon-dong", 도화동: "dohwa-dong", 여의도동: "yeouido-dong", 문래동: "mullae-dong", 당산동: "dangsan-dong", 신길동: "singil-dong", 영등포동: "yeongdeungpo-dong", 대림동: "daerim-dong", 남현동: "namhyeon-dong", 봉천동: "bongcheon-dong", 신림동: "sillim-dong", 부전동: "bujeon-dong", 전포동: "jeonpo-dong", 범천동: "beomcheon-dong", 가야동: "gaya-dong", 개금동: "gaegeum-dong", 양정동: "yangjeong-dong", 주안동: "juan-dong", 용현동: "yonghyeon-dong", 학익동: "hagik-dong", 숭의동: "sungui-dong", 문학동: "munhak-dong", 우동: "u-dong", 중동: "jung-dong", 좌동: "jwa-dong", 재송동: "jaesong-dong", 반여동: "banyeo-dong", 광안동: "gwangan-dong", 남천동: "namcheon-dong", 민락동: "minrak-dong", 망미동: "mangmi-dong" };
+  const initials = ["g","kk","n","d","tt","r","m","b","pp","s","ss","","j","jj","ch","k","t","p","h"];
+  const medials = ["a","ae","ya","yae","eo","e","yeo","ye","o","wa","wae","oe","yo","u","wo","we","wi","yu","eu","ui","i"];
+  const finals = ["","k","k","ks","n","nj","nh","t","l","lk","lm","lb","ls","lt","lp","lh","m","p","ps","t","t","ng","t","t","k","t","p","t"];
+
+  function romanize(text) {
+    return String(text || "").split("").map((ch) => {
+      const code = ch.charCodeAt(0) - 44032;
+      if (code < 0 || code > 11171) return ch;
+      const i = Math.floor(code / 588);
+      const m = Math.floor((code % 588) / 28);
+      const f = code % 28;
+      return initials[i] + medials[m] + finals[f];
+    }).join("");
+  }
 
   function cleanLabel(text) {
     return String(text || "")
@@ -15,22 +29,20 @@
   function normalizeDong(text) {
     return cleanLabel(text)
       .replace(/-dong$/i, "동")
-      .replace(/-eup$/i, "읍")
-      .replace(/-myeon$/i, "면")
       .replace(/dong$/i, "동")
+      .replace(/-eup$/i, "읍")
       .replace(/eup$/i, "읍")
+      .replace(/-myeon$/i, "면")
       .replace(/myeon$/i, "면");
   }
 
   function fallbackSlug(label) {
-    return encodeURIComponent(cleanLabel(label).replace(/\s+/g, "-"));
+    return romanize(cleanLabel(label)).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || encodeURIComponent(cleanLabel(label));
   }
 
   function dongSlug(dong) {
     const normalized = normalizeDong(dong);
-    if (dongSlugs[normalized]) return dongSlugs[normalized];
-    if (window.MAZZANG_AREA_SLUGS?.toSlug) return window.MAZZANG_AREA_SLUGS.toSlug(normalized);
-    return fallbackSlug(normalized);
+    return dongSlugs[normalized] || window.MAZZANG_AREA_SLUGS?.toSlug?.(normalized) || fallbackSlug(normalized);
   }
 
   function sharedAreaUrl(city, district, dong) {
