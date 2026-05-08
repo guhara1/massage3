@@ -8,35 +8,8 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/review-enhancements.css">
   <style>
-    .area-hero { padding: 96px 24px 60px; background: radial-gradient(circle at 18% 0%, rgba(255, 138, 29, .24), transparent 34%), linear-gradient(135deg, #17110c, #030303 58%); border-bottom: 1px solid rgba(255, 138, 29, .26); }
-    .area-wrap { max-width: 1160px; margin: 0 auto; }
-    .area-hero h1 { color: var(--orange); font-size: clamp(38px, 6vw, 72px); line-height: 1.08; margin: 0 0 18px; }
-    .area-hero p { color: #fff; font-size: 19px; line-height: 1.75; max-width: 880px; }
-    .area-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-    .content-section { padding: 48px 24px; background: #050505; }
-    .area-grid { display: grid; gap: 18px; grid-template-columns: 1.05fr .95fr; }
-    .content-stack { display: grid; gap: 18px; }
-    .info-card, .profile-card, .content-card, .price-card, .review-card-local { background: linear-gradient(145deg, rgba(29,29,29,.97), rgba(9,9,9,.99)); border: 1px solid rgba(255,138,29,.28); border-radius: 8px; box-shadow: 0 22px 54px rgba(0,0,0,.38); padding: 24px; }
-    .info-card h2, .profile-card h2, .content-card h2, .price-card h2, .review-card-local h2 { color: var(--orange); margin: 0 0 16px; }
-    .info-list { display: grid; }
-    .info-list div { display: flex; justify-content: space-between; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.12); color: #fff; }
-    .info-list span { color: rgba(255,255,255,.72); }
-    .profile-card { display: grid; grid-template-columns: 210px 1fr; align-items: center; gap: 24px; }
-    .profile-card img { aspect-ratio: 4 / 5; border: 1px solid rgba(255,138,29,.46); border-radius: 8px; box-shadow: 0 18px 44px rgba(0,0,0,.42); object-fit: cover; object-position: center; width: 100%; }
-    .profile-card p, .content-card p, .review-card-local p { color: #fff; line-height: 1.85; font-size: 16px; }
-    .profile-card strong { color: var(--orange); display: block; margin-top: 14px; }
-    .price-table { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .price-item { border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 18px; background: rgba(255,255,255,.035); }
-    .price-item strong { color: var(--orange); display: block; font-size: 21px; margin-bottom: 12px; }
-    .price-item p { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,.16); padding: 9px 0; margin: 0; color: #fff; }
-    .notice-box { border-left: 3px solid var(--orange); padding: 16px 18px; background: rgba(255,138,29,.08); color: #fff; line-height: 1.8; margin-top: 14px; }
-    .faq-list details { border-top: 1px solid rgba(255,255,255,.12); padding: 15px 0; }
-    .faq-list summary { color: #fff; cursor: pointer; font-weight: 800; }
-    .faq-list p { color: #fff; line-height: 1.8; margin-top: 10px; }
-    .ma-readable p { margin: 0 0 12px; }
-    @media (max-width: 820px) { .area-grid, .price-table, .profile-card { grid-template-columns: 1fr; } .profile-card img { max-width: 240px; } .area-hero { padding-top: 74px; } }
+    body{background:#050505;color:#fff}.area-hero{padding:96px 24px 60px;background:radial-gradient(circle at 18% 0%,rgba(255,138,29,.24),transparent 34%),linear-gradient(135deg,#17110c,#030303 58%);border-bottom:1px solid rgba(255,138,29,.26)}.area-wrap{max-width:1160px;margin:0 auto}.area-hero h1{color:var(--orange);font-size:clamp(38px,6vw,72px);line-height:1.08;margin:0 0 18px}.area-hero p{color:#fff;font-size:19px;line-height:1.75;max-width:880px}.area-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.content-section{padding:48px 24px;background:#050505}.area-grid{display:grid;gap:18px;grid-template-columns:1.05fr .95fr}.content-stack{display:grid;gap:18px}.info-card,.profile-card,.content-card,.price-card,.review-card-local{background:linear-gradient(145deg,rgba(29,29,29,.97),rgba(9,9,9,.99));border:1px solid rgba(255,138,29,.28);border-radius:8px;box-shadow:0 22px 54px rgba(0,0,0,.38);padding:24px}.info-card h2,.profile-card h2,.content-card h2,.price-card h2,.review-card-local h2{color:var(--orange);margin:0 0 16px}.info-list{display:grid}.info-list div{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#fff}.info-list span{color:rgba(255,255,255,.72)}.profile-card{display:grid;grid-template-columns:210px 1fr;align-items:center;gap:24px}.profile-card img{aspect-ratio:4/5;border:1px solid rgba(255,138,29,.46);border-radius:8px;box-shadow:0 18px 44px rgba(0,0,0,.42);object-fit:cover;object-position:center;width:100%}.profile-card p,.content-card p,.review-card-local p{color:#fff;line-height:1.85;font-size:16px}.profile-card strong{color:var(--orange);display:block;margin-top:14px}.price-table{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.price-item{border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:18px;background:rgba(255,255,255,.035)}.price-item strong{color:var(--orange);display:block;font-size:21px;margin-bottom:12px}.price-item p{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(255,255,255,.16);padding:9px 0;margin:0;color:#fff}.notice-box{border-left:3px solid var(--orange);padding:16px 18px;background:rgba(255,138,29,.08);color:#fff;line-height:1.8;margin-top:14px}.faq-list details{border-top:1px solid rgba(255,255,255,.12);padding:15px 0}.faq-list summary{color:#fff;cursor:pointer;font-weight:800}.faq-list p{color:#fff;line-height:1.8;margin-top:10px}.ma-readable p{margin:0 0 12px}.trust-footer{background:linear-gradient(180deg,#090909,#030303);border-top:1px solid rgba(255,138,29,.28);padding:48px 24px 26px;color:#fff}.trust-footer .footer-brand,.trust-footer .footer-grid,.trust-footer .footer-copy{max-width:1160px;margin-left:auto;margin-right:auto}.trust-footer .footer-brand{display:flex;gap:14px;align-items:center;border:1px solid rgba(255,138,29,.38);border-radius:8px;padding:18px;margin-bottom:20px;background:linear-gradient(135deg,rgba(255,138,29,.14),rgba(255,255,255,.025))}.trust-footer .brand-mark{width:42px;height:42px;border-radius:8px;background:#ff8a1d;color:#050505;display:inline-flex;align-items:center;justify-content:center;font-weight:900}.trust-footer .footer-grid{display:grid;grid-template-columns:1.1fr 1fr 1.15fr;gap:18px}.trust-footer .footer-col{border:1px solid rgba(255,255,255,.14);border-radius:8px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));padding:20px}.trust-footer h2{font-size:18px;color:#ff8a1d;margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid rgba(255,138,29,.32)}.trust-footer .footer-row{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);line-height:1.55}.trust-footer a{color:#fff;text-decoration:none;font-weight:800}.trust-footer .footer-copy{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);text-align:center;color:rgba(255,255,255,.72)}@media(max-width:820px){.area-grid,.price-table,.profile-card{grid-template-columns:1fr}.profile-card img{max-width:240px}.area-hero{padding-top:74px}.trust-footer{padding-bottom:88px}.trust-footer .footer-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -72,57 +45,68 @@
     <section class="content-section"><div class="area-wrap content-stack"><article class="content-card"><h2 id="reason-title">이 지역을 찾는 분들이 많은 이유</h2><div id="reason-text" class="ma-readable"></div></article><article class="content-card"><h2 id="range-title">주요 생활권과 방문 가능 범위</h2><div id="range-text" class="ma-readable"></div></article><article class="price-card"><h2>마사지 코스 및 요금</h2><div class="price-table"><div class="price-item"><strong>타이</strong><p><span>90분</span><b>70,000</b></p><p><span>120분</span><b>80,000</b></p><p><span>150분</span><b>문의</b></p></div><div class="price-item"><strong>아로마</strong><p><span>90분</span><b>80,000</b></p><p><span>120분</span><b>100,000</b></p><p><span>150분</span><b>문의</b></p></div><div class="price-item"><strong>VIP</strong><p><span>90분</span><b>문의</b></p><p><span>120분</span><b>100,000</b></p><p><span>150분</span><b>130,000</b></p></div><div class="price-item"><strong>심야 상담</strong><p><span>가격</span><b>전화 문의</b></p><p><span>안내</span><b>24시간 상담</b></p><p><span>예약</span><b>후불제</b></p></div></div></article><article class="content-card"><h2>예약 전 꼭 확인해야 할 사항</h2><div id="check-text" class="ma-readable"></div><div class="notice-box">정확한 방문 가능 여부는 지역명만으로 판단하기 어렵습니다. 건물 출입 방식, 주차 가능 여부, 희망 시간, 코스 시간을 함께 알려주시면 상담이 더 빨라집니다.</div></article><article class="review-card-local"><h2>고객후기</h2><p><strong>김0영 · ★★★★★</strong></p><p>어깨랑 허리가 뻣뻣해서 문의했는데 무리하게 누르지 않고 천천히 풀어주는 스타일이라 편했습니다. 강도도 중간에 조절해주고, 안내받은 가격도 명확해서 다음에도 시간 여유 두고 예약할 생각입니다.</p></article><article class="content-card"><h2 id="faq-title">자주 묻는 질문</h2><div class="faq-list" id="faq-list"></div></article></div></section>
   </main>
 
-  <footer class="site-footer"><strong>마짱</strong><p>전국 권역별 지역 정보 안내</p></footer>
+  <footer class="trust-footer"><div class="footer-brand"><span class="brand-mark">M</span><span><strong>마짱</strong><small>전국 지역 안내 및 예약 상담</small></span></div><div class="footer-grid"><section class="footer-col"><h2>회사 정보</h2><div class="footer-row"><span>상호</span><strong>마짱</strong></div><div class="footer-row"><span>대표자명</span><strong>강백호</strong></div><div class="footer-row"><span>주소</span><strong>서울시 강남구 테헤란로 313<br>(우)06151</strong></div><div class="footer-row"><span>운영시간</span><strong>오후 4시~익일 오전 8시까지</strong></div></section><section class="footer-col"><h2>고객 지원</h2><div class="footer-row"><span>공지사항</span><a href="/notice.html">공지 확인</a></div><div class="footer-row"><span>자주 묻는 질문</span><a href="/faq.html">FAQ 보기</a></div><div class="footer-row"><span>예약문의</span><a href="tel:0508-202-4683">1:1 문의</a></div><div class="footer-row"><span>전화번호</span><a href="tel:0508-202-4683">0508-202-4683</a></div></section><section class="footer-col"><h2>소셜 & 법적 정보</h2><div class="footer-row"><span>Instagram</span><strong>준비중</strong></div><div class="footer-row"><span>YouTube</span><strong>준비중</strong></div><div class="footer-row"><span>정책</span><a href="/policy.html">개인정보처리방침</a></div><div class="footer-row"><span>약관</span><a href="/terms.html">이용약관</a></div></section></div><p class="footer-copy">Copyright © 2026 Mazzang. All rights reserved.</p></footer>
   <a class="mobile-call-button" href="tel:0508-202-4683" aria-label="0508-202-4683 전화예약"><span>전화예약</span><strong>0508-202-4683</strong></a>
-  <script src="/static-area-links.js"></script>
-  <script src="/area-slug-labels.js"></script>
+
   <script>
-    function decodePart(value, fallback = "") { try { return decodeURIComponent(value || "") || fallback; } catch { return value || fallback; } }
-    function normalizeMixedKorean(value) {
-      return String(value || "")
-        .replace(/-dong$/i, "동")
-        .replace(/-eup$/i, "읍")
-        .replace(/-myeon$/i, "면")
-        .replace(/-station$/i, "역")
-        .replace(/-/g, " ")
-        .trim();
+    const slugLabels = {
+      seoul:'서울',gyeonggi:'경기',incheon:'인천',busan:'부산',daegu:'대구',daejeon:'대전',gwangju:'광주',gangwon:'강원',jeju:'제주',
+      gangnam:'강남',seocho:'서초',songpa:'송파',mapo:'마포',yeongdeungpo:'영등포',yongsan:'용산',seongdong:'성동',gwangjin:'광진',junggu:'중구',jongno:'종로',gangseo:'강서',gwanak:'관악',dongjak:'동작',gangdong:'강동',nowon:'노원',eunpyeong:'은평',guro:'구로',geumcheon:'금천',dongdaemun:'동대문',seodaemun:'서대문',seongbuk:'성북',yangcheon:'양천',jungnang:'중랑',gangbuk:'강북',dobong:'도봉',
+      busanjin:'부산진',haeundae:'해운대',suyeong:'수영',dongnae:'동래',namgu:'남구',saha:'사하',michuhol:'미추홀',bupyeong:'부평',namdong:'남동',seogu:'서구',gyeyang:'계양',songdo:'연수 송도',
+      'bujeon-dong':'부전동','jeonpo-dong':'전포동','beomcheon-dong':'범천동','gaya-dong':'가야동','gaegeum-dong':'개금동','yangjeong-dong':'양정동','u-dong':'우동','jung-dong':'중동','jwa-dong':'좌동','jaesong-dong':'재송동','banyeo-dong':'반여동','gwangan-dong':'광안동','namcheon-dong':'남천동','minrak-dong':'민락동','mangmi-dong':'망미동',
+      'juan-dong':'주안동','juan-dong':'주안동','yonghyeon-dong':'용현동','hakik-dong':'학익동','sungui-dong':'숭의동','dohwa-dong':'도화동','munhak-dong':'문학동'
+    };
+    function decodePart(value,fallback=''){try{return decodeURIComponent(value||'')||fallback}catch{return value||fallback}}
+    function normalizeKorean(value){
+      return String(value||'')
+        .replace(/-dong$/i,'동').replace(/-eup$/i,'읍').replace(/-myeon$/i,'면').replace(/-station$/i,'역')
+        .replace(/dong$/i,'동').replace(/eup$/i,'읍').replace(/myeon$/i,'면').replace(/station$/i,'역')
+        .replace(/-/g,' ').trim();
     }
-    function fromSlug(value, fallback) {
-      const decoded = decodePart(value, fallback);
-      const resolved = window.MAZZANG_AREA_SLUGS?.fromSlug?.(decoded) || normalizeMixedKorean(decoded) || fallback;
-      return resolved;
+    function hasHangul(value){return /[가-힣]/.test(value||'')}
+    function fromSlug(value,fallback){
+      const decoded=decodePart(value,fallback).trim();
+      const lower=decoded.toLowerCase();
+      if(hasHangul(decoded)) return normalizeKorean(decoded);
+      if(slugLabels[lower]) return slugLabels[lower];
+      return normalizeKorean(decoded)||fallback;
     }
-    function sentenceHtml(text) { return String(text).split(/(?<=다\.)\s*/).filter(Boolean).map((line) => `<p>${line}</p>`).join(""); }
+    function sentenceHtml(text){return String(text).split(/(?<=다\.)\s*/).filter(Boolean).map(line=>`<p>${line}</p>`).join('')}
+    function setText(selector,text){const el=document.querySelector(selector);if(el)el.textContent=text}
+    function setHtml(selector,text){const el=document.querySelector(selector);if(el)el.innerHTML=sentenceHtml(text)}
 
-    const params = new URLSearchParams(location.search);
-    const parts = location.pathname.split("/").filter(Boolean);
-    const city = fromSlug(params.get("city") || (parts[0] === "area" ? parts[1] : ""), "서울");
-    const district = fromSlug(params.get("district") || (parts[0] === "area" ? parts[2] : ""), "강남");
-    const dong = fromSlug(params.get("dong") || (parts[0] === "area" ? parts[3] : ""), "개포동");
-    const areaName = `${city} ${district} ${dong}`;
-    const cityNotes = { "부산": "행사, 숙박지 위치, 언덕길 여부에 따라 이동 시간이 달라질 수 있습니다.", "대구": "상권과 주거 단지의 문의 시간대가 달라 방문 조건을 먼저 확인하는 편이 좋습니다.", "서울": "퇴근 시간과 건물 출입 방식이 예약 정확도에 영향을 줄 수 있습니다.", "경기": "도시별 이동 거리가 달라 희망 시간과 출입 조건을 함께 확인하는 흐름이 중요합니다.", "인천": "신도시와 구도심의 이동 시간이 달라 세부 동 확인이 필요합니다." };
-    const cityNote = cityNotes[city] || "세부 위치와 이동 조건에 따라 안내 시간이 달라질 수 있습니다.";
-    const title = `${dong} 출장마사지 예약 전 확인사항 | ${district} 가격·지역·코스 안내`;
-    const description = `${areaName} 출장마사지 이용 전 확인하면 좋은 예약 기준, 가격 차이, 주요 생활권, 코스 선택 방법을 정리했습니다. ${cityNote}`;
+    const parts=location.pathname.split('/').filter(Boolean);
+    const city=fromSlug(parts[1]||'seoul','서울');
+    const district=fromSlug(parts[2]||'gangnam','강남');
+    const dong=fromSlug(parts[3]||'gaepo-dong','개포동');
+    const areaName=`${city} ${district} ${dong}`;
+    const cityNotes={부산:'행사, 숙박지 위치, 언덕길 여부에 따라 이동 시간이 달라질 수 있습니다.',대구:'상권과 주거 단지의 문의 시간대가 달라 방문 조건을 먼저 확인하는 편이 좋습니다.',서울:'퇴근 시간과 건물 출입 방식이 예약 정확도에 영향을 줄 수 있습니다.',경기:'도시별 이동 거리가 달라 희망 시간과 출입 조건을 함께 확인하는 흐름이 중요합니다.',인천:'신도시와 구도심의 이동 시간이 달라 세부 동 확인이 필요합니다.'};
+    const cityNote=cityNotes[city]||'세부 위치와 이동 조건에 따라 안내 시간이 달라질 수 있습니다.';
+    const title=`${dong} 출장마사지 예약 전 확인사항 | ${district} 가격·지역·코스 안내`;
+    const description=`${areaName} 출장마사지 이용 전 확인하면 좋은 예약 기준, 가격 차이, 주요 생활권, 코스 선택 방법을 정리했습니다. ${cityNote}`;
+    document.title=title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content',description);
+    setText('#page-title',`${dong} 예약 전 확인 기준`);
+    setText('#page-summary',description);
+    setText('#info-title',`${dong} 방문 안내`);
+    setText('#info-area',areaName);
+    setText('#reason-title',`${dong}을 찾는 분들이 많은 이유`);
+    setText('#range-title',`${areaName} 생활권과 방문 가능 범위`);
+    setText('#faq-title',`${dong} 자주 묻는 질문`);
+    setHtml('#reason-text',`${dong}은 ${district} 안에서도 생활 동선과 방문 목적이 조금씩 다른 지역입니다. 퇴근 후 피로 회복, 주말 휴식, 늦은 시간 예약처럼 실제 이용 상황을 먼저 말하면 코스 안내가 더 정확해집니다. 단순히 가까운 곳을 고르는 것보다 희망 시간, 건물 출입 방식, 코스 시간을 같이 확인하는 편이 만족도에 더 큰 영향을 줍니다.`);
+    setHtml('#range-text',`${district} 안에서도 역 주변, 주거 밀집지, 오피스텔 구간은 이동 시간과 출입 방식이 다를 수 있습니다. ${cityNote} 예약 전에는 가까운 역, 건물 유형, 주차 가능 여부, 도착 희망 시간을 알려주면 안내가 더 정확해집니다.`);
+    setHtml('#check-text',`${dong} 예약 전에는 최종 요금, 코스 시간, 방문 장소, 추가 이동 여부, 예약 변경 기준을 확인하는 것이 좋습니다. 처음 이용하는 경우에는 원하는 강도와 불편한 부위를 미리 말하면 상담이 훨씬 편해집니다. 몸 상태가 좋지 않거나 강한 압이 부담스러운 경우에는 예약 전 반드시 먼저 알려주세요.`);
+    document.querySelector('#faq-list').innerHTML=[
+      [`${dong}도 당일 예약이 가능한가요?`,`가능 여부는 시간대와 이동 동선에 따라 달라집니다. 전화 문의 시 ${areaName}과 희망 시간을 먼저 알려주세요.`],
+      [`${district} 안에서도 요금이 달라질 수 있나요?`,'코스 시간, 심야 시간, 이동 거리, 관리 종류에 따라 최종 안내가 달라질 수 있습니다.'],
+      ['처음 이용하면 어떤 코스가 좋나요?','부담이 적은 기본 코스부터 상담받고, 몸 상태와 선호 강도에 맞춰 선택하는 편이 좋습니다.'],
+      ['예약 전 무엇을 말해야 하나요?','지역, 희망 시간, 원하는 코스, 방문 장소의 출입 방식 정도를 알려주시면 됩니다.'],
+      ['주의해야 할 점이 있나요?','몸 상태가 좋지 않거나 의료적 판단이 필요한 증상이 있으면 이용을 미루는 편이 좋습니다.']
+    ].map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join('');
 
-    document.title = title;
-    document.querySelector('meta[name="description"]').setAttribute("content", description);
-    document.querySelector("#page-title").textContent = `${dong} 예약 전 확인 기준`;
-    document.querySelector("#page-summary").textContent = description;
-    document.querySelector("#info-title").textContent = `${dong} 방문 안내`;
-    document.querySelector("#info-area").textContent = areaName;
-    document.querySelector("#reason-title").textContent = `${dong}을 찾는 분들이 많은 이유`;
-    document.querySelector("#range-title").textContent = `${areaName} 생활권과 방문 가능 범위`;
-    document.querySelector("#faq-title").textContent = `${dong} 자주 묻는 질문`;
-
-    document.querySelector("#reason-text").innerHTML = sentenceHtml(`${dong}은 ${district} 안에서도 생활 동선과 방문 목적이 조금씩 다른 지역입니다. 퇴근 후 피로 회복, 주말 휴식, 늦은 시간 예약처럼 실제 이용 상황을 먼저 말하면 코스 안내가 더 정확해집니다. 단순히 가까운 곳을 고르는 것보다 희망 시간, 건물 출입 방식, 코스 시간을 같이 확인하는 편이 만족도에 더 큰 영향을 줍니다.`);
-    document.querySelector("#range-text").innerHTML = sentenceHtml(`${district} 안에서도 역 주변, 주거 밀집지, 오피스텔 구간은 이동 시간과 출입 방식이 다를 수 있습니다. ${cityNote} 예약 전에는 가까운 역, 건물 유형, 주차 가능 여부, 도착 희망 시간을 알려주면 안내가 더 정확해집니다.`);
-    document.querySelector("#check-text").innerHTML = sentenceHtml(`${dong} 예약 전에는 최종 요금, 코스 시간, 방문 장소, 추가 이동 여부, 예약 변경 기준을 확인하는 것이 좋습니다. 처음 이용하는 경우에는 원하는 강도와 불편한 부위를 미리 말하면 상담이 훨씬 편해집니다. 몸 상태가 좋지 않거나 강한 압이 부담스러운 경우에는 예약 전 반드시 먼저 알려주세요.`);
-    document.querySelector("#faq-list").innerHTML = [[`${dong}도 당일 예약이 가능한가요?`, `가능 여부는 시간대와 이동 동선에 따라 달라집니다. 전화 문의 시 ${areaName}과 희망 시간을 먼저 알려주세요.`],[`${district} 안에서도 요금이 달라질 수 있나요?`, `코스 시간, 심야 시간, 이동 거리, 관리 종류에 따라 최종 안내가 달라질 수 있습니다.`],[`처음 이용하면 어떤 코스가 좋나요?`, `부담이 적은 기본 코스부터 상담받고, 몸 상태와 선호 강도에 맞춰 선택하는 편이 좋습니다.`],[`예약 전 무엇을 말해야 하나요?`, `지역, 희망 시간, 원하는 코스, 방문 장소의 출입 방식 정도를 알려주시면 됩니다.`],[`주의해야 할 점이 있나요?`, `몸 상태가 좋지 않거나 의료적 판단이 필요한 증상이 있으면 이용을 미루는 편이 좋습니다.`]].map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("");
-
-    const navToggle = document.querySelector(".nav-toggle");
-    const mainNav = document.querySelector("#main-nav");
-    navToggle?.addEventListener("click", () => { const isOpen = mainNav.classList.toggle("is-open"); navToggle.setAttribute("aria-expanded", String(isOpen)); });
+    const navToggle=document.querySelector('.nav-toggle');
+    const mainNav=document.querySelector('#main-nav');
+    navToggle?.addEventListener('click',()=>{const isOpen=mainNav.classList.toggle('is-open');navToggle.setAttribute('aria-expanded',String(isOpen));});
   </script>
 </body>
 </html>
