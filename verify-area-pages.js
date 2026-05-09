@@ -40,6 +40,19 @@ function assertFileContains(route, expected) {
   }
 }
 
+function assertRuntimeData() {
+  const filePath = path.join(root, 'area-data-full.js');
+  if (!fs.existsSync(filePath)) {
+    throw new Error('Missing generated area-data-full.js');
+  }
+  const js = fs.readFileSync(filePath, 'utf8');
+  for (const text of ['부천', '부천동', '용인', '상갈동', '인천', '부평동']) {
+    if (!js.includes(text)) {
+      throw new Error(`area-data-full.js is missing "${text}"`);
+    }
+  }
+}
+
 const files = walk(areaRoot);
 const badFiles = [];
 
@@ -60,5 +73,6 @@ assertFileContains('/area/gyeonggi/yongin/yeongdeokdong/', ['영덕동', '경기
 assertFileContains('/area/gyeonggi/anseong/geumgwangmyeon/', ['금광면', '경기 안성 금광면']);
 assertFileContains('/area/incheon/bupyeong/bupyeongyeokgwon/', ['부평역권', '인천 부평 부평역권']);
 assertFileContains('/area/gyeonggi/bucheon/bucheondong/', ['부천동', '경기 부천 부천동']);
+assertRuntimeData();
 
-console.log(`Verified ${files.length} generated area pages with Korean labels and metadata.`);
+console.log(`Verified ${files.length} generated area pages with Korean labels, metadata, and selector data.`);
