@@ -3,7 +3,7 @@ const path = require('path');
 
 const root = process.cwd();
 const areaRoot = path.join(root, 'area');
-const mixedPattern = /[a-z]{2,}(동|읍|면)/i;
+const mixedPattern = /[a-z]{2,}(동|읍|면|역권|상권|중심권|시내권|주거권)/i;
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
@@ -30,12 +30,12 @@ function assertFileContains(route, expected) {
     }
   }
   if (mixedPattern.test(html)) {
-    throw new Error(`Generated page ${route} still includes mixed English/Korean dong text.`);
+    throw new Error(`Generated page ${route} still includes mixed English/Korean area text.`);
   }
-  if (!/<title>[^<]*(동|읍|면)[^<]*<\/title>/.test(html)) {
+  if (!/<title>[^<]*(동|읍|면|역권|상권|중심권|시내권|주거권)[^<]*<\/title>/.test(html)) {
     throw new Error(`Generated page ${route} is missing Korean title metadata.`);
   }
-  if (!/<meta name="description" content="[^"]*(동|읍|면)[^"]*"/.test(html)) {
+  if (!/<meta name="description" content="[^"]*(동|읍|면|역권|상권|중심권|시내권|주거권)[^"]*"/.test(html)) {
     throw new Error(`Generated page ${route} is missing Korean description metadata.`);
   }
 }
@@ -51,12 +51,13 @@ for (const file of files) {
 }
 
 if (badFiles.length > 0) {
-  throw new Error(`Mixed English/Korean dong labels found:\n${badFiles.slice(0, 20).join('\n')}`);
+  throw new Error(`Mixed English/Korean area labels found:\n${badFiles.slice(0, 20).join('\n')}`);
 }
 
 assertFileContains('/area/gyeonggi/yongin/sanggaldong/', ['상갈동', '경기 용인 상갈동']);
 assertFileContains('/area/gyeonggi/yongin/dongbaekdong/', ['동백동', '경기 용인 동백동']);
 assertFileContains('/area/gyeonggi/yongin/yeongdeokdong/', ['영덕동', '경기 용인 영덕동']);
 assertFileContains('/area/gyeonggi/anseong/geumgwangmyeon/', ['금광면', '경기 안성 금광면']);
+assertFileContains('/area/incheon/bupyeong/bupyeongyeokgwon/', ['부평역권', '인천 부평 부평역권']);
 
 console.log(`Verified ${files.length} generated area pages with Korean labels and metadata.`);
