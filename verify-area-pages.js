@@ -59,5 +59,6 @@ assertFileContains('/area/gyeonggi/yongin/dongbaekdong/', ['동백동', '경기 
 assertFileContains('/area/gyeonggi/yongin/yeongdeokdong/', ['영덕동', '경기 용인 영덕동']);
 assertFileContains('/area/gyeonggi/anseong/geumgwangmyeon/', ['금광면', '경기 안성 금광면']);
 assertFileContains('/area/incheon/bupyeong/bupyeongyeokgwon/', ['부평역권', '인천 부평 부평역권']);
+assertFileContains('/area/gyeonggi/bucheon/bucheondong/', ['부천동', '경기 부천 부천동']);
 
 console.log(`Verified ${files.length} generated area pages with Korean labels and metadata.`);
