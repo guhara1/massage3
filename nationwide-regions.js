@@ -13,11 +13,19 @@
     }
   }
 
+  function loadFullRegionSelector() {
+    loadScript("/area-data-full.js");
+    setTimeout(() => loadScript("/full-region-selector.js"), 150);
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => loadScript("/area-slug-labels.js"), 500);
+    setTimeout(() => loadScript("/area-slug-labels.js"), 400);
+    setTimeout(() => loadFullRegionSelector(), 650);
     setTimeout(() => runReliableSelector(), 900);
     setTimeout(() => loadScript("/main-region-unifier.js"), 1400);
-    setTimeout(() => runReliableSelector(), 1800);
+    setTimeout(() => loadFullRegionSelector(), 1700);
+    setTimeout(() => runReliableSelector(), 1900);
     setTimeout(() => loadScript("/main-region-unifier.js"), 2400);
+    setTimeout(() => loadFullRegionSelector(), 2700);
   });
 })();
